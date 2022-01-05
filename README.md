@@ -1,24 +1,51 @@
-# README
+## Evenote
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ライブ・舞台・展覧会等の様々なイベント情報を記録するサイト。
 
-Things you may want to cover:
+＜目的＞
+イベントのチケット管理、グッズ購入情報、当日の写真など<br>
+参加するイベント情報を一元管理することを目的としている。<br>
 
-* Ruby version
+＜機能＞
+登録機能<br>
+参加したいイベントの申し込み日（あれば当選日）を登録する事ができる<br>
+イベントの開催日時や時刻、場所等を登録する事ができる<br>
+イベント当日の写真を登録し、アルバムにする事ができる
 
-* System dependencies
+メール機能<br>
+登録したイベントの申し込み（当選日）の前日にメールが送信される
 
-* Configuration
+DM機能<br>
+利用しているユーザー同士でDMを送る事ができる。
 
-* Database creation
+通知機能<br>
+フォローされた時、DMが来た時に通知される
 
-* Database initialization
+### サイトテーマ
+イベントの予約状況や参加するイベント情報を記録するサイト。
 
-* How to run the test suite
+### テーマを選んだ理由
+以前、友達から楽しみにしていたイベントのチケット代を振り込むのを忘れていて行けなくなったと言う話を聞きました。<br>
+ 私自身、ライブに行くことが好きですが、チケット代を払うのを忘れそうになって肝を冷やした事があります。 <br>
+ イベントに参加するまでを楽しく、そして大事なことは忘れないよう管理するサイトがあれば良いなと思いこのテーマにしました。
 
-* Services (job queues, cache servers, search engines, etc.)
+### ターゲットユーザ
+参加するイベント情報を記録しておきたい人
 
-* Deployment instructions
+### 主な利用シーン
+①チケットを購入する前〜イベント参加時まで<br>
+②過去のイベント参加状況を見返したい時
 
-* ...
+## 設計書
+ー
+
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1U9ZZfLpMVLzkXdxFr7WcQqLX9sSvPXXLqc60NMuGnRQ/edit?usp=sharing
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
