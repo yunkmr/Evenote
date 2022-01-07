@@ -1,0 +1,411 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+@mixin media($device) {
+  @if $device== "pc" {
+    @media print, screen and (min-width: 771px) {
+      @content;
+    }
+    // } @else if $device== "tb" {
+    //   @media print, screen and (max-width: 1440px) and (min-width: 771px) {
+    //     @content;
+    //   }
+  } @else if $device== "sp" {
+    @media screen and (max-width: 770px) {
+      @content;
+    }
+  }
+}
+
+.l-main{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+  background-color: #f8ede1;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  border: none;
+  outline: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: inherit;
+}
+
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.l-app_navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.6s;
+  z-index: 100;
+}
+
+.l-app_navigation {
+  transform: translateX(-220px);
+}
+
+.l-app_navigation.menu-active-complete {
+  transform: translateX(0);
+}
+
+.l-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.l-menu:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: calc(100% + 200px);
+  background-color: #fff;
+}
+
+.menu-open-overlay {
+  z-index: 10;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.l-menu-title {
+  position: absolute;
+  top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  width: 80px;
+  cursor: pointer;
+}
+
+.l-menu-title .icon {
+  position: relative;
+  width: 20px;
+  height: 7px;
+  margin: 0 auto 35px;
+}
+
+.l-menu-title .icon:after,
+.l-menu-title .icon:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+}
+
+.l-menu-title .icon:before {
+  top: 0;
+  transform-origin: left center;
+}
+
+.l-menu-title .icon:after {
+  bottom: 0;
+  transform-origin: right center;
+}
+
+.l-menu-title .en,
+.l-menu-title .jp {
+  transform: rotate(90deg);
+  line-height: 1;
+  overflow: hidden;
+}
+
+.l-menu-title .jp {
+  margin: 0 auto 65px;
+  font-size: 13px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+}
+
+.l-menu-title .en {
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+}
+
+.l-menu-title .jp span {
+  display: block;
+}
+
+.l-menu-title.menu-active-complete {
+  opacity: 0;
+  transition: 1s;
+}
+
+span {
+  outline: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.l-app_navigation.menu-active-complete {
+  transform: translateX(0);
+}
+
+.l-menu-contents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.l-menu-contents.menu-active-complete {
+  z-index: 20;
+}
+
+.l-menu-index {
+  padding: 65px 30px;
+}
+
+li,
+ol {
+  list-style-type: none;
+}
+
+
+.l-menu-index_page-title {
+  position: relative;
+  display: block;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.l-menu-index_page-title .line {
+  display: block;
+  line-height: 1;
+}
+
+.l-menu-index_page-title .jp {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.l-menu-index_page-title .en {
+  font-size: 10px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+}
+
+.l-menu-index_section-list{
+    display: none;/*はじめは非表示*/
+    padding: 0 0 0 30px;
+}
+
+.l-menu-index_section{
+  padding: 0 0 20px 0;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.l-menu-close {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 44px;
+  height: 44px;
+  font-size: 15px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+}
+
+
+.l-app_contents {
+  position: relative;
+  background-color: #f8ede1;
+  width: calc(100% - 80px);
+  transition: all 0.6s;
+}
+
+.l-app_contents.menu-active-complete {
+    width: calc(100% - 300px);
+}
+
+// @media (min-width: 1201px)
+//   .l-app_contents {
+//       width: calc(100% - 80px);
+//   }
+
+.l-app_header {
+  // position: relative;
+  background-color: #f8ede1;
+  width: calc(100% - 80px);
+  transition: all 0.6s;
+  margin: 0 0 0 auto;
+}
+
+.l-app_header.menu-active-complete {
+    width: calc(100% - 300px);
+}
+
+
+// ユーザー編集画面のボタン
+.form-image-button {
+    padding: 10px 40px;
+    color: #ffffff;
+    background-color: #384878;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+テーブルのレスポンシブ
+.admin-product_new_table {
+  margin-left: auto;
+  margin-right: auto;
+  tr {
+    text-align: left;
+    line-height: 1.5;
+  }
+  th {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  td {
+    padding: 10px;
+    font-size: 15px;
+  }
+  @include media(pc) {
+    max-width: 1100px;
+    width: 100%;
+    tr {
+      display: flex;
+      margin: auto;
+      margin: auto;
+      width: 650px;
+      &:nth-child(6) {
+        input {
+          width: calc(20 / 770 * 100vw);
+        }
+      }
+    }
+    th {
+      vertical-align: baseline;
+      padding: 20px;
+      width: 200px;
+    }
+    td {
+      padding: 20px;
+      input {
+        font-size: 14px;
+        width: 300px;
+      }
+      textarea {
+        width: 300px;
+        height: 150px;
+      }
+      select {
+        width: 300px;
+        font-size: 15px;
+      }
+    }
+  }
+  // @include media(sp) {
+  //   @include width(600);
+  //   tr {
+  //     display: flex;
+  //     flex-direction: column;
+  //     &:nth-child(6) {
+  //       input {
+  //         width: calc(20 / 770 * 100vw);
+  //       }
+  //     }
+  //   }
+  //   margin-bottom: calc(100 / 770 * 100vw);
+  //   th {
+  //     @include font-size(40);
+  //     @include padding_vw(30, 7, 30, 7);
+  //     line-height: calc(60 / 770 * 100vw);
+  //   }
+  //   td {
+  //     @include font-size(40);
+  //     @include padding_vw(30, 7, 30, 7);
+  //     line-height: calc(60 / 770 * 100vw);
+  //     input {
+  //       height: calc(70 / 770 * 100vw);
+  //       font-size: calc(40 / 770 * 100vw);
+  //       width: calc(600 / 770 * 100vw);
+  //     }
+  //     textarea {
+  //       height: calc(300 / 770 * 100vw);
+  //       width: calc(600 / 770 * 100vw);
+  //     }
+  //     select {
+  //       width: calc(600 / 770 * 100vw);
+  //       height: calc(70 / 770 * 100vw);
+  //       font-size: calc(40 / 770 * 100vw);
+  //     }
+  //   }
+  // }
+}

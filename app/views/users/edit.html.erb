@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <%= form_with model: @user, url: users_path, local:true do |f| %>
+      <div class="form-group">
+        <%= attachment_image_tag(@user, :profile_image, class: 'card img-square', fallback: 'no-image.jpg', size: '200x200') %><br>
+        <label class="form-image-button">
+          <%= f.attachment_field :profile_image, id:'image' %>プロフィール写真を変更
+        </label>
+      </div>
+      <div class="form-group">
+        <%= f.label :ユーザーネーム, class:'col-md-4' %>
+        <%= f.text_field :user_name, class:'col-md-6' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :自己紹介, class:'col-md-4' %>
+        <%= f.text_area :introduction, class:'col-md-6' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :参加予定のイベント, class:'col-md-4' %>
+        <%= f.text_field :join_event, class:'col-md-6' %>
+      </div>
+
+<%
+=begin %>
+        <table class="table">
+          <tr>
+            <th style="width: 40%"><%= f.label :ユーザーネーム %></th>
+            <td><%= f.text_field :user_name %></td>
+          </tr>
+          <tr>
+            <th style="width: 40%"><%= f.label :自己紹介 %></th>
+            <td><%= f.text_area :introduction %></td>
+          </tr>
+          <tr>
+            <th style="width: 40%"><%= f.label :参加予定のイベント %></th>
+            <td><%= f.text_field :join_event %></td>
+          </tr>
+        </table>
+<%
+=end %>
+
+        <div class="form-action">
+          <%= f.submit '編集する', class:'btn btn-lg' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="user-detail mt-10">
+  <table class="table table-inverse">
+    <tr>
+      <th>ユーザーネーム</th>
+      <td><%= user.user_name %></td>
+    </tr>
+    <tr>
+      <th>自己紹介</th>
+      <td><%= user.introduction %></td>
+    </tr>
+    <tr>
+      <th>参加予定イベント</th>
+      <td><%= user.join_event %></td>
+    </tr>
+  </table>
+  <%= link_to 'プロフィールを編集', edit_users_path, class:'btn btn-lg btn-block bg-white' %>
+</div>

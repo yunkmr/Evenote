@@ -1,0 +1,10 @@
+<div class="user-info">
+  <table class="table table-inverse">
+    <tr>
+      <td><%= attachment_image_tag(user, :profile_image, :fill, 20,20, fallback: 'no-image.jpg', size:'100x100') %></td>
+      <td class="align_middle"><%= user.user_name %><br>イベント数</td>
+      <td class="align-items-center"><%= user.user_name %><br>フォロー</td>
+      <td class="align-items-center"><%= user.user_name %><br>フォロワー</td>
+    </tr>
+  </table>
+</div>
