@@ -17,7 +17,8 @@
             </div>
             <ol class="l-menu-index_section-list">
               <li class="l-menu-index_section">
-                <a class="l-menu-index_section-link" href="#">新規登録</a>
+                <%= link_to '新規登録', new_event_path , class:'l-menu-index_section-link"' %>
+                <!--<a class="l-menu-index_section-link" href="#">新規登録</a>-->
               </li>
               <li class="l-menu-index_section">
                 <a class="l-menu-index_section-link" href="#">チケット一覧</a>
@@ -31,10 +32,10 @@
             </div>
             <ol class="l-menu-index_section-list">
               <li class="l-menu-index_section">
-                <a class="l-menu-index_section-link" href="#">新規登録</a>
+                <%= link_to '新規登録', new_event_path , class:'l-menu-index_section-link"' %>
               </li>
               <li class="l-menu-index_section">
-                <a class="l-menu-index_section-link" href="#">イベント一覧</a>
+                <%= link_to 'イベント一覧', events_path , class:'l-menu-index_section-link"' %>
               </li>
             </ol>
           </li>

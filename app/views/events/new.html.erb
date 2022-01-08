@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h2 class="mt-2">プロフィール</h2>
+      <%= form_with model:@event, local:true do |f| %>
+        <div class="form-group">
+          <%= f.label :イベント名 %>
+          <%= f.text_field :name, class:'name form-control' %>
+        </div>
+        <div class="form-group col-md-5">
+          <%= f.label :日付 %>
+          <%= f.date_field :date, class:'date form-control' %>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <%= f.label :開場時間 %>
+            <%= f.time_field :open_time, class:'open_time form-control' %>
+          </div>
+          <div class="form-group col-md-4">
+            <%= f.label :開演時間 %>
+            <%= f.time_field :start_time, class:'start_time form-control' %>
+          </div>
+          <div class="form-group col-md-4">
+            <%= f.label :終演時間 %>
+            <%= f.time_field :end_time, class:'end_time form-control' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-7">
+            <%= f.label :場所 %>
+            <%= f.text_field :place, class:'end_time form-control' %>
+          </div>
+          <div class="form-group col-md-4">
+            <%= f.label :座席 %>
+            <%= f.text_field :seat, class:'end_time form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :同行者 %>
+          <%= f.text_field :seat, class:'end_time form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :メモ %>
+          <%= f.text_area :memo, rows:5, class:'end_time form-control' %>
+        </div>
+        <div class="form-action">
+          <%= f.submit '登録する' %>
+        </div>
+      <% end %>
+  </div>
+</div>

@@ -20,20 +20,35 @@
 //= require turbolinks
 //= require_tree .
 
+// サイドメニューを開いた時の動作
+$(document).on('turbolinks:load', function() {
+  $(".l-app_navigation").click(function () {//ボタンがクリックされたら
+    $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+      $(".l-app_navigation").toggleClass('menu-active-complete');//ナビゲーションにmenu-active-completeクラスを付与
+      $(".l-menu-title").toggleClass('menu-active-complete');
+      $(".l-menu-contents").toggleClass('menu-active-complete');
+      $(".l-app_contents").toggleClass('menu-active-complete');
+      $(".l-app_header").toggleClass('menu-active-complete');
+  });
+});
+
 //アコーディオンをクリックした時の動作
 $(document).on('turbolinks:load', function() {
   $('.l-menu-index_page-title').on('click', function() {//タイトル要素をクリックしたら
-    $('.l-menu-index_section-list').slideUp(500);//クラス名.boxがついたすべてのアコーディオンを閉じる
+    // $('.l-menu-index_section-list').slideUp(500);//クラス名.boxがついたすべてのアコーディオンを閉じる
 
-    var findElm = $(this).next(".l-menu-index_section-list");//タイトル直後のアコーディオンを行うエリアを取得
+    // var findElm = $(this).next(".l-menu-index_section-list");//タイトル直後のアコーディオンを行うエリアを取得
 
-    if($(this).hasClass('close')){//タイトル要素にクラス名closeがあれば
-      $(this).removeClass('close');//クラス名を除去
-    }else{//それ以外は
-      $('.close').removeClass('close'); //クラス名closeを全て除去した後
-      $(this).addClass('close');//クリックしたタイトルにクラス名closeを付与し
-      $(findElm).slideDown(500);//アコーディオンを開く
-    }
+    // if($(this).hasClass('close')){//タイトル要素にクラス名closeがあれば
+    //   $(this).removeClass('close');//クラス名を除去
+    // }else{//それ以外は
+    //   $('.close').removeClass('close'); //クラス名closeを全て除去した後
+    //   $(this).addClass('close');//クリックしたタイトルにクラス名closeを付与し
+    //   $(findElm).slideDown(500);//アコーディオンを開く
+    // }
+
+    $(this).next().slideToggle(500);
+    $('.l-menu-index_page-title').not($(this)).next('.l-menu-index_section-list').slideUp(500);
 
     $(".l-app_navigation").toggleClass('menu-active-complete');
     $(".l-menu-title").toggleClass('menu-active-complete');
@@ -44,14 +59,10 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+// メニューの閉じるボタンを押した時の動作
 $(document).on('turbolinks:load', function() {
-  $(".l-app_navigation").click(function () {//ボタンがクリックされたら
-    $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
-      $(".l-app_navigation").toggleClass('menu-active-complete');//ナビゲーションにmenu-active-completeクラスを付与
-      $(".l-menu-title").toggleClass('menu-active-complete');
-      $(".l-menu-contents").toggleClass('menu-active-complete');
-      $(".l-app_contents").toggleClass('menu-active-complete');
-      $(".l-app_header").toggleClass('menu-active-complete');
+  $(".l-menu-close").click(function () {
+    $('.l-menu-index_section-list').slideUp(500);
   });
 });
 
