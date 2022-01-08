@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <%= link_to edit_ticket_path do %>
+        <i class="fas fa-pen size"></i>
+      <% end %>
+      <div class="container l-app_tickets">
+        <div class="row l-app_ticket">
+          <div class="l-app_ticket_title col-md-3">
+            <p>イベント情報</p>
+          </div>
+          <div class="l-app_ticket_detail col-md-9">
+            <p class="l-app_ticket_label">イベント名<span style="margin-right: 32px;"></span>：<%= @ticket.event_name %></p>
+            <p class="l-app_ticket_label">日時<span style="margin-right: 80px;"></span>：<%= @ticket.event_date %></p>
+            <p class="l-app_ticket_label">枚数<span style="margin-right: 80px;"></span>：<%= @ticket.number %></p>
+            <p class="l-app_ticket_label">金額<span style="margin-right: 80px;"></span>：<%= @ticket.money %></p>
+          </div>
+        </div>
+        <div class="row l-app_ticket">
+          <div class="l-app_ticket_title col-md-3">
+            <p>申込状況</p>
+          </div>
+          <div class="l-app_ticket_detail col-md-9">
+            <p class="l-app_ticket_label">申込日<span style="margin-right: 64px;"></span>：
+                                          <%= @ticket.entry_start_date %>〜<%= @ticket.entry_end_date %></p>
+            <% if @ticket.entry_flg %>
+              <p>申込済</p>
+            <% else %>
+              <p>未申込</p>
+            <% end %>
+          </div>
+        </div>
+        <div class="row l-app_ticket">
+          <div class="l-app_ticket_title col-md-3">
+            <p>当落状況</p>
+          </div>
+          <div class="l-app_ticket_detail col-md-9">
+            <p class="l-app_ticket_label">当落発表日<span style="margin-right: 32px;"></span>：<%= @ticket.win_date %></p>
+            <p class="l-app_ticket_label"><%= @ticket.win_date %></p>
+            <% if @ticket.win_flg.nil? %>
+              <p>−</p>
+            <% elsif @ticket.win_flg %>
+              <p>落選</p>
+            <% else %>
+              <p>当選</p>
+            <% end %>
+          </div>
+        </div>
+        <div class="row l-app_ticket">
+          <div class="l-app_ticket_title last col-md-3">
+            <p>支払状況</p>
+          </div>
+          <div class="l-app_ticket_detail col-md-9">
+            <p class="l-app_ticket_label">支払期限日<span style="margin-right: 32px;"></span>：<%= @ticket.payment_date %></p>
+            <% if @ticket.payment_flg %>
+              <p>支払済</p>
+            <% else %>
+              <p>未支払</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

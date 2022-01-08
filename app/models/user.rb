@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :events
+  has_many :tickets
 
   attachment :profile_image
 end
