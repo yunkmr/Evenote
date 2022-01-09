@@ -1,0 +1,10 @@
+<%= link_to 'アルバム登録', new_event_album_path %><br>
+<div class="contents">
+  <% @albums.each do |album| %>
+    <p>
+      <%= link_to event_album_photos_path(album_id: album.id) do %>
+        <%= album.album_name %>
+      <% end %>
+    </p>
+  <% end %>
+</div>

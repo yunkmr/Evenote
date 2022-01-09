@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :tickets
+  has_many :albums
 
   attachment :profile_image
 end

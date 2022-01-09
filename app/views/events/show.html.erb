@@ -11,6 +11,22 @@
       <p>同行者<%= @event.seat %></p>
       <p>メモ<%= @event.memo %></p>
       <%= link_to 'グッズ登録はこちらから', event_items_path(@event), class:'fas fa-arrow-circle-right' %>
+      <%= link_to 'アルバム作成はこちらから', event_albums_path(@event), class:'fas fa-arrow-circle-right' %>
+
+<%
+=begin %>
+      <%= form_with model:@album, url:albums_path, local:true do |f| %>
+        <div class="form-group">
+          <%= f.hidden_field :event_id, value: @event.id %>
+          <%= f.label :アルバム名 %>
+          <%= f.text_field :album_name %>
+        </div>
+        <div class="form-action">
+          <%= f.submit '登録する' %>
+        </div>
+      <% end %>
+<%
+=end %>
     </div>
   </div>
 </div>

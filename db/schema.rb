@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_010642) do
+ActiveRecord::Schema.define(version: 2022_01_09_143517) do
+
+  create_table "albums", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.string "album_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_albums_on_event_id"
+    t.index ["user_id"], name: "index_albums_on_user_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.integer "user_id"
@@ -34,6 +44,14 @@ ActiveRecord::Schema.define(version: 2022_01_09_010642) do
     t.boolean "buy_flg", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "album_id"
+    t.text "memory_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_photos_on_album_id"
   end
 
   create_table "tickets", force: :cascade do |t|

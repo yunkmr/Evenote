@@ -1,0 +1,7 @@
+<div class="nested-fields mb-3">
+  <%= photo.label :memory_image %><br>
+  <%= photo.attachment_field :memory_image %>
+  <div class="field">
+    <%= link_to_remove_association "Remove Photo", photo %>
+  </div>
+</div>

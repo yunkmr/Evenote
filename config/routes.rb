@@ -8,8 +8,16 @@ Rails.application.routes.draw do
         delete '/' => 'items#destroy_all'
       end
     end
+
+    resources :albums, only:[:index, :new, :show, :create, :edit, :update, :destroy] do
+      resources :photos, only:[:index]
+    end
   end
+
   resources :tickets, only:[:new, :create, :show, :index, :edit, :update ,:destroy]
+  # resources :albums, only:[:new, :show, :create, :edit, :update, :destroy] do
+  #   resources :photos, only:[:index, :new, :create, :edit, :update, :destroy]
+  # end
 
   devise_for :users
 end

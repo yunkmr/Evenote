@@ -337,9 +337,9 @@ p {
     cursor: pointer;
 }
 
-input[type="file"] {
-    display: none;
-}
+// input[type="file"] {
+//    display: none;
+// }
 
 
 // fontawesomeのレイアウト
@@ -376,3 +376,21 @@ input[type="file"] {
 // .l-app_ticket_detail.last{
 //   border-bottom: 1px solid #808080;
 // }
+
+
+// .post-files {
+//     // 横並び
+//     display: flex;
+//     // この2行で枠の幅の中で要素を折り返し表示
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     margin-bottom: 10px;
+//     &__file {
+//       width: 150px;
+//       height: 150px;
+//       margin: 5px;
+//       border: 1px solid #ccc;
+//       // 画像の縦横比率を変えずに表示
+//       object-fit: contain;
+//     }
+//   }
