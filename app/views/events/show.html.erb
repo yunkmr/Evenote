@@ -10,7 +10,7 @@
       <p>座席<%= @event.seat %></p>
       <p>同行者<%= @event.seat %></p>
       <p>メモ<%= @event.memo %></p>
-      <%= link_to 'グッズ登録はこちらから', events_path, class:'fas fa-arrow-circle-right' %>
+      <%= link_to 'グッズ登録はこちらから', event_items_path(@event), class:'fas fa-arrow-circle-right' %>
     </div>
   </div>
 </div>

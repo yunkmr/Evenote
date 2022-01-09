@@ -1,0 +1,34 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>個数</th>
+      <th>金額</th>
+      <th>各種合計金額</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.price.to_s(:delimited) %></td>
+        <td>
+         <% total = item.price * item.quantity %>
+         <%= total.to_s(:delimited) %>
+        </td>
+        <td><%= link_to '編集する', event_items_path(id: item.id, event_id: item.event_id) %></td>
+        <td><%= link_to '削除する', "/events/#{item.event_id}/items/#{item.id}", method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<span class="price-total_text">合計金額</span>
+<span class="price-total_value">
+  <% totals = [] %>
+  <% @items.each do |item|%>
+    <% totals << item.price * item.quantity %>
+  <% end %>
+  <% total = totals.to_a.sum %>
+  <%= total.to_s(:delimited) %>
+</span>

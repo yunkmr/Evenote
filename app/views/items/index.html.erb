@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <%= form_with(model: [@event,@item], remote:true) do |f| %>
+        <div class="form-group">
+          <%= f.label :商品名, class:'col-md-4' %>
+          <%= f.text_field :name, class:'inputText' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :個数, class:'col-md-4' %>
+          <%= f.select :quantity, *[1..100], { include_blank: '個数選択'}, class:'inputText' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :金額, class:'col-md-4' %>
+          <%= f.text_field :price, class:'inputText' %>
+        </div>
+        <div class="form-action">
+          <%= f.submit '登録する' %>
+        </div>
+      <% end %>
+
+      <!--グッズ一覧-->
+      <div id="item_list">
+        <%= render 'item_list', items: @items %>
+      </div>
+    </div>
+  </div>
+</div>
