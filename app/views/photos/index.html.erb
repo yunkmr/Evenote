@@ -1,13 +1,31 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <%# if @photos.present? %>
-        <div class="post_files">
-          <% @photos.each do |photo| %>
-            <%= image_tag photo.memory_image_id.to_s %>
+      <div class="post-form">
+        <div class="input-box">
+          <%= form_with model:@photo,url:event_album_photos_path, local: true do |f| %>
+            <%#= f.text_field :album_name, id: 'textarea', class: 'input-box__content' %>
+            <div class="input-box__bottom">
+              <div class="input-box__bottom__files">
+                <%= f.fields_for :photos do |i| %>
+                  <%= i.file_field :memory_image_id, multiple: true, name: "photos[memory_image_id][]" %>
+                <% end %>
+              </div>
+              <div class="form-action">
+                <%= f.submit '登録する' %>
+              </div>
+            </div>
           <% end %>
         </div>
-      <%# end %>
+      </div>
+      <% if @photos.present? %>
+        <div class="post_files">
+          <% @photos.each do |photo| %>
+            <%= image_tag photo.memory_image_id.to_s, size: '200x200' %>
+            <%= link_to '削除', "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

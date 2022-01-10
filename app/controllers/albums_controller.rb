@@ -23,15 +23,16 @@ class AlbumsController < ApplicationController
     @album = @event.albums.new(album_params)
     # 投稿が成功した場合
     if @album.save
-      # 画像が投稿されていないパターンもあるので条件分岐
-      if params[:photos].present?
-        # フォームで入力されたファイルを一つずつレコードに格納していく
-        params[:photos][:memory_image_id].each do |a|
-          @photo = @album.photos.create!(memory_image_id: a, album_id: @album.id)
-          # binding.pry
-        end
-      end
-      redirect_to event_album_photos_path(album_id: @album.id)
+      # # 画像が投稿されていないパターンもあるので条件分岐
+      # if params[:photos].present?
+      #   # フォームで入力されたファイルを一つずつレコードに格納していく
+      #   params[:photos][:memory_image_id].each do |a|
+      #     @photo = @album.photos.create!(memory_image_id: a, album_id: @album.id)
+      #     # binding.pry
+      #   end
+      # end
+      # redirect_to event_album_photos_path(album_id: @album.id)
+      redirect_to request.referer
     # 投稿が失敗した場合
     else
       @albums = @event.albums.includes(:user).order(created_at: "DESC")
@@ -52,9 +53,12 @@ class AlbumsController < ApplicationController
   def index
     # @albums = Album.includes(:images).order('created_at DESC')
 
-    @event = Event.find(params[:event_id])
+    # @event = Event.find(params[:event_id])
     # @album = Album.new
     # @photo_image = @album.photos.build
+    # @albums = @event.albums.includes(:user).order(created_at: "DESC")
+
+    @album = Album.new
     @albums = @event.albums.includes(:user).order(created_at: "DESC")
   end
 

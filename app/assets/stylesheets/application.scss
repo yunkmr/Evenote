@@ -348,6 +348,11 @@ p {
   color: #808080;
 }
 
+.albumsize{
+  font-size:5em;
+  color: #808080;
+}
+
 // formのレイアウト調整
 .form-control {
   border: none;
@@ -394,3 +399,48 @@ p {
 //       object-fit: contain;
 //     }
 //   }
+
+// .index-album{
+//   height :20px;
+//   width: 20px;
+//   border: 1px solid #808080;
+//   background-color: darkred;
+//   // display: block;
+//   display: flex;
+//   justify-content: center;
+//   transition: 0.3s;
+//   // position: absolute;
+// }
+
+.sample_box12 {
+  // width: 100px;/* 紙の横幅 100%にすると全幅表示に */
+   padding: 15px;
+   margin: 15px;
+   background :#e6e6fa;/* 紙の色 */
+   color: #000;/* 文字色 */
+   box-shadow: 4px 4px 4px rgba(0,0,0,0.03);transform:rotate(2deg);
+   word-break: break-all;
+}
+.sample_box12 p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+}
+.sample_box12_tape {
+    width: 50%;
+    height: 35px;
+    margin: -25px auto 0;
+    background: #dcdcdc;/* テープの色 */
+    transform: rotate(-3deg);
+    opacity: 0.7;
+}
+.sample_box12_title {
+    text-align: center;
+    font-size: 1.3em!important;
+    margin-top: 10px!important;
+}
+.sample_box12_subtitle {
+    text-align: center;
+    font-size: 0.7em!important;
+    margin-bottom: 1em!important;
+}
