@@ -28,7 +28,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts
+  resources :posts do
+    resource :favorites, only: [:create, :destroy]
+  end
+
+
   #タグによって絞り込んだ投稿を表示するアクションへのルーティング
   resources :tags do
     get 'posts', to: 'posts#search'

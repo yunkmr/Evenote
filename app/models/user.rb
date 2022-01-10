@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
+  # いいねの関係
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_posts, through: :favorites, source: :post
+
   attachment :profile_image
 
   # フォローしたときの処理
@@ -29,5 +33,12 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+
+  # いいねボタンを押せるか判断
+  # ①自分が投稿した写真にはいいねできない
+  # ②1つの写真には1回しかいいねできない
+  # def deletable_user?(posts)
+  #   posts && posts.user != self && !user.exists?(post_id: posts.id)
+  # end
 
 end
