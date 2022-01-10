@@ -9,6 +9,6 @@
 <td id="post_comment_<%= @post.id %>">コメント数: <%= @post.post_comments.count  %></td>
 <div id="comments_area">
   <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-  <%= render partial: 'post_comments/index', locals: { post: @post } %>
+  <%= render partial: 'post_comments/index', locals: { post: @post, post_comments: @post_comments } %>
 </div>
 <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: @post.post_comments } %>

@@ -6,6 +6,9 @@ class PostCommentsController < ApplicationController
     @post_comment.user_id = current_user.id
     @post_comment.post_id = @post.id
     if @post_comment.save
+      @post_comments = @post.post_comments
+      @post_comments = Kaminari.paginate_array(@post_comments).page(params[:page]).per(2)
+      # binding.pry
       render :index
     else
       render :error
