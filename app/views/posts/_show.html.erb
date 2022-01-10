@@ -1,1 +1,5 @@
 <h1>Hello</h1>
+<%= image_tag post.post_image_id.to_s, size: '500x500', class: 'photo-img', id: 'photo-img' %>
+<div id="follow_form">
+  <%= render 'relationships/follow_button', user: user %>
+</div>

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'relationships/followings'
+  get 'relationships/followers'
   root 'homes#top'
 
-  resource :users, only: [:show,:edit,:update] do
+  resource :users, only: [:show,:edit,:update]  do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
   end
 
   resources :events, only:[:new, :create, :show, :index, :edit, :update ,:destroy] do

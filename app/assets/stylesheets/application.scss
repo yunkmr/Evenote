@@ -470,6 +470,7 @@ p {
   transition: 0.2s;   /* transitionでアニメーションを作成 */
   z-index: 2;   /* マスクより上に重なるようにする */
   width: 935px;   /* showビューの幅に合わせて設定 */
+  background-color: #fff;
 }
 
 /* hiddenクラスで最初は表示されないようにする */
