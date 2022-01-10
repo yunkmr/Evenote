@@ -1,0 +1,5 @@
+<% @posts.each do |post_image| %>
+  <%= link_to post_path(post_image), remote: true do %>
+    <%= image_tag post_image.post_image_id.to_s, size: '200x200', class: 'photo-img', id: 'photo-img' %>
+  <% end %>
+<% end %>

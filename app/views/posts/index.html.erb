@@ -19,8 +19,13 @@
 <% end %>
 
 <h3>投稿一覧</h3>
-<% @posts.each do |post_image| %>
-  <%= link_to post_path(post_image) do %>
-    <%= image_tag post_image.post_image_id.to_s, size: '200x200' %>
-  <% end %>
-<% end %>
+<!--# 部分テンプレートを呼び出す-->
+<%= render partial:"posts/posts", locals: {posts: @posts} %>
+
+<!--モーダルの周囲を薄暗くするマスク-->
+<div id="mask" class="hidden"></div>
+<!--モーダル-->
+<!--あとからJavaScriptで<div>内のコードをshowビューのコードに置き換えます。-->
+<div id="modal" class="hidden">
+  <p>モーダルウィンドウ<p>
+</div>

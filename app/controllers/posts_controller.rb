@@ -18,8 +18,13 @@ class PostsController < ApplicationController
   end
 
   def show
-      # @post = Post.find(params[:id])  #クリックした投稿を取得。
+      @post = Post.find(params[:id])  #クリックした投稿を取得。
       # @post_tags = @post.tags         #そのクリックした投稿に紐付けられているタグの取得。
+      respond_to do |format|
+        format.html
+        # link_toメソッドをremote: trueに設定したのでリクエストはjs形式で行われる（詳しくは参照記事をご覧ください）
+        format.js
+      end
   end
 
   def search
