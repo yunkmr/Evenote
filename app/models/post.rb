@@ -9,6 +9,8 @@ class Post < ApplicationRecord
 	has_many :favorites, dependent: :destroy
   has_many :count_favorited, through: :favorites, source: :user
 
+	has_many :post_comments, dependent: :destroy
+
   mount_uploader :post_image_id, ImageUploader
 
 

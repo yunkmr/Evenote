@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :tickets, dependent: :destroy
   has_many :albums, dependent: :destroy
   has_many :posts, dependent: :destroy
+  # コメント
+  has_many :post_comments
 
   # フォローをした、されたの関係
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
