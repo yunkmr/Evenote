@@ -1,0 +1,16 @@
+<h3>タグリスト</h3>
+<% @tag_list.each do |list| %>
+  <span>
+    <%= link_to list.tag_name, tag_posts_path(tag_id: list.id) %>
+    <%= "(#{list.posts.count})" %>
+  </span>
+<% end %>
+
+<h3>タグが<span><%= @tag.tag_name %></span>の投稿一覧</h3>
+<% @posts.each do |post_image| %>
+  <%= link_to post_path(post_image) do %>
+    <%= image_tag post_image.post_image_id.to_s, size: '200x200' %>
+  <% end %>
+<% end %>
+
+<%= link_to 'ホーム', posts_path %>

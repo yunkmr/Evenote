@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'homes#top'
 
-  resource :users, only: [:show,:edit,:update]
+  resource :users, only: [:show,:edit,:update] do
+  end
+
   resources :events, only:[:new, :create, :show, :index, :edit, :update ,:destroy] do
     resources :items, only:[:create, :index, :update ,:destroy] do
       collection do
@@ -20,4 +22,11 @@ Rails.application.routes.draw do
   # end
 
   devise_for :users
+
+  resources :posts
+  #タグによって絞り込んだ投稿を表示するアクションへのルーティング
+  resources :tags do
+    get 'posts', to: 'posts#search'
+  end
+
 end
