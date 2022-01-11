@@ -13,6 +13,10 @@
         <%= f.text_field :user_name, class:'col-md-6' %>
       </div>
       <div class="form-group">
+        <%= f.label :メールアドレス, class:'col-md-4' %>
+        <%= f.email_field :email, class:'col-md-6' %>
+      </div>
+      <div class="form-group">
         <%= f.label :自己紹介, class:'col-md-4' %>
         <%= f.text_area :introduction, class:'col-md-6' %>
       </div>

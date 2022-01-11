@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
+
+    get "new/mail" => "users#new_mail"
+    get "send/mail" => "users#send_mail"
+
   end
 
   resources :events, only:[:new, :create, :show, :index, :edit, :update ,:destroy] do

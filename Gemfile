@@ -81,3 +81,5 @@ gem "refile-mini_magick"
 gem 'cocoon'
 
 gem 'kaminari'
+
+gem 'whenever', require: false

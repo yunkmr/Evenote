@@ -17,10 +17,22 @@ class UsersController < ApplicationController
 
   end
 
+  def new_mail
+    @user = current_user
+  end
+
+  def send_mail
+    @user = current_user
+    @mail_title = params[:mail_title]
+    @mail_content = params[:mail_content]
+    UserMailer.send_mail(@mail_title, @mail_content,@user).deliver
+  end
+
+
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :profile_image, :introduction, :join_event)
+    params.require(:user).permit(:user_name, :email, :profile_image, :introduction, :join_event)
   end
 
 end
