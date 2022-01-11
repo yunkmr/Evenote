@@ -7,13 +7,35 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
         <li class="navbar-nav-item">
-          <%= link_to ' プロフィール', users_path, class:'fas fa-id-card nav-link' %>
+          <div class="nav-link">
+            <%= link_to  users_path do %>
+              <p><i class="fas fa-user"></i>プロフィール</p>
+            <% end %>
+          </div>
         </li>
         <li class="navbar-nav-item">
-          <%= link_to ' 通知', users_path, class:'fas fa-bell nav-link' %>
+          <div class="nav-link">
+            <%= link_to notifications_path do %>
+              <p>
+                <% if unchecked_notifications.any? %>
+                  <span>
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-circle n-circle"></i>
+                  </span>
+                <% else %>
+                  <i class="fas fa-bell"></i>
+                <% end %>
+                通知
+              </p>
+            <% end %>
+          </div>
         </li>
         <li class="navbar-nav-item">
-          <%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class:'fas fa-sign-out-alt nav-link' %>
+          <div class="nav-link">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <p><i class="fas fa-sign-out-alt"></i>ログアウト</p>
+            <% end %>
+          </div>
         </li>
       </ul>
     </div>
