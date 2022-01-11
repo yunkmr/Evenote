@@ -1,5 +1,7 @@
-<table>
-  <% post.post_comments.each do |post_comment| %>
+ <%#= render 'post_comments', post: post %>
+ <%#= paginate @post_comments, remote: true %>
+<table id="pagenate">
+  <% @post_comments.each do |post_comment| %>
     <tr>
       <td>
         <%= link_to users_path(post_comment.user) do %>
@@ -13,5 +15,5 @@
       <% end %>
     </tr>
   <% end %>
-  <%= paginate post_comments %>
 </table>
+<%= paginate @post_comments, remote: true %>

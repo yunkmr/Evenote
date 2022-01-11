@@ -26,8 +26,8 @@ class PostsController < ApplicationController
     #   format.js
     # end
     @user = Post.find(params[:id]).user
-    @post_comments = @post.post_comments
-    @post_comments = Kaminari.paginate_array(@post_comments).page(params[:page]).per(2)
+    @post_comments = @post.post_comments.page(params[:page]).per(2)
+    # @post_comments = Kaminari.paginate_array(@post_comments).page(params[:page]).per(2)
 
   end
 

@@ -6,7 +6,7 @@ var mask = document.getElementById('mask');
 
 <!--# モーダルの中身をshowビューに置き換えます。-->
 <!--# 部分テンプレートのパス、localsの値はアプリにより異なります。-->
-modal.innerHTML = '<%= escape_javascript(render partial: 'posts/show', locals: { post: @post, user: @user, favuser: @favuser}) %>';
+modal.innerHTML = '<%= escape_javascript(render partial: 'posts/show', locals: { post: @post, user: @user, post_comments: @post_comments}) %>';
 
 
 <!--# hiddenクラスを消してモーダルとマスクを表示させます。-->
