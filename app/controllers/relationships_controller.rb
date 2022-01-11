@@ -5,20 +5,16 @@ class RelationshipsController < ApplicationController
   def create
     following = current_user.follow(@user)
 
-    # binding.pry
-    # redirect_to request.referer
+    @user.create_notification_follow!(current_user)
     if following.save!
       flash[:success] = 'ユーザーをフォローしました'
-      # redirect_to @user
     else
       flash.now[:alert] = 'ユーザーのフォローに失敗しました'
-      # redirect_to @user
     end
   end
   # フォロー外すとき
   def destroy
     current_user.unfollow(@user)
-    # redirect_to request.referer
   end
   # フォロー一覧
   def followings

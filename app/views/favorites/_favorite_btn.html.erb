@@ -4,10 +4,10 @@
   <% else %>
     <%= link_to post.favorites.count, post_favorites_path(post), method: :post, remote: true, class: 'fas fa-heart heart_blue'  %>
   <% end %>
-  <%# if post.favorites.count == "1" %>
-    <p><%#= favuser.user_name %>がいいねしました</p>
-  <%# elsif post.favorites.count > "1" %>
-    <p><%#= favuser.user_name %>ら、他<%= post.favorites.count %>がいいねしました
+  <%# if post.favorites.count == 1 %>
+    <p><%#= post.favorites.user_id %>がいいねしました</p>
+  <%# elsif post.favorites.count > 1 %>
+    <p><%#= post.favorites.user_id %>ら、他<%#= post.favorites.count %>がいいねしました
   <%# else %>
     <p></p>
   <%# end %>

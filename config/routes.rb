@@ -39,4 +39,6 @@ Rails.application.routes.draw do
     get 'posts', to: 'posts#search'
   end
 
+  resources :notifications, only: :index
+
 end

@@ -21,6 +21,10 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_posts, through: :favorites, source: :post
 
+  # 通知の関係
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
   attachment :profile_image
 
   # フォローしたときの処理
@@ -36,11 +40,16 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  # いいねボタンを押せるか判断
-  # ①自分が投稿した写真にはいいねできない
-  # ②1つの写真には1回しかいいねできない
-  # def deletable_user?(posts)
-  #   posts && posts.user != self && !user.exists?(post_id: posts.id)
-  # end
+  # フォロー通知
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+  end
 
 end

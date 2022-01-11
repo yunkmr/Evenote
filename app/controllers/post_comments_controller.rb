@@ -17,6 +17,7 @@ class PostCommentsController < ApplicationController
     @post_comment.post_id = @post.id
     if @post_comment.save
       @post_comments = @post.post_comments.page(params[:page]).per(2)
+      @post.create_notification_comment!(current_user, @post_comment.id)
       if params[:page].present?
         render 'pagenate.js.erb'  #２ページ目以降はこっち！！！！
       else

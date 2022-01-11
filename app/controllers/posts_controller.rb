@@ -19,22 +19,14 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])  #クリックした投稿を取得。
-    # @post_tags = @post.tags         #そのクリックした投稿に紐付けられているタグの取得。
-    # respond_to do |format|
-    #   format.html
-    #   # link_toメソッドをremote: trueに設定したのでリクエストはjs形式で行われる（詳しくは参照記事をご覧ください）
-    #   format.js
-    # end
     @user = Post.find(params[:id]).user
     @post_comments = @post.post_comments.page(params[:page]).per(2)
-    # @post_comments = Kaminari.paginate_array(@post_comments).page(params[:page]).per(2)
-
   end
 
   def search
-      @tag_list = Tag.all  #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
-      @tag = Tag.find(params[:tag_id])  #クリックしたタグを取得
-      @posts = @tag.posts.all           #クリックしたタグに紐付けられた投稿を全て表示
+    @tag_list = Tag.all  #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
+    @tag = Tag.find(params[:tag_id])  #クリックしたタグを取得
+    @posts = @tag.posts.all           #クリックしたタグに紐付けられた投稿を全て表示
   end
 
   private

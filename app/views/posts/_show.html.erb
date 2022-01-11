@@ -1,22 +1,39 @@
-<h1>Hello</h1>
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <%= image_tag post.post_image_id.to_s, size: '250x250', class: 'photo-img', id: 'photo-img' %>
+    <div class="col-md-6">
+      <div class="main-post-image_area">
+        <%= image_tag post.post_image_id.to_s, size: '400x400', class: 'photo-img', id: 'photo-img' %>
+      </div>
     </div>
-    <div class="col-md-8">
-      <div id="follow_form">
-        <%= render 'relationships/follow_button', user: user %>
+    <div class="col-md-6">
+      <div class="row main_follow_area">
+        <%= attachment_image_tag(post.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
+        <%= post.user.user_name %>
+        <div id="follow_form">
+          <%= render 'relationships/follow_button', user: user %>
+        </div>
       </div>
-      <div class="favorite_btn_<%= post.id %>">
-        <%= render 'favorites/favorite_btn', post: post %>
+      <div class="main_post_area">
+        <%= attachment_image_tag(post.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
+        <% post.tags.each do |tag| %>
+          # <%= tag.tag_name %>
+        <% end %>
+        <%= post.content %>
       </div>
-      <td id="post_comment_<%= @post.id %>">コメント数: <%= @post.post_comments.count  %></td>
-      <div id="comments_area">
-        <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-        <%= render partial: 'post_comments/index', locals: {post_comments: @post_comments } %>
+      <div class="main_comment_area">
+        <div id="comments_area">
+          <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+          <%= render partial: 'post_comments/index', locals: {post_comments: @post_comments } %>
+        </div>
       </div>
-      <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: post.post_comments } %>
+      <div class="main_favorite_area">
+        <div class="favorite_btn_<%= post.id %>">
+          <%= render 'favorites/favorite_btn', post: post %>
+        </div>
+      </div>
+      <div class="main_inputcomment_area">
+        <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: post.post_comments } %>
+      </div>
     </div>
   </div>
 </div>
