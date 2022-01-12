@@ -18,13 +18,13 @@ class RelationshipsController < ApplicationController
   end
   # フォロー一覧
   def followings
-    user = User.find(@user)
-    @users = user.followings
+    @users_follow = @user.followings
+    @users_follower = @user.followers
   end
   # フォロワー一覧
   def followers
-    user = User.find(@user)
-    @users = user.followers
+    @users_follow = @user.followers
+    @users_follower = @user.followings
   end
 
   private

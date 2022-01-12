@@ -3,8 +3,8 @@
     <tr>
       <td><%= attachment_image_tag(user, :profile_image, :fill, 20,20, fallback: 'no-image.jpg', size:'100x100') %></td>
       <td class="align_middle"><%= user.user_name %><br>イベント数</td>
-      <td class="align-items-center"><%= user.user_name %><br>フォロー</td>
-      <td class="align-items-center"><%= user.user_name %><br>フォロワー</td>
+      <td class="align-items-center"><%= link_to user.followings.count, followings_users_path(follow_id: user.id) %><br>フォロー</td>
+      <td class="align-items-center"><%= link_to user.followers.count, followers_users_path(follow_id: user.id) %><br>フォロワー</td>
     </tr>
   </table>
 </div>

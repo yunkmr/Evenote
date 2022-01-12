@@ -1,2 +1,42 @@
-<h1>Relationships#followers</h1>
-<p>Find me in app/views/relationships/followers.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <!--タブ部分-->
+      <ul class="tab-list list-unstyled">
+        <div class="row">
+          <div class="col-md-4">
+            <li class="tab tab-active">
+              フォロワー
+            </li>
+          </div>
+          <div class="col-md-4">
+            <li class="tab">
+              フォロー中
+            </li>
+          </div>
+        </div>
+      </ul>
+      <!--タブで選択された要素部分-->
+      <div class="tabbox-contents">
+        <div class="tabbox box-show">
+          <% @users_follow.each do |user| %>
+            <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
+            <%= link_to user.user_name, users_path(user_id: user.id) %>
+            <div id="follow_form">
+              <%= render 'relationships/follow_button', user: user %>
+            </div>
+          <% end %>
+        </div>
+        <div class="tabbox">
+          <% @users_follower.each do |user| %>
+            <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
+            <%= link_to user.user_name, users_path(user_id: user.id) %>
+            <div id="follow_form">
+              <%= render 'relationships/follow_button', user: user %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
