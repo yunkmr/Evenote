@@ -1,11 +1,9 @@
 <!--# モーダルを取得-->
-var modal = document.getElementById('modal');
+var modal = document.getElementById('modal-<%= @tab_id %>');
 <!--# マスクを取得-->
-var mask = document.getElementById('mask');
-
+var mask = document.getElementById('mask-<%= @tab_id %>');
 
 <!--# モーダルの中身をshowビューに置き換えます。-->
-<!--# 部分テンプレートのパス、localsの値はアプリにより異なります。-->
 modal.innerHTML = '<%= escape_javascript(render partial: 'posts/show', locals: { post: @post, user: @user, post_comments: @post_comments}) %>';
 
 

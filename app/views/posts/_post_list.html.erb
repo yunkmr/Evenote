@@ -1,0 +1,13 @@
+<h3>投稿一覧</h3>
+<!--# 部分テンプレートを呼び出す-->
+<%#= render partial:"posts/posts", locals: {posts: posts} %>
+<%= render 'posts/posts', posts: posts, tab_id: tab_id %>
+
+<!--モーダルの周囲を薄暗くするマスク-->
+<div id="mask-<%= tab_id %>" & tab_id class="hidden"></div>
+<!--モーダル-->
+<!--あとからJavaScriptで<div>内のコードをshowビューのコードに置き換えます。-->
+<div id="modal-<%= tab_id %>" class="hidden target">
+<p>モーダルウィンドウ<p>
+</div>
+

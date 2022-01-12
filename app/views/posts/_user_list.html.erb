@@ -1,0 +1,17 @@
+<table class="table">
+  <% users.each do |user| %>
+    <tr>
+      <td>
+        <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
+      </td>
+      <td>
+        <%= user.user_name %>
+      </td>
+      <td>
+        <%= user.introduction %>
+      </td>
+      <td>
+      </td>
+    </tr>
+  <% end %>
+</table>

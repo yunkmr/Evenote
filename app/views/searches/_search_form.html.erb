@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="mt-2 ml-auto">
+      <% if search_id == 1 %>
+        <%= form_with url: post_search_path, method: :get, local:true do |f| %>
+          <%= f.label :キーワードで検索 %>
+          <%= f.text_field :keyword %>
+          <%= f.submit '検索' %>
+        <% end %>
+      <% else %>
+        <%= form_with url: user_search_path, method: :get, local:true do |f| %>
+          <%= f.label :ユーザー名で検索 %>
+          <%= f.text_field :user_name %>
+          <%= f.submit '検索' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -449,7 +449,7 @@ p {
 
 
 /* hiddenクラスがないとマスクとモーダルが表示される（JavaScriptでhiddenクラスを消したとき）*/
-#mask {
+#mask-1 {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -459,7 +459,59 @@ p {
   z-index: 1;
 }
 
-#modal {
+#mask-2 {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#mask-3 {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal-1 {
+  position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
+  top: 10vh;
+  /* 以下3行：モーダルを左右中央揃えにする方法 */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;   /* transitionでアニメーションを作成 */
+  z-index: 2;   /* マスクより上に重なるようにする */
+  width: 935px;   /* showビューの幅に合わせて設定 */
+  // height: 450px;
+  // width: 800px;
+  background-color: #fff;
+}
+
+#modal-2 {
+  position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
+  top: 10vh;
+  /* 以下3行：モーダルを左右中央揃えにする方法 */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;   /* transitionでアニメーションを作成 */
+  z-index: 2;   /* マスクより上に重なるようにする */
+  width: 935px;   /* showビューの幅に合わせて設定 */
+  // height: 450px;
+  // width: 800px;
+  background-color: #fff;
+}
+
+#modal-3 {
   position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
   top: 10vh;
   /* 以下3行：モーダルを左右中央揃えにする方法 */
@@ -476,12 +528,34 @@ p {
 }
 
 /* hiddenクラスで最初は表示されないようにする */
-#mask.hidden {
+#mask-1.hidden {
   opacity: 0;
   visibility: hidden;
 }
 
-#modal.hidden {
+#mask-2.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#mask-3.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#modal-1.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
+}
+
+#modal-2.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
+}
+
+#modal-3.hidden {
   opacity: 0;
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
@@ -494,3 +568,69 @@ p {
   padding-top: 0rem;
   color: #efa04c;
 }
+
+
+// 投稿機能のタブ切り替え
+.tab {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-left: solid 1px #CCC;
+  border-bottom: solid 1px #CCC;
+}
+.tab:first-child {
+  border-left: none;
+}
+// タブがactiveのときのデザイン
+.tab-active {
+  color: #FFF;
+  background: #19b5d1;
+  transition: all 0.2s ease-in-out;
+}
+// タブの中身、最初は非表示
+.tabbox {
+  display: none;
+  padding: 15px;
+}
+// box-showクラスのものだけ表示
+.box-show {
+  display: block;
+}
+// hover時のアクション
+.tab:hover{
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+// 投稿機能のタブ切り替え
+.sub-tab {
+  width: 50%;
+  padding: 10px;
+  cursor: pointer;
+  border-left: solid 1px #CCC;
+  border-bottom: solid 1px #CCC;
+}
+.sub-tab:first-child {
+  border-left: none;
+}
+// タブがactiveのときのデザイン
+.sub-tab-active {
+  color: #FFF;
+  background: #19b5d1;
+  transition: all 0.2s ease-in-out;
+}
+// タブの中身、最初は非表示
+.sub-tabbox {
+  display: none;
+  padding: 15px;
+}
+// box-showクラスのものだけ表示
+.sub-box-show {
+  display: block;
+}
+// hover時のアクション
+.sub-tab:hover{
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+

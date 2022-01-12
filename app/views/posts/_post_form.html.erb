@@ -1,0 +1,10 @@
+<h3>投稿する</h3>
+<%= form_with(model: post, url: posts_path, local:true) do |f| %>
+  <label class="form-image-button">
+    <%= f.file_field :post_image_id, id:'image' %>
+  </label>
+  <p>"スペースを入力することで複数のタグを付けることができます。"</p>
+  <p>"例：音楽 文芸 スポーツ"</p>
+  <%= f.text_field :tag_name %>
+  <%= f.submit %>
+<% end %>

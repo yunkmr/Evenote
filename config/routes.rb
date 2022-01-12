@@ -33,6 +33,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :posts do
+    collection do
+      get 'post_all'
+      get 'post_mine'
+    end
+
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:index, :create, :destroy]
   end
@@ -44,5 +49,8 @@ Rails.application.routes.draw do
   end
 
   resources :notifications, only: :index
+
+  get 'post/search' => 'searches#post_search'
+  get 'user/search' => 'searches#user_search'
 
 end

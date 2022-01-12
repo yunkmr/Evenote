@@ -94,8 +94,6 @@ $(document).on('turbolinks:load', function() {
                   </div>`;
     return html;
   }
-
-
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
 
   $('#image-box').on('change', '.js-file', function(e) {
@@ -110,5 +108,46 @@ $(document).on('turbolinks:load', function() {
     $(this).parent().remove();
 
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+  });
+});
+
+
+// 投稿ページのタブの切り替え
+// turbolinksの無効化
+$(document).on('turbolinks:load', function() {
+  $(function() {
+    // .tabがクリックされたときを指定
+    $('.tab').click(function(){
+      // 今ある.tab-activeを削除
+      $('.tab-active').removeClass('tab-active');
+      // クリックされた.tabに.tab-activeを追加
+      $(this).addClass('tab-active');
+      // 今ある.box-showを削除
+      $('.box-show').removeClass('box-show');
+      // indexに.tabのindex番号を代入
+      const index = $(this).index();
+      // .tabboxとindexの番号が同じ要素に.box-showを追加
+      $('.tabbox').eq(index).addClass('box-show');
+    });
+  });
+});
+
+// 投稿ページのタブの切り替え
+// turbolinksの無効化
+$(document).on('turbolinks:load', function() {
+  $(function() {
+    // .tabがクリックされたときを指定
+    $('.sub-tab').click(function(){
+      // 今ある.tab-activeを削除
+      $('.sub-tab-active').removeClass('sub-tab-active');
+      // クリックされた.tabに.tab-activeを追加
+      $(this).addClass('sub-tab-active');
+      // 今ある.box-showを削除
+      $('.sub-box-show').removeClass('sub-box-show');
+      // indexに.tabのindex番号を代入
+      const index = $(this).index();
+      // .tabboxとindexの番号が同じ要素に.box-showを追加
+      $('.sub-tabbox').eq(index).addClass('sub-box-show');
+    });
   });
 });
