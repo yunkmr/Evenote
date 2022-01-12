@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   def show
-    @user = current_user
+    if params[:user_id].nil?
+      @user = current_user
+    else
+      @user = User.find(params[:user_id])
+    end
   end
 
   def edit
@@ -17,16 +21,16 @@ class UsersController < ApplicationController
 
   end
 
-  def new_mail
-    @user = current_user
-  end
+  # def new_mail
+  #   @user = current_user
+  # end
 
-  def send_mail
-    @user = current_user
-    @mail_title = params[:mail_title]
-    @mail_content = params[:mail_content]
-    UserMailer.send_mail(@mail_title, @mail_content,@user).deliver
-  end
+  # def send_mail
+  #   @user = current_user
+  #   @mail_title = params[:mail_title]
+  #   @mail_content = params[:mail_content]
+  #   UserMailer.send_mail(@mail_title, @mail_content,@user).deliver
+  # end
 
 
   private

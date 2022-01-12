@@ -5,12 +5,13 @@
         <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
       </td>
       <td>
-        <%= user.user_name %>
+        <%= link_to user.user_name, users_path(user_id: user.id) %>
       </td>
       <td>
         <%= user.introduction %>
       </td>
       <td>
+        <%= link_to '投稿を見る', post_user_search_path(user_id: user.id) %>
       </td>
     </tr>
   <% end %>

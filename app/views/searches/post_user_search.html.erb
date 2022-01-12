@@ -44,9 +44,7 @@
             <div class="sub-tabbox sub-box-show">
               <%= render 'searches/search_form', search_id: 1 %>
               <h3>投稿一覧</h3>
-              <% @tags.each do |tag| %>
-                <%= render 'posts/post_list', posts: tag.posts, tab_id: 2 %>
-              <% end %>
+              <%= render 'posts/post_list', posts: @posts, tab_id: 2 %>
             </div>
             <div class="sub-tabbox">
               <%= render 'searches/search_form', search_id: 2 %>
