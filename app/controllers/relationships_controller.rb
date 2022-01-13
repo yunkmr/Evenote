@@ -23,8 +23,8 @@ class RelationshipsController < ApplicationController
   end
   # フォロワー一覧
   def followers
-    @users_follow = @user.followers
-    @users_follower = @user.followings
+    @users_follow = @user.followings
+    @users_follower = @user.followers
   end
 
   private

@@ -4,25 +4,20 @@
       <!--タブ部分-->
       <ul class="tab-list list-unstyled">
         <div class="row">
-          <div class="col-md-4">
-            <li class="tab tab-active">
-              フォロワー
-            </li>
-          </div>
-          <div class="col-md-4">
-            <li class="tab">
-              フォロー中
-            </li>
-          </div>
+          <li class="tab tab-active col-md-4">
+            フォロー
+          </li>
+          <li class="tab col-md-4">
+            フォロワー
+          </li>
         </div>
       </ul>
-      <!--タブで選択された要素部分-->
       <div class="tabbox-contents">
         <div class="tabbox box-show">
           <% @users_follow.each do |user| %>
             <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
             <%= link_to user.user_name, users_path(user_id: user.id) %>
-            <div id="follow_form">
+            <div id="follow_form_following">
               <%= render 'relationships/follow_button', user: user %>
             </div>
           <% end %>
@@ -31,7 +26,7 @@
           <% @users_follower.each do |user| %>
             <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
             <%= link_to user.user_name, users_path(user_id: user.id) %>
-            <div id="follow_form">
+            <div id="follow_form_follower">
               <%= render 'relationships/follow_button', user: user %>
             </div>
           <% end %>
