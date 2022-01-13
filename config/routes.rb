@@ -57,4 +57,6 @@ Rails.application.routes.draw do
   get 'event_user/search' => 'searches#event_user_search'
   get 'search' => 'searches#search'
 
+  get 'back' => 'searches#back'
+
 end

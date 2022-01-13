@@ -37,12 +37,11 @@
                   <li class="sub-tab sub-tab-active col-md-4">
                     イベント一覧
                   </li>
-                  <%= link_to '戻る', :back %>
+                  <input type="button" Value="前のページに戻る" onClick="history.go(-1);">
                 </div>
               </ul>
               <div class="tabbox-contents">
                 <div class="sub-tabbox sub-box-show">
-                  <%= render 'searches/search_form', search_id: 3 %>
                   <h3>イベント一覧</h3>
                   <%= render 'posts/event_list', events: @events, tab_id: 3 %>
                 </div>

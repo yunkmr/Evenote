@@ -59,14 +59,18 @@
               </ul>
               <div class="tabbox-contents">
                 <% if @serach_id.nil? or @serach_id == "1" %>
-                  <div class="sub-tabbox sub-box-show">
+                  <div id="post_active">
+                    <div class="sub-tabbox sub-box-show">
+                  </div>
                 <% else %>
                   <div class="sub-tabbox">
                 <% end %>
                   <%= render 'searches/search_form', search_id: 1 %>
                   <h3>投稿一覧</h3>
                   <% @tags.each do |tag| %>
-                    <%= render 'posts/post_list', posts: tag.posts, tab_id: 2 %>
+                    <div id="post_area">
+                      <%= render 'posts/post_list', posts: tag.posts, tab_id: 2 %>
+                    </div>
                   <% end %>
                 </div>
                 <% if @serach_id == "2" %>
@@ -76,7 +80,9 @@
                 <% end %>
                   <%= render 'searches/search_form', search_id: 2 %>
                   <h3>ユーザー一覧</h3>
-                  <%= render 'posts/user_list', users: @users %>
+                  <div id="user_area">
+                    <%= render 'posts/user_list', users: @users %>
+                  </div>
                 </div>
                 <% if @serach_id == "3" %>
                   <div class="sub-tabbox sub-box-show">
@@ -85,7 +91,9 @@
                 <% end %>
                   <%= render 'searches/search_form', search_id: 3 %>
                   <h3>イベント一覧</h3>
-                  <%= render 'posts/event_list', events: @events %>
+                  <div id="event_area">
+                    <%= render 'posts/event_list', events: @events %>
+                  </div>
                 </div>
               </div>
             </div>
