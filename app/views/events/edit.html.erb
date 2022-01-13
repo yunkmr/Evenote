@@ -43,6 +43,13 @@
           <%= f.label :メモ %>
           <%= f.text_area :memo, rows:5, class:'end_time form-control' %>
         </div>
+        <div class="form-group">
+          <%= f.label :公開する, class:'col-md-4' %>
+          <%= f.radio_button :release_flg, 1, checked: true %>
+          <%= f.label :release_flg, "公開しない", {value: :false, style: "display: inline-block;"} %>
+          <%= f.radio_button :release_flg, :true %>
+          <%= f.label :release_flg, "公開する", {value: :true, style: "display: inline-block;"} %>
+        </div>
         <div class="form-action">
           <%= f.submit '登録する' %>
         </div>

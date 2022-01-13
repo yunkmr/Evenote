@@ -33,30 +33,18 @@
           <div class="tabbox-contents">
             <div class="tabbox box-show">
               <ul class="sub-tab-list list-unstyled">
-                <div class="row col-md-12">
+                <div class="row">
                   <li class="sub-tab sub-tab-active col-md-4">
-                    投稿一覧
-                  </li>
-                  <li class="sub-tab col-md-4">
-                    ユーザー一覧
-                  </li>
-                  <li class="sub-tab col-md-4">
                     イベント一覧
                   </li>
+                  <%= link_to '戻る', :back %>
                 </div>
               </ul>
               <div class="tabbox-contents">
                 <div class="sub-tabbox sub-box-show">
-                  <%= render 'searches/search_form', search_id: 1 %>
-                  <%= render 'posts/post_list', posts: @posts_all, tab_id: 2 %>
-                </div>
-                <div class="sub-tabbox">
-                  <%= render 'searches/search_form', search_id: 2 %>
-                  <%= render 'posts/user_list', users: @users %>
-                </div>
-                <div class="sub-tabbox">
                   <%= render 'searches/search_form', search_id: 3 %>
-                  <%= render 'posts/event_list', events: @events %>
+                  <h3>イベント一覧</h3>
+                  <%= render 'posts/event_list', events: @events, tab_id: 3 %>
                 </div>
               </div>
             </div>

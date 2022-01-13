@@ -2,56 +2,68 @@
   <div class="row">
     <div class="col-md-10 mx-auto">
       <!--タブ部分-->
-      <ul class="tab-list list-unstyled">
-        <div class="row">
-          <div class="col-md-4">
-            <%= link_to posts_path do %>
-              <li class="tab">
-                ホーム
-              </li>
-            <% end %>
-          </div>
-          <div class="col-md-4">
-            <%= link_to post_all_posts_path do %>
-              <li class="tab tab-active">
-                検索
-              </li>
-            <% end %>
-          </div>
-          <div class="col-md-4">
-            <%= link_to post_mine_posts_path do %>
-              <li class="tab">
-                投稿
-              </li>
-            <% end %>
-          </div>
-        </div>
-      </ul>
-      <!--タブで選択された要素部分-->
-      <div class="tabbox-contents">
-        <div class="tabbox box-show">
-          <ul class="sub-tab-list list-unstyled">
-            <div class="row">
-              <li class="sub-tab sub-tab-active col-md-4">
-                投稿一覧
-              </li>
-              <li class="sub-tab col-md-4">
-                ユーザー一覧
-              </li>
-            </div>
-          </ul>
-          <div class="tabbox-contents">
-            <div class="sub-tabbox sub-box-show">
-              <%= render 'searches/search_form', search_id: 1 %>
-              <h3>投稿一覧</h3>
-              <% @tags.each do |tag| %>
-                <%= render 'posts/post_list', posts: tag.posts, tab_id: 2 %>
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="tab-list list-unstyled">
+            <div class="col-12">
+              <%= link_to posts_path do %>
+                <li class="tab">
+                  ホーム
+                </li>
               <% end %>
             </div>
-            <div class="sub-tabbox">
-              <%= render 'searches/search_form', search_id: 2 %>
-              <h3>ユーザー一覧</h3>
-              <%= render 'posts/user_list', users: @users %>
+            <div class="col-12">
+              <%= link_to post_all_posts_path do %>
+                <li class="tab tab-active">
+                  検索
+                </li>
+              <% end %>
+            </div>
+            <div class="col-12">
+              <%= link_to post_mine_posts_path do %>
+                <li class="tab">
+                  投稿
+                </li>
+              <% end %>
+            </div>
+          </ul>
+        </div>
+        <!--タブで選択された要素部分-->
+        <div class="col-md-10">
+          <div class="tabbox-contents">
+            <div class="tabbox box-show">
+              <ul class="sub-tab-list list-unstyled">
+                <div class="row">
+                  <li class="sub-tab sub-tab-active col-md-4">
+                    投稿一覧
+                  </li>
+                  <li class="sub-tab col-md-4">
+                    ユーザー一覧
+                  </li>
+                  <li class="sub-tab col-md-4">
+                    イベント一覧
+                  </li>
+                </div>
+              </ul>
+              <div class="tabbox-contents">
+                <div class="sub-tabbox sub-box-show">
+                  <%= render 'searches/search_form', search_id: 1 %>
+                  <h3>投稿一覧</h3>
+                  <% @tags.each do |tag| %>
+                    <%= render 'posts/post_list', posts: tag.posts, tab_id: 2 %>
+                  <% end %>
+                </div>
+                <div class="sub-tabbox">
+                  <%= render 'searches/search_form', search_id: 2 %>
+                  <h3>ユーザー一覧</h3>
+                  <%= render 'posts/user_list', users: @users %>
+                </div>
+                <div class="sub-tabbox">
+                  <%= render 'searches/search_form', search_id: 3 %>
+                  <h3>イベント一覧</h3>
+                  <%= render 'posts/event_list', events: @events %>
+                </div>
+              </div>
             </div>
           </div>
         </div>

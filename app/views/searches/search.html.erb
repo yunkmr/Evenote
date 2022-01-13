@@ -33,29 +33,58 @@
           <div class="tabbox-contents">
             <div class="tabbox box-show">
               <ul class="sub-tab-list list-unstyled">
-                <div class="row col-md-12">
-                  <li class="sub-tab sub-tab-active col-md-4">
+                <div class="row">
+                  <% if @serach_id.nil? or @serach_id == "1" %>
+                    <li class="sub-tab sub-tab-active col-md-4">
+                  <% else %>
+                    <li class="sub-tab col-md-4">
+                  <% end %>
                     投稿一覧
                   </li>
-                  <li class="sub-tab col-md-4">
+                  <% if @serach_id == "2" %>
+                    <li class="sub-tab sub-tab-active col-md-4">
+                  <% else %>
+                    <li class="sub-tab col-md-4">
+                  <% end %>
                     ユーザー一覧
                   </li>
-                  <li class="sub-tab col-md-4">
+                  <% if @serach_id == "3" %>
+                    <li class="sub-tab sub-tab-active col-md-4">
+                  <% else %>
+                    <li class="sub-tab col-md-4">
+                  <% end %>
                     イベント一覧
                   </li>
                 </div>
               </ul>
               <div class="tabbox-contents">
-                <div class="sub-tabbox sub-box-show">
+                <% if @serach_id.nil? or @serach_id == "1" %>
+                  <div class="sub-tabbox sub-box-show">
+                <% else %>
+                  <div class="sub-tabbox">
+                <% end %>
                   <%= render 'searches/search_form', search_id: 1 %>
-                  <%= render 'posts/post_list', posts: @posts_all, tab_id: 2 %>
+                  <h3>投稿一覧</h3>
+                  <% @tags.each do |tag| %>
+                    <%= render 'posts/post_list', posts: tag.posts, tab_id: 2 %>
+                  <% end %>
                 </div>
-                <div class="sub-tabbox">
+                <% if @serach_id == "2" %>
+                  <div class="sub-tabbox sub-box-show">
+                <% else %>
+                  <div class="sub-tabbox">
+                <% end %>
                   <%= render 'searches/search_form', search_id: 2 %>
+                  <h3>ユーザー一覧</h3>
                   <%= render 'posts/user_list', users: @users %>
                 </div>
-                <div class="sub-tabbox">
+                <% if @serach_id == "3" %>
+                  <div class="sub-tabbox sub-box-show">
+                <% else %>
+                  <div class="sub-tabbox">
+                <% end %>
                   <%= render 'searches/search_form', search_id: 3 %>
+                  <h3>イベント一覧</h3>
                   <%= render 'posts/event_list', events: @events %>
                 </div>
               </div>

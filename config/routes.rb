@@ -52,6 +52,9 @@ Rails.application.routes.draw do
 
   get 'post/search' => 'searches#post_search'
   get 'user/search' => 'searches#user_search'
+  get 'event/search' => 'searches#event_search'
   get 'post_user/search' => 'searches#post_user_search'
+  get 'event_user/search' => 'searches#event_user_search'
+  get 'search' => 'searches#search'
 
 end

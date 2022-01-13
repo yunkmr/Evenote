@@ -1,0 +1,21 @@
+<table class="table">
+  <% events.each do |event| %>
+    <tr>
+      <td>
+        <%= attachment_image_tag(event.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
+      </td>
+      <td>
+        <%= link_to event.user.user_name, users_path(user_id: event.user.id) %>
+      </td>
+      <td>
+        <%= event.date %>
+      </td>
+      <td>
+        <%= event.name %>
+      </td>
+      <td>
+        <%= link_to '投稿を見る', post_user_search_path(user_id: event.user.id) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

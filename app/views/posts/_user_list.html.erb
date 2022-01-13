@@ -13,6 +13,9 @@
       <td>
         <%= link_to '投稿を見る', post_user_search_path(user_id: user.id) %>
       </td>
+      <td>
+        <%= link_to 'イベントを見る', event_user_search_path(user_id: user.id) %>
+      </td>
     </tr>
   <% end %>
 </table>

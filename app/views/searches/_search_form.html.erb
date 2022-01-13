@@ -1,18 +1,85 @@
+<%
+=begin %>
 <div class="container">
   <div class="row">
     <div class="mt-2 ml-auto">
       <% if search_id == 1 %>
         <%= form_with url: post_search_path, method: :get, local:true do |f| %>
           <%= f.label :キーワードで検索 %>
-          <%= f.text_field :keyword %>
+          <%= f.text_field :keyword, value: params[:keyword] %>
+          <%= f.submit '検索' %>
+        <% end %>
+      <% elsif search_id == 2 %>
+        <%= form_with url: user_search_path, method: :get, local:true do |f| %>
+          <%= f.label :ユーザー名で検索 %>
+          <%= f.text_field :user_name, value: params[:user_name] %>
           <%= f.submit '検索' %>
         <% end %>
       <% else %>
-        <%= form_with url: user_search_path, method: :get, local:true do |f| %>
-          <%= f.label :ユーザー名で検索 %>
-          <%= f.text_field :user_name %>
+        <%= form_with url: event_search_path, method: :get, local:true do |f| %>
+          <%= f.label :イベント日付で検索 %>
+          <%= f.date_field :event_date, value: params[:event_date] %>
+          <%= f.label :イベント名で検索 %>
+          <%= f.text_field :event_name, value: params[:event_name] %>
           <%= f.submit '検索' %>
         <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%
+=end %>
+
+<div class="container">
+  <div class="row">
+    <div class="mt-2 ml-auto">
+      <%= form_with url:search_path(search_id: search_id), method: :get, local:true do |f| %>
+        <% if search_id == 1 %>
+          <%= f.label :キーワードで検索 %>
+          <%= f.text_field :keyword, value: params[:keyword], onchange: "change_keyword()", id:'k_keyword' %>
+          <%= f.hidden_field :user_name, value: params[:user_name], id:'k_user_name' %>
+          <%= f.hidden_field :event_date, value: params[:event_date], id:'k_event_date' %>
+          <%= f.hidden_field :event_name, value: params[:event_name], id:'k_event_name' %>
+          <%= f.hidden_field :search_id, value: 1 %>
+        <% elsif search_id == 2 %>
+          <%= f.label :ユーザー名で検索 %>
+          <%= f.text_field :user_name, value: params[:user_name], onchange: "change_user_name()", id:'u_user_name' %>
+          <%= f.hidden_field :keyword, value: params[:keyword], id:'u_keyword' %>
+          <%= f.hidden_field :event_date, value: params[:event_date], id:'u_event_date' %>
+          <%= f.hidden_field :event_name, value: params[:event_name], id:'u_event_name' %>
+          <%= f.hidden_field :search_id, value: 2 %>
+        <% else %>
+          <%= f.label :イベント日付 %>
+          <%= f.date_field :event_date, value: params[:event_date], onchange: "change_event_date()", id:'e_event_date' %>
+          <%= f.label :イベント名 %>
+          <%= f.text_field :event_name, value: params[:event_name], onchange: "change_event_name()", id:'e_event_name' %>
+          <%= f.hidden_field :keyword, value: params[:keyword], id:'e_keyword' %>
+          <%= f.hidden_field :user_name, value: params[:user_name], id:'e_user_name' %>
+          <%= f.hidden_field :search_id, value: 3 %>
+        <% end %>
+        <script>
+          function change_keyword(){
+            a = document.getElementById('k_keyword').value;
+            document.getElementById('u_keyword').value = a;
+            document.getElementById('e_keyword').value = a;
+          }
+          function change_user_name(){
+            a = document.getElementById('u_user_name').value;
+            document.getElementById('k_user_name').value = a;
+            document.getElementById('e_user_name').value = a;
+          }
+          function change_event_date(){
+            a = document.getElementById('e_event_date').value;
+            document.getElementById('k_event_date').value = a;
+            document.getElementById('u_event_date').value = a;
+          }
+          function change_event_name(){
+            a = document.getElementById('e_event_name').value;
+            document.getElementById('k_event_name').value = a;
+            document.getElementById('u_event_name').value = a;
+          }
+        </script>
+        <%= f.submit '検索' %>
       <% end %>
     </div>
   </div>

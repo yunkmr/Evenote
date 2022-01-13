@@ -29,6 +29,8 @@ class PostsController < ApplicationController
 
     @users = User.where.not(id: current_user.id)
 
+    @events = Event.where(release_flg: TRUE)
+
   end
 
   def post_mine

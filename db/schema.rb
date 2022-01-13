@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_11_051950) do
+ActiveRecord::Schema.define(version: 2022_01_13_051121) do
 
   create_table "albums", force: :cascade do |t|
     t.integer "user_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_01_11_051950) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "release_flg", default: false, null: false
   end
 
   create_table "favorites", force: :cascade do |t|
