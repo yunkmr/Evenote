@@ -33,7 +33,7 @@
 <div class="container">
   <div class="row">
     <div class="mt-2 ml-auto">
-      <%= form_with url:search_path(search_id: search_id), method: :get, local:true do |f| %>
+      <%= form_with url:search_path(search_id: search_id), method: :get, local: true do |f| %>
         <% if search_id == 1 %>
           <%= f.label :キーワードで検索 %>
           <%= f.text_field :keyword, value: params[:keyword], onchange: "change_keyword()", id:'k_keyword' %>

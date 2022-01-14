@@ -1,7 +1,5 @@
 class SearchesController < ApplicationController
 
-  skip_before_action :store_location
-
   def search
     @events = Event.where(release_flg: TRUE)
     @users = User.where.not(id: current_user.id)
@@ -92,10 +90,6 @@ class SearchesController < ApplicationController
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
-  end
-
-  def back
-    redirect_back_or root_url
   end
 
 end
