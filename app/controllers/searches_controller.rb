@@ -8,10 +8,18 @@ class SearchesController < ApplicationController
     # 投稿の検索
     keyword = params["keyword"]
     @tags = Tag.where("tag_name LIKE ?", '%'+keyword+'%' )
+    all_post = []
+    @tags.each do |tag|
+      tag.posts.each do |tag_post|
+        all_post << tag_post
+      end
+    end
+
+    @posts = Kaminari.paginate_array(all_post).page(params[:page]).per(2)
 
     # ユーザーの検索
     user_name = params["user_name"]
-    @users = @users.where("user_name LIKE ?", '%'+user_name+'%' )
+    @users = @users.where("user_name LIKE ?", '%'+user_name+'%' ).all.page(params[:page_2]).per(2).order(created_at: "ASC")
 
     # イベントの検索
     event_date = params["event_date"]
@@ -26,6 +34,8 @@ class SearchesController < ApplicationController
       @events = @events.where("name LIKE ?", '%'+event_name+'%')
       @events = @events.where(date: event_date)
     end
+
+    @events = @events.all.page(params[:page_3]).per(2).order(created_at: "ASC")
 
     @serach_id = params["search_id"]
     # binding.pry
@@ -53,7 +63,7 @@ class SearchesController < ApplicationController
 
   def post_user_search
     @user = User.find(params[:user_id])
-    @posts = @user.posts.all
+    @posts = @user.posts.all.page(params[:page]).per(2).order(created_at: "ASC")
     # @users = User.where.not(id: current_user.id)
     # @events = Event.where(release_flg: TRUE)
   end
@@ -84,7 +94,7 @@ class SearchesController < ApplicationController
   def event_user_search
     @user = User.find(params[:user_id])
     @events = @user.events.all
-    @events = @events.where(release_flg: TRUE)
+    @events = @events.where(release_flg: TRUE).all.page(params[:page]).per(2).order(created_at: "ASC")
   end
 
   def redirect_back_or(default)

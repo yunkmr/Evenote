@@ -65,11 +65,11 @@
                 <% end %>
                   <%= render 'searches/search_form', search_id: 1 %>
                   <h3>投稿一覧</h3>
-                  <% @tags.each do |tag| %>
+                  <%# @tags.each do |tag| %>
                     <div id="post_area">
-                      <%= render 'posts/post_list', posts: tag.posts, tab_id: 2 %>
+                      <%= render 'posts/post_list_remote', posts: @posts, tab_id: 2 %>
                     </div>
-                  <% end %>
+                  <%# end %>
                 </div>
                 <% if @serach_id == "2" %>
                   <div class="sub-tabbox sub-box-show">

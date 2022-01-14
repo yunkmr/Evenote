@@ -31,7 +31,7 @@
         <!--タブで選択された要素部分-->
         <div class="col-md-10">
           <div class="tabbox-contents">
-            <div class="tabbox box-show">
+            <!--<div class="tabbox">-->
               <ul class="sub-tab-list list-unstyled">
                 <div class="row col-md-12">
                   <li class="sub-tab sub-tab-active col-md-4">
@@ -49,22 +49,29 @@
                 <div class="sub-tabbox sub-box-show">
                   <%= render 'searches/search_form', search_id: 1 %>
                   <h3>投稿一覧</h3>
-                  <%= render 'posts/post_list', posts: @posts_all, tab_id: 2 %>
+                  <div id="post_area">
+                    <!--# 部分テンプレートを呼び出す-->
+                    <%= render 'posts/post_list_remote', posts: @posts_all, tab_id: @tab_id %>
+                  </div>
                 </div>
                 <div class="sub-tabbox">
                   <%= render 'searches/search_form', search_id: 2 %>
                   <h3>ユーザー一覧</h3>
-                  <%= render 'posts/user_list', users: @users %>
+                  <div id="user_area">
+                    <%= render 'posts/user_list', users: @users %>
+                  </div>
                 </div>
                 <div class="sub-tabbox">
                   <%= render 'searches/search_form', search_id: 3 %>
                   <h3>イベント一覧</h3>
-                  <%= render 'posts/event_list', events: @events %>
+                  <div id="event_area">
+                    <%= render 'posts/event_list', events: @events %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        <!--</div>-->
       </div>
     </div>
   </div>

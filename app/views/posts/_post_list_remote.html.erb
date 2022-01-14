@@ -1,5 +1,5 @@
 <!--# 部分テンプレートを呼び出す-->
-<%= render 'posts/posts', posts: posts, tab_id: tab_id %>
+<%= render 'posts/posts_remote', posts: posts, tab_id: tab_id %>
 
 <!--モーダルの周囲を薄暗くするマスク-->
 <div id="mask-<%= tab_id %>" & tab_id class="hidden"></div>
@@ -8,4 +8,3 @@
 <div id="modal-<%= tab_id %>" class="hidden target">
   <p>モーダルウィンドウ<p>
 </div>
-
