@@ -1,0 +1,54 @@
+<div class="scroll-list jscroll">
+  <table class="table">
+    <tr>
+      <th>日付</th>
+      <th>イベント名</th>
+      <th>申込日</th>
+      <th>申込状況</th>
+      <th>当落発表日</th>
+      <th>当落状況</th>
+      <th>支払期限日</th>
+      <th>支払状況</th>
+    </tr>
+    <% tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.event_date %></td>
+        <td><%= link_to ticket.event_name, ticket_path(ticket) %></td>
+        <td><%= ticket.entry_start_date %>〜<%= ticket.entry_end_date %></td>
+
+        <td>
+          <% if ticket.entry_flg %>
+            申込済
+          <% else %>
+            未申込
+          <% end %>
+        </td>
+        <td><%= ticket.win_date %></td>
+        <td>
+          <% if ticket.win_flg.nil? %>
+            −
+          <% elsif ticket.win_flg %>
+            落選
+          <% else %>
+            当選
+          <% end %>
+        </td>
+        <td><%= ticket.payment_date %></td>
+        <td>
+          <% if ticket.payment_flg %>
+            支払済
+          <% else %>
+            未支払
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+    <% if tab_id == "1" %>
+      <%= paginate tickets, :param_name => 'page_1', remote: true, params: {:param => "1"} %>
+    <% elsif tab_id == "2" %>
+      <%= paginate tickets, :param_name => 'page_2', remote: true, params: {:param => "2"} %>
+    <% else %>
+      <%= paginate tickets, :param_name => 'page_3', remote: true, params: {:param => "3"} %>
+    <% end %>
+</div>

@@ -1,52 +1,60 @@
-<h1>ようこそ</h1>
 <% if user_signed_in? %>
 <% else %>
   <%= link_to 'ログインはこちらから', new_user_session_path %>
   <%= link_to '新規登録はこちらから', new_user_registration_path %>
 <% end %>
-
+<%
+=begin %>
 <div class="container">
   <div class="row">
-    <div class="col-md-10 mx-auto">
+    <div class="col-md-12 mx-auto">
       <!--タブ部分-->
-      <!--<div class="row">-->
-        <!--<div class="col-md-2">-->
-      <ul class="sub-tab-list list-unstyled">
-        <div class="row col-md-12">
-          <li class="sub-tab sub-tab-active col-md-6">
-            イベント予定
-          </li>
-          <li class="sub-tab col-md-6">
-            チケット予定
-          </li>
-        </div>
-      </ul>
-        <!--</div>-->
-      <!--</div>-->
-      <!--タブで選択された要素部分-->
-      <div class="col-md-12">
-        <div class="tabbox-contents">
-          <div class="sub-tabbox sub-box-show">
-            <div id="event_calendar"></div>
-            <div id="calendarModal" class="modal fade">
-              <div class="modal-dialog modal-dialog-center">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                      <span aria-hidden="true">×</span>
-                      <span class="sr-only">close</span>
-                    </button>
-                    <span id="modalTitle" class="modal-title">
-                    </span>
-                  </div>
-                  <div id="modalBody" class="modal-body"></div>
-                  <div id="modalFooter" class="modal-footer"></div>
-                </div>
-              </div>
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="sub-tab-list list-unstyled">
+            <div class="row col-md-12">
+              <li class="sub-tab sub-tab-active col-md-12">
+                イベント情報
+              </li>
+              <li class="sub-tab col-md-12">
+                チケット情報
+              </li>
             </div>
-          </div>
-          <div class="sub-tabbox">
-            <div id="ticket_calendar"></div>
+          </ul>
+        </div>
+        <!--タブで選択された要素部分-->
+        <div class="col-md-10">
+          <div class="tabbox-contents">
+            <div class="sub-tabbox sub-box-show">
+              <h3>本日のイベント</h3>
+              <% if @events.present? %>
+                <table class="table">
+                  <tr>
+                    <th>日付</th>
+                    <th>イベント名</th>
+                    <th>場所</th>
+                  </tr>
+                  <% @events.each do |event| %>
+                    <tr>
+                      <td><%= event.date %></td>
+                      <td><%= link_to event.name, event_path(event) %></td>
+                      <td><%= event.place %></td>
+                    </tr>
+                  <% end %>
+                </table>
+              <% else %>
+                <p>本日のイベントはありません</p>
+              <% end %>
+              <div id="event_calendar"></div>
+            </div>
+            <div class="sub-tabbox">
+              未申込のイベント
+              <%= render 'homes/ticket_list', tickets: @entry_tickets %>
+              当落発表待ちのイベント
+              <%= render 'homes/ticket_list', tickets: @win_tickets %>
+              未支払のイベント
+              <%= render 'homes/ticket_list', tickets: @payment_tickets %>
+            </div>
           </div>
         </div>
       </div>
@@ -54,8 +62,90 @@
   </div>
 </div>
 
+<%
+=end %>
 
-
-
-<!--<div id="event_calendar"></div>-->
-<!--<div id="ticket_calendar"></div>-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <!--タブ部分-->
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="tab-list list-unstyled">
+            <div class="row col-md-12">
+              <li class="tab tab-active col-md-12">
+                イベント情報
+              </li>
+              <li class="tab col-md-12">
+                チケット情報
+              </li>
+            </div>
+          </ul>
+        </div>
+        <!--タブで選択された要素部分-->
+        <div class="col-md-10">
+          <div class="tabbox-contents">
+            <div class="tabbox box-show">
+              <h3>本日のイベント</h3>
+              <% if @events.present? %>
+                <table class="table">
+                  <tr>
+                    <th>日付</th>
+                    <th>イベント名</th>
+                    <th>場所</th>
+                  </tr>
+                  <% @events.each do |event| %>
+                    <tr>
+                      <td><%= event.date %></td>
+                      <td><%= link_to event.name, event_path(event) %></td>
+                      <td><%= event.place %></td>
+                    </tr>
+                  <% end %>
+                </table>
+              <% else %>
+                <p>本日のイベントはありません</p>
+              <% end %>
+              <div id="event_calendar"></div>
+            </div>
+            <!--<div class="tabbox">-->
+              <div class="tabbox-contents">
+                <div class="tabbox">
+                  <ul class="sub-tab-list list-unstyled">
+                    <div class="row col-md-12">
+                      <li class="sub-tab sub-tab-active col-md-4">
+                        未申込のイベント
+                      </li>
+                      <li class="sub-tab col-md-4">
+                        当落発表待ちのイベント
+                      </li>
+                      <li class="sub-tab col-md-4">
+                        未支払のイベント
+                      </li>
+                    </div>
+                  </ul>
+                  <div class="sub-tabbox-contents">
+                    <div class="sub-tabbox sub-box-show">
+                      <div id="entry_area">
+                        <%= render 'homes/entry_ticket_list', tickets: @entry_tickets %>
+                      </div>
+                    </div>
+                    <div class="sub-tabbox">
+                      <div id="win_area">
+                        <%= render 'homes/win_ticket_list', tickets: @win_tickets %>
+                      </div>
+                    </div>
+                    <div class="sub-tabbox">
+                      <div id="payment_area">
+                        <%= render 'homes/pay_ticket_list', tickets: @payment_tickets %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

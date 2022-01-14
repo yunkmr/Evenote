@@ -30,7 +30,6 @@ class TicketsController < ApplicationController
 
   def update
     @ticket = Ticket.find(params[:id])
-    binding.pry
     if @ticket.update(ticket_params)
       redirect_to ticket_path(@ticket), notice: ""
     else

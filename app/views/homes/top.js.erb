@@ -1,0 +1,3 @@
+$('#entry_area').html("<%= escape_javascript(render 'entry_ticket_list', tickets: @entry_tickets) %>");
+$('#win_area').html("<%= escape_javascript(render 'win_ticket_list', tickets: @win_tickets) %>");
+$('#payment_area').html("<%= escape_javascript(render 'pay_ticket_list', tickets: @payment_tickets) %>");
