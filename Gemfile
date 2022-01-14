@@ -83,3 +83,6 @@ gem 'cocoon'
 gem 'kaminari'
 
 gem 'whenever', require: false
+
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'

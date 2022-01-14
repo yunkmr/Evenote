@@ -11,13 +11,15 @@
 // about supported directives.
 //
 
-//= require jquery3
+//= require jquery
 //= require popper
 //= require bootstrap-sprockets
 //= require cocoon
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require moment
+//= require fullcalendar
 //= require_tree .
 
 // サイドメニューを開いた時の動作

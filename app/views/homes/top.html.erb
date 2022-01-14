@@ -4,3 +4,58 @@
   <%= link_to 'ログインはこちらから', new_user_session_path %>
   <%= link_to '新規登録はこちらから', new_user_registration_path %>
 <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <!--タブ部分-->
+      <!--<div class="row">-->
+        <!--<div class="col-md-2">-->
+      <ul class="sub-tab-list list-unstyled">
+        <div class="row col-md-12">
+          <li class="sub-tab sub-tab-active col-md-6">
+            イベント予定
+          </li>
+          <li class="sub-tab col-md-6">
+            チケット予定
+          </li>
+        </div>
+      </ul>
+        <!--</div>-->
+      <!--</div>-->
+      <!--タブで選択された要素部分-->
+      <div class="col-md-12">
+        <div class="tabbox-contents">
+          <div class="sub-tabbox sub-box-show">
+            <div id="event_calendar"></div>
+            <div id="calendarModal" class="modal fade">
+              <div class="modal-dialog modal-dialog-center">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                      <span aria-hidden="true">×</span>
+                      <span class="sr-only">close</span>
+                    </button>
+                    <span id="modalTitle" class="modal-title">
+                    </span>
+                  </div>
+                  <div id="modalBody" class="modal-body"></div>
+                  <div id="modalFooter" class="modal-footer"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sub-tabbox">
+            <div id="ticket_calendar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--<div id="event_calendar"></div>-->
+<!--<div id="ticket_calendar"></div>-->
