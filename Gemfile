@@ -86,3 +86,5 @@ gem 'whenever', require: false
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+gem 'rails-i18n', '~> 5.1'

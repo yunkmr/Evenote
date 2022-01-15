@@ -23,14 +23,26 @@
 //= require_tree .
 
 // サイドメニューを開いた時の動作
+// $(document).on('turbolinks:load', function() {
+//   $(".l-app_navigation").click(function () {//ボタンがクリックされたら
+//     $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+//       $(".l-app_navigation").toggleClass('menu-active-complete');//ナビゲーションにmenu-active-completeクラスを付与
+//       $(".l-menu-title").toggleClass('menu-active-complete');
+//       $(".l-menu-contents").toggleClass('menu-active-complete');
+//       $(".l-app_contents").toggleClass('menu-active-complete');
+//       $(".l-app_header").toggleClass('menu-active-complete');
+//   });
+// });
+
+// サイドメニューを開いた時の動作
 $(document).on('turbolinks:load', function() {
   $(".l-app_navigation").click(function () {//ボタンがクリックされたら
     $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
-      $(".l-app_navigation").toggleClass('menu-active-complete');//ナビゲーションにmenu-active-completeクラスを付与
+      // $(".l-app_navigation").toggleClass('menu-active-complete');//ナビゲーションにmenu-active-completeクラスを付与
       $(".l-menu-title").toggleClass('menu-active-complete');
       $(".l-menu-contents").toggleClass('menu-active-complete');
-      $(".l-app_contents").toggleClass('menu-active-complete');
-      $(".l-app_header").toggleClass('menu-active-complete');
+      // $(".l-app_contents").toggleClass('menu-active-complete');
+      // $(".l-app_header").toggleClass('menu-active-complete');
   });
 });
 

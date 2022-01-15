@@ -77,18 +77,6 @@ html {
   font-family: 'Amiri', serif;
 }
 
-li,
-ol {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 // button {
 //   cursor: pointer;
 // }
@@ -136,16 +124,15 @@ button {
 // }
 
 .l-app_navigation {
-  position: relative;
-  // top: 100px;
-  // top: 0;
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 200px;
-  height: auto;
+  width: 300px;
+  height: 100%;
   background-color: #fff;
-  // transition: all 0.6s;
-  // z-index: 100;
-  // transform: translateX(-220px);
+  transition: all 0.6s;
+  z-index: 100;
+  transform: translateX(-220px);
 }
 
 .l-app_navigation.menu-active-complete {
@@ -153,9 +140,9 @@ button {
 }
 
 .l-menu {
-  position: relative;
-  // top: 0;
-  // left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
@@ -182,16 +169,15 @@ button {
 }
 
 .l-menu-title {
-  display: none;
-  // position: absolute;
-  // top: 25px;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
-  // right: 0;
-  // width: 80px;
-  // cursor: pointer;
+  position: absolute;
+  top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  width: 80px;
+  cursor: pointer;
 }
 
 .l-menu-title .icon {
@@ -270,22 +256,29 @@ span {
   overflow-x: hidden;
 }
 
-// .l-menu-contents.menu-active-complete {
-//   z-index: 20;
-// }
-
-.l-menu-contents {
+.l-menu-contents.menu-active-complete {
   z-index: 20;
 }
 
 .l-menu-index {
-  padding: 65px 0 0 40px;
+  padding: 65px 30px;
 }
+
+li,
+ol {
+  list-style-type: none;
+}
+
 
 .l-menu-index_page-title {
   position: relative;
   display: block;
-  padding: 20px 0;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .l-menu-index_page-title .line {
@@ -306,7 +299,7 @@ span {
 
 .l-menu-index_section-list{
     display: none;/*はじめは非表示*/
-    padding: 0 0 0 15px;
+    padding: 0 0 0 30px;
     font-size: 13px;
 }
 
@@ -323,29 +316,28 @@ p {
 }
 
 .l-menu-close {
-  display: none;
-  // position: absolute;
-  // top: 10px;
-  // left: 15px;
-  // width: 44px;
-  // height: 44px;
-  // font-size: 15px;
-  // font-family: "Noto Sans JP", sans-serif;
-  // font-weight: 500;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 44px;
+  height: 44px;
+  font-size: 15px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
 }
 
 
 .l-app_contents {
   position: relative;
   background-color: #f8ede1;
-  width: calc(100% - 200px);
+  width: calc(100% - 80px);
   transition: all 0.6s;
   margin-top: 50px;
 }
 
-// .l-app_contents.menu-active-complete {
-//     width: calc(100% - 200px);
-// }
+.l-app_contents.menu-active-complete {
+    width: calc(100% - 300px);
+}
 
 // @media (min-width: 1201px)
 //   .l-app_contents {
@@ -353,28 +345,16 @@ p {
 //   }
 
 .l-app_header {
-  // position: fixed;
   // position: relative;
   background-color: #f8ede1;
-  // width: calc(100% - 200px);
+  width: calc(100% - 80px);
   transition: all 0.6s;
   margin: 0 0 0 auto;
-  // height: 100px;
 }
 
-.l-app_footer {
-  // position: relative;
-  background-color: #fff;
-  // width: calc(100% - 200px);
-  // position: absolute;/*←絶対位置*/
-  bottom: 0; /*下に固定*/
-  width: 100%;
-  // height: 50px;
+.l-app_header.menu-active-complete {
+    width: calc(100% - 300px);
 }
-
-// .l-app_header.menu-active-complete {
-//     width: calc(100% - 200px);
-// }
 
 
 // ユーザー編集画面のボタン

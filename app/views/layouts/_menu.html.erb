@@ -17,54 +17,51 @@
             </div>
             <ol class="l-menu-index_section-list">
               <li class="l-menu-index_section">
-                <%= link_to '新規登録', new_ticket_path , class:'l-menu-index_section-link"' %>
+                <%= link_to '新規登録', new_ticket_path , class:'l-menu-index_section-link' %>
                 <!--<a class="l-menu-index_section-link" href="#">新規登録</a>-->
               </li>
               <li class="l-menu-index_section">
-                <%= link_to 'チケット一覧', tickets_path , class:'l-menu-index_section-link"' %>
+                <%= link_to 'チケット一覧', tickets_path , class:'l-menu-index_section-link' %>
               </li>
             </ol>
           </li>
           <li class="l-menu-index_page">
-            <div class="l-menu-index_page-title" href="#">
+            <div class="l-menu-index_page-title">
               <span class="line jp">イベント追加</span>
               <span class="line en">Add Event</span>
             </div>
             <ol class="l-menu-index_section-list">
               <li class="l-menu-index_section">
-                <%= link_to '新規登録', new_event_path , class:'l-menu-index_section-link"' %>
+                <%= link_to '新規登録', new_event_path , class:'l-menu-index_section-link' %>
               </li>
               <li class="l-menu-index_section">
-                <%= link_to 'イベント一覧', events_path , class:'l-menu-index_section-link"' %>
+                <%= link_to 'イベント一覧', events_path , class:'l-menu-index_section-link' %>
               </li>
             </ol>
           </li>
           <li class="l-menu-index_page">
-            <%= link_to posts_path , class:'l-menu-index_section-link"' do %>
-              <span class="line jp">投稿</span>
-              <span class="line en">Post</span>
-            <% end %>
-            </a>
+            <div class="l-menu-index_page-title">
+              <%= link_to albums_path , class:'l-menu-index_section-link' do %>
+                <span class="line jp">アルバム</span>
+                <span class="line en">albums</span>
+              <% end %>
+            </div>
           </li>
           <li class="l-menu-index_page">
-            <%= link_to notifications_path , class:'l-menu-index_section-link"' do %>
-              <span class="line jp">通知</span>
-              <span class="line en">notice</span>
-            <% end %>
-            </a>
+            <div class="l-menu-index_page-title">
+              <%= link_to photos_path , class:'l-menu-index_section-link' do %>
+                <span class="line jp">写真</span>
+                <span class="line en">photos</span>
+              <% end %>
+            </div>
           </li>
           <li class="l-menu-index_page">
-            <%= link_to albums_path , class:'l-menu-index_section-link"' do %>
-              <span class="line jp">アルバム</span>
-              <span class="line en">albums</span>
-            <% end %>
-            </a>
-          </li>
-          <li class="l-menu-index_page">
-            <%= link_to photos_path , class:'l-menu-index_section-link"' do %>
-              <span class="line jp">写真</span>
-              <span class="line en">photos</span>
-            <% end %>
+            <div class="l-menu-index_page-title">
+              <%= link_to posts_path , class:'l-menu-index_section-link' do %>
+                <span class="line jp">投稿</span>
+                <span class="line en">Post</span>
+              <% end %>
+            </div>
             </a>
           </li>
         </ol>
