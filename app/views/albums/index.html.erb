@@ -24,6 +24,7 @@
         </div>
         <!--</p>-->
         <%= link_to '削除', "/events/#{album.event_id}/albums/#{album.id}", method: :delete %>
+        <%= link_to '編集', event_albums_path(id: album.id, event_id: @event.id) %>
       <% end %>
   </div>
   <!--</div>-->

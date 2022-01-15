@@ -14,8 +14,6 @@ class PostsController < ApplicationController
   def index
     # フォローユーザーの投稿一覧
     @posts_follow = Post.where(user_id: [*current_user.following_ids]).all.page(params[:page]).per(2).order(created_at: "ASC")
-    # フォローユーザー兼自身の投稿一覧
-    # @posts = Post.where(user_id: [current_user.id, *current_user.following_ids])
 
   end
 
@@ -37,8 +35,6 @@ class PostsController < ApplicationController
   def post_mine
     # 自分の投稿
     @posts_my = Post.where(user_id: current_user.id).all.page(params[:page_3]).per(2).order(created_at: "ASC")
-    # @tag_list = Tag.all              #ビューでタグ一覧を表示するために全取得。
-    # @posts = Post.all                #ビューで投稿一覧を表示するために全取得。
     @post = current_user.posts.new   #ビューのform_withのmodelに使う。
   end
 
@@ -56,7 +52,12 @@ class PostsController < ApplicationController
     else
       @posts = Post.where(user_id: current_user.id)
     end
+  end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to request.referer
   end
 
   def search

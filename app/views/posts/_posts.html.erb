@@ -1,6 +1,9 @@
 <% posts.each do |post_image| %>
   <%= link_to post_path(id: post_image, tab_id: tab_id), remote: true do %>
     <%= image_tag post_image.post_image_id.to_s, size: '200x200', class: 'photo-img', id: 'photo-img' %>
+    <% if tab_id == 3 %>
+      <%= link_to '削除', post_path(post_image), method: :delete %>
+    <% end %>
   <% end %>
 <% end %>
 <%= paginate posts %>

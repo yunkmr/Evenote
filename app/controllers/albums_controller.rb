@@ -18,7 +18,20 @@ class AlbumsController < ApplicationController
       @albums = @event.albums.includes(:user).order(created_at: "DESC")
       render :index
     end
+  end
 
+  def update
+    @event = Event.find(params[:event_id])
+    @album = Album.find(params[:id])
+    # 投稿が成功した場合
+    if @album.update(album_params)
+      @albums = Album.where(event_id: @event.id)
+      redirect_to event_albums_path(event_id: @event)
+    # 投稿が失敗した場合
+    else
+      @albums = @event.albums.includes(:user).order(created_at: "DESC")
+      render :index
+    end
   end
 
   def index
@@ -29,8 +42,12 @@ class AlbumsController < ApplicationController
     # @album = Album.new
     # @photo_image = @album.photos.build
     # @albums = @event.albums.includes(:user).order(created_at: "DESC")
+    if params[:id].present?
+      @album = Album.find(params[:id])
+    else
+      @album = Album.new
+    end
 
-    @album = Album.new
     @albums = @event.albums.includes(:user).order(created_at: "DESC")
   end
 

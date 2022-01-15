@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts, only: [:create, :index, :show] do
+  resources :posts, only: [:create, :index, :show, :destroy] do
     collection do
       get 'post_all'
       get 'post_mine'
