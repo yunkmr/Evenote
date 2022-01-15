@@ -2,6 +2,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10">
+      <%= link_to '詳細画面に戻る', event_path(@event) %>
+      <%= link_to '一覧画面に戻る', events_path %>
       <%= form_with model:[@event, @album], local: true do |f| %>
         <%= f.text_field :album_name, id: 'textarea', class: 'input-box__content' %>
         <%= f.submit '登録する' %>
@@ -21,6 +23,7 @@
           <p class="sample_box12_subtitle"><i class="far fa-image albumsize"></i></p>
         </div>
         <!--</p>-->
+        <%= link_to '削除', "/events/#{album.event_id}/albums/#{album.id}", method: :delete %>
       <% end %>
   </div>
   <!--</div>-->

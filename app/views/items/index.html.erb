@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 mx-auto">
-      <%= form_with(model: [@event,@item], remote:true) do |f| %>
+      <%= link_to '詳細画面へ', event_path(@event) %>
+      <%= link_to '一覧画面へ', events_path %>
+      <%= form_with(model: [@event,@item], local: true) do |f| %>
         <div class="form-group">
           <%= f.label :商品名, class:'col-md-4' %>
           <%= f.text_field :name, class:'inputText' %>

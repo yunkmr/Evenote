@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <div class="row">
+        <div class="col-md-3 mx-auto">
+          <%= form_with url: search_tickets_path, method: :get, local:true do |f| %>
+            <%= f.label :イベント名 %>
+            <%= f.text_field :keyword %>
+            <%= f.select :date_1, [['イベント日付', 'event_date'], ['申込開始日', 'entry_start_date'], ['申込終了日', 'entry_end_date'], ['当選発表日', 'win_date'], ['支払期限日', 'payment_date']], { include_blank: false } %>
+            <%= f.date_field :search_date %>
+            <%= f.label :申込 %>
+            <%= f.select :entry, [['未申込', 'FALSE'], ['申込済', 'TRUE']], { include_blank: true } %>
+            <%= f.label :当落 %>
+            <%= f.select :win, [['当選', 'TRUE'], ['落選', 'FALSE']], { include_blank: true } %>
+            <%= f.label :支払 %>
+            <%= f.select :payment, [['未支払', 'FALSE'], ['支払済', 'TRUE']], { include_blank: true } %>
+            <%= f.select :date_2, [['イベント日付', 'event_date'], ['申込開始日', 'entry_start_date'], ['申込終了日', 'entry_end_date'], ['当選発表日', 'win_date'], ['支払期限日', 'payment_date']], { include_blank: false } %>
+            <%= f.select :sort, [['昇順', 'ASC'], ['降順', 'DESC']], { include_blank: false } %>
+            <%= f.submit '検索' %>
+          <% end %>
+        </div>
+        <div class="col-md-9 mx-auto">
+          <table class="table">
+            <tr>
+              <th>日付</th>
+              <th>イベント名</th>
+              <th>申込日</th>
+              <th>申込状況</th>
+              <th>当落発表日</th>
+              <th>当落状況</th>
+              <th>支払期限日</th>
+              <th>支払状況</th>
+            </tr>
+            <% tickets.each do |ticket| %>
+              <tr>
+                <td><%= ticket.event_date %></td>
+                <td><%= link_to ticket.event_name, ticket_path(ticket) %></td>
+                <td><%= ticket.entry_start_date %>〜<%= ticket.entry_end_date %></td>
+                <td>
+                  <% if ticket.entry_flg %>
+                    申込済
+                  <% else %>
+                    未申込
+                  <% end %>
+                </td>
+                <td><%= ticket.win_date %></td>
+                <td>
+                  <% if ticket.win_flg.nil? %>
+                    −
+                  <% elsif ticket.win_flg %>
+                    落選
+                  <% else %>
+                    当選
+                  <% end %>
+                </td>
+                <td><%= ticket.payment_date %></td>
+                <td>
+                  <% if ticket.payment_flg %>
+                    支払済
+                  <% else %>
+                    未支払
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

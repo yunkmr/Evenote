@@ -3,6 +3,9 @@
     <div class="col-md-8 mx-auto">
       <div class="post-form">
         <div class="input-box">
+          <%= link_to 'イベント詳細画面へ戻る', event_path(@album.event_id) %>
+          <%= link_to 'アルバム一覧へ戻る', albums_path %>
+          <%= link_to 'アルバムへ戻る', event_albums_path(event_id: @album.event_id, album_id: @album.id)%>
           <%= form_with model:@photo,url:event_album_photos_path, local: true do |f| %>
             <%#= f.text_field :album_name, id: 'textarea', class: 'input-box__content' %>
             <div class="input-box__bottom">

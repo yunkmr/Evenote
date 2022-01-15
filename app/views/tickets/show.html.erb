@@ -4,6 +4,9 @@
       <%= link_to edit_ticket_path do %>
         <i class="fas fa-pen size"></i>
       <% end %>
+      <%= link_to '一覧に戻る', tickets_path %>
+      <%= link_to '新規登録', new_ticket_path %>
+      <%= link_to '削除', ticket_path(@ticket), method: :delete %>
       <div class="container l-app_tickets">
         <div class="row l-app_ticket">
           <div class="l-app_ticket_title col-md-3">

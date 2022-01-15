@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 
   # タグの関係
   has_many :tag_maps, dependent: :destroy
-  has_many :tags, through: :tag_maps
+  has_many :tags, through: :tag_maps, dependent: :destroy
 
   # いいねの関係
 	has_many :favorites, dependent: :destroy

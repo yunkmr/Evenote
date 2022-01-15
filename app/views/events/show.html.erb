@@ -4,6 +4,9 @@
       <%= link_to edit_event_path do %>
         <i class="fas fa-pen size"></i>
       <% end %>
+      <%= link_to '一覧に戻る', events_path %>
+      <%= link_to '新規登録', new_event_path %>
+      <%= link_to '削除', event_path(@event), method: :delete %>
       <%= render 'events/show', event: @event %>
 <%
 =begin %>

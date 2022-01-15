@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
 
   belongs_to :user
-  has_many :items
-  has_many :albums
+  has_many :items, dependent: :destroy
+  has_many :albums, dependent: :destroy
 
 
   # validates :name, presence:true

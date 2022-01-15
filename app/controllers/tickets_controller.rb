@@ -38,6 +38,61 @@ class TicketsController < ApplicationController
   end
 
   def destroy
+    @ticket = Ticket.find(params[:id])
+    # binding.pry
+    @ticket.destroy
+    redirect_to tickets_path
+  end
+
+  def search
+
+    # 検索対象
+    date_1 = params["date_1"]
+    # 検索キーワード
+    keyword = params["keyword"]
+    # 日付
+    search_date = params["search_date"]
+    # 日付
+    entry = params["entry"]
+      # 日付
+    win = params["win"]
+      # 日付
+    payment = params["payment"]
+      # 日付
+    date_2 = params["date_2"]
+      # 日付
+    sort = params["sort"]
+
+    @tickets = current_user.tickets
+
+    if keyword.present?
+      @tickets = @tickets.where("event_name LIKE ?", '%'+keyword+'%')
+    end
+
+    if search_date.present?
+      @tickets = @tickets.where("#{date_1}": search_date)
+    end
+
+    if entry.present?
+      @tickets = @tickets.where(entry_flg: entry)
+    end
+
+    if win.present?
+      @tickets = @tickets.where(win_flg: win)
+    end
+
+    if payment.present?
+      @tickets = @tickets.where(payment_flg: payment)
+    end
+
+    if date_2.present?
+      date_sort = date_2 + " " + sort
+      # binding.pry
+      @tickets = @tickets.all.order("#{date_sort}")
+    end
+
+    # binding.pry
+
   end
 
   def ticket_params

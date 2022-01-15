@@ -39,6 +39,27 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_path
+  end
+
+  def search
+
+    # 検索対象
+    date = params["date"]
+    # 検索キーワード
+    keyword = params["keyword"]
+
+    @events = current_user.events
+
+    if date.present?
+      @events = @events.where("date": date)
+    end
+
+    if keyword.present?
+      @events = @events.where("name LIKE ?", '%'+keyword+'%')
+    end
   end
 
   private

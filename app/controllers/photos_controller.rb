@@ -4,7 +4,6 @@ class PhotosController < ApplicationController
     @album = Album.find(params[:album_id])
     @photos = @album.photos
 
-
     # @photo = @album.photos.build
     # if params[:photos].present?
     #   # フォームで入力されたファイルを一つずつレコードに格納していく
@@ -31,6 +30,10 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @photo.destroy
     redirect_to request.referer
+  end
+
+  def index_all
+    @albums = current_user.albums
   end
 
 end

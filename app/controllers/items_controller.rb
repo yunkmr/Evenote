@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     if @item.save
       # @items = Item.where(event_id: params[:event_id])
       @items = Item.where(event_id: @event.id)
-      render 'index'
+      redirect_to request.referer
     else
       @item = Item.new
       @items = Item.where(event_id: @event.id)
@@ -32,10 +32,11 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @event = Event.find(params[:event_id])
     @item = Item.find(params[:id])
     if @item.update(item_params)
       @items = Item.where(event_id: @event.id)
-      redirect_to request.referer
+      redirect_to event_items_path(event_id: @event)
     else
       @item = Item.new
       @items = Item.find(params[:event_id])
