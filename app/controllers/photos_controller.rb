@@ -4,14 +4,6 @@ class PhotosController < ApplicationController
     @album = Album.find(params[:album_id])
     @photos = @album.photos
 
-    # @photo = @album.photos.build
-    # if params[:photos].present?
-    #   # フォームで入力されたファイルを一つずつレコードに格納していく
-    #   params[:photos][:memory_image_id].each do |a|
-    #     @photo = @album.photos.create!(memory_image_id: a, album_id: @album.id)
-    #     # binding.pry
-    #   end
-    # end
   end
 
   def create
@@ -20,7 +12,6 @@ class PhotosController < ApplicationController
       # フォームで入力されたファイルを一つずつレコードに格納していく
       params[:photos][:memory_image_id].each do |a|
         @photo = @album.photos.create!(memory_image_id: a, album_id: @album.id)
-        # binding.pry
       end
     end
     redirect_to event_album_photos_path(album_id: @album.id)

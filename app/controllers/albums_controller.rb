@@ -36,12 +36,7 @@ class AlbumsController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
-    # @albums = Album.includes(:images).order('created_at DESC')
 
-    # @event = Event.find(params[:event_id])
-    # @album = Album.new
-    # @photo_image = @album.photos.build
-    # @albums = @event.albums.includes(:user).order(created_at: "DESC")
     if params[:id].present?
       @album = Album.find(params[:id])
     else

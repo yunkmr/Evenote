@@ -165,3 +165,28 @@ $(document).on('turbolinks:load', function() {
     });
   });
 });
+
+$(document).on('turbolinks:load', function() {
+  $('.css-control').on('focusin', function() {
+    // alert("ooo")
+    $(this).parent().find('label').addClass('active');
+  });
+});
+
+$(document).on('turbolinks:load', function() {
+  $('.css-control').on('focusout', function() {
+    if (!this.value) {
+      $(this).parent().find('label').removeClass('active');
+    }
+  });
+});
+
+$(document).on('turbolinks:load', function() {
+  $('.js-input').keyup(function() {
+    if( $(this).val() ) {
+       $(this).addClass('not-empty');
+    } else {
+       $(this).removeClass('not-empty');
+    }
+  });
+});

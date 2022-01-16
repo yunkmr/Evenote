@@ -1,57 +1,61 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mx-auto">
-      <h2 class="mt-2">プロフィール</h2>
-      <%= form_with model:@event, local:true do |f| %>
-        <div class="form-group">
-          <%= f.label :イベント名 %>
-          <%= f.text_field :name, class:'name form-control' %>
-        </div>
-        <div class="form-group col-md-5 mt-2">
-          <%= f.label :日付 %>
-          <%= f.date_field :date, class:'date form-control' %>
-        </div>
-        <div class="row mt-2">
-          <div class="form-group col-md-4">
-            <%= f.label :開場時間 %>
-            <%= f.time_field :open_time, class:'open_time form-control' %>
+    <div class="get-in-touch col-md-8 mx-auto">
+      <!--<h5>イベント新規登録</h5>-->
+      <%= form_with model:@event, local:true, html: { class: "contact-form" } do |f| %>
+        <!--<div class="row">-->
+          <div class="form-group form-field col-md-12 mt-30">
+            <%= f.text_field :name, id:'name', class:'form-control input-text js-input' %>
+            <%= f.label :イベント名, for:'name', class:'control-label label' %>
           </div>
-          <div class="form-group col-md-4">
-            <%= f.label :開演時間 %>
-            <%= f.time_field :start_time, class:'start_time form-control' %>
+        <div class="form-row col-md-12">
+          <div class="form-group row col-md-7">
+            <%= f.label :日付, class:'col-md-3 control-label' %>
+            <%= f.date_field :date, class:'date col-md-5 form-control' %>
           </div>
-          <div class="form-group col-md-4">
-            <%= f.label :終演時間 %>
-            <%= f.time_field :end_time, class:'end_time form-control' %>
+          <div class="form-group row col-md-5 ml-auto">
+            <%= f.label :開場時間, class:'col-md-5 control-label' %>
+            <%= f.time_field :open_time, class:'open_time col-md-6 form-control' %>
           </div>
         </div>
-        <div class="row mt-2">
-          <div class="form-group col-md-7">
-            <%= f.label :場所 %>
-            <%= f.text_field :place, class:'end_time form-control' %>
+        <div class="form-row col-md-12 mt-2">
+          <div class="form-group row col-md-5 ml-auto">
+            <%= f.label :開演時間, class:'col-md-5 control-label' %>
+            <%= f.time_field :start_time, class:'start_time col-md-6 form-control' %>
           </div>
-          <div class="form-group col-md-4">
-            <%= f.label :座席 %>
-            <%= f.text_field :seat, class:'end_time form-control' %>
+        </div>
+        <div class="form-row col-md-12 mt-2">
+          <div class="form-group row col-md-5 ml-auto">
+            <%= f.label :終演時間, class:'col-md-5 col-form-label' %>
+            <%= f.time_field :end_time, class:'end_time col-md-6 form-control' %>
           </div>
+        </div>
+        <div class="form-row col-md-12 mt-20">
+          <div class="form-group form-field col-md-6">
+            <%= f.text_field :place, id:'place', class:'form-control input-text js-input' %>
+            <%= f.label :場所, for:'place', class:'control-label label' %>
+          </div>
+          <div class="form-group form-field col-md-5 ml-auto">
+          <%= f.text_field :seat, id:'seat', class:'form-control input-text js-input' %>
+          <%= f.label :座席, for:'seat', class:'control-label label' %>
+          </div>
+        </div>
+        <div class="form-group form-field col-md-12 mt-2">
+          <%= f.text_field :with, id:'with', class:'form-control input-text js-input' %>
+          <%= f.label :同行者, for:'with', class:'control-label label' %>
+        </div>
+        <div class="form-group form-field col-md-12 mt-2">
+          <%= f.text_area :memo, rows:3, id:'memo', class:'form-control input-text js-input' %>
+          <%= f.label :メモ, for:'memo', class:'control-label label' %>
         </div>
         <div class="form-group mt-2">
-          <%= f.label :同行者 %>
-          <%= f.text_field :seat, class:'end_time form-control' %>
-        </div>
-        <div class="form-group mt-2">
-          <%= f.label :メモ %>
-          <%= f.text_area :memo, rows:5, class:'end_time form-control' %>
-        </div>
-        <div class="form-group mt-2">
-          <%= f.label :公開する, class:'col-md-4'  %>
           <%= f.radio_button :release_flg, 0, checked: true %>
           <%= f.label :release_flg, "公開しない", {value: :false, style: "display: inline-block;"} %>
           <%= f.radio_button :release_flg, :true %>
           <%= f.label :release_flg, "公開する", {value: :true, style: "display: inline-block;"} %>
         </div>
-        <div class="form-action">
-          <%= f.submit '登録する' %>
+        <div class="form-group">
+          <%= f.submit '登録する', class:'submit-btn' %>
         </div>
       <% end %>
   </div>
