@@ -16,6 +16,11 @@
       <td>
         <%= link_to 'イベントを見る', event_user_search_path(user_id: user.id) %>
       </td>
+      <td>
+        <div id="follow_form_following_<%= user.id %>">
+          <%= render 'relationships/follow_button', user: user %>
+        </div>
+      </td>
     </tr>
   <% end %>
 </table>

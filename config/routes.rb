@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'relationships/followings'
-  get 'relationships/followers'
+  # get 'relationships/followings'
+  # get 'relationships/followers'
+
+  get 'relationships/follow'
   root 'homes#top'
 
   resource :users, only: [:show,:edit,:update]  do

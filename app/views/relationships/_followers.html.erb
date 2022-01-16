@@ -1,0 +1,7 @@
+<% users_follower.each do |user| %>
+  <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
+  <div id="follow_form_follower_<%= user.id %>">
+    <%= render 'relationships/follow_button', user: user %>
+  </div>
+<% end %>
+<%= paginate users_follower, :param_name => 'page_2', remote: true %>

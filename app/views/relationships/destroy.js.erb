@@ -1,3 +1,4 @@
 $('#follow_form').html("<%= j(render 'relationships/follow_button', {user: @user}) %>");
-$('#follow_form_following').html("<%= j(render 'relationships/follow_button', {user: @user}) %>");
-$('#follow_form_follower').html("<%= j(render 'relationships/follow_button', {user: @user}) %>");
+$('#follow_form_following_<%= @user.id %>').html("<%= j(render 'relationships/follow_button', {user: @user}) %>");
+$('#follow_form_follower_<%= @user.id %>').html("<%= j(render 'relationships/follow_button', {user: @user}) %>");
+$('#follower_count').html("<%= j(render 'users/follower_count', {user: @user}) %>");

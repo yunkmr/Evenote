@@ -14,7 +14,6 @@ class NotificationsController < ApplicationController
     else
       render 'index.js.erb'
     end
-    # binding.pry
   end
 
 end

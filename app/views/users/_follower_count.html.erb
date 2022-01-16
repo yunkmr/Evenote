@@ -1,0 +1,8 @@
+<table class="table table-inverse">
+  <tr>
+    <td><%= attachment_image_tag(user, :profile_image, :fill, 20,20, fallback: 'no-image.jpg', size:'100x100') %></td>
+    <td class="align_middle"><%= user.user_name %><br>イベント数</td>
+    <td class="align-items-center"><%= link_to user.followings.count, relationships_follow_path(follow_id: user.id, mode: 0) %><br>フォロー</td>
+    <td class="align-items-center"><%= link_to user.followers.count, relationships_follow_path(follow_id: user.id, mode: 1) %><br>フォロワー</td>
+  </tr>
+</table>

@@ -1,0 +1,2 @@
+$('#following_area').html("<%= j(render 'relationships/followings', {users_follow: @users_follow}) %>");
+$('#follower_area').html("<%= j(render 'relationships/followers', {users_follower: @users_follower}) %>");
