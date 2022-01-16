@@ -31,10 +31,25 @@
         <!--タブで選択された要素部分-->
         <div class="col-md-10">
           <div class="tabbox-contents">
-            <div class="tabbox box-show">
-              <%= render 'posts/post_form', post: @post %>
-              <h3>投稿一覧</h3>
-              <%= render 'posts/post_list', posts: @posts_my, tab_id: 3 %>
+            <ul class="sub-tab-list list-unstyled">
+              <div class="row col-md-12">
+                <li class="sub-tab sub-tab-active col-md-6">
+                  投稿する
+                </li>
+                <li class="sub-tab col-md-6">
+                  投稿一覧
+                </li>
+              </div>
+            </ul>
+            <div class="tabbox-contents">
+              <div class="sub-tabbox sub-box-show">
+                <%= render 'posts/post_form', post: @post %>
+              </div>
+              <div class="sub-tabbox">
+                <div id="post_area">
+                  <%= render 'posts/post_list_remote', posts: @posts_my, tab_id: 3 %>
+                </div>
+              </div>
             </div>
           </div>
         </div>

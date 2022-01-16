@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # get 'relationships/followings'
-  # get 'relationships/followers'
+  get 'relationships/followings'
+  get 'relationships/followers'
   root 'homes#top'
 
   resource :users, only: [:show,:edit,:update]  do
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts, only: [:create, :index, :show, :destroy] do
+  resources :posts, only: [:index, :show,:create, :update, :destroy] do
     collection do
       get 'post_all'
       get 'post_mine'

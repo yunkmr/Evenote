@@ -1,16 +1,5 @@
 class PostsController < ApplicationController
 
-  def create
-    @post = current_user.posts.new(post_params)
-    tag_list = params[:post][:tag_name].split(nil)
-    if @post.save
-      @post.save_tag(tag_list)
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)
-    end
-  end
-
   def index
     # フォローユーザーの投稿一覧
     @posts_follow = Post.where(user_id: [*current_user.following_ids]).all.page(params[:page]).per(2).order(created_at: "ASC")
@@ -34,13 +23,48 @@ class PostsController < ApplicationController
 
   def post_mine
     # 自分の投稿
-    @posts_my = Post.where(user_id: current_user.id).all.page(params[:page_3]).per(2).order(created_at: "ASC")
-    @post = current_user.posts.new   #ビューのform_withのmodelに使う。
+    @posts_my = Post.where(user_id: current_user.id).all.page(params[:page]).per(2).order(created_at: "ASC")
+
+    if params[:id].present?
+      @post = Post.find(params[:id])
+      @tag_list = @post.tags.pluck(:tag_name).join(' ')
+    else
+      @post = current_user.posts.new
+      @tag_list = ""
+    end
+
+    # binding.pry
+
+    # @post = current_user.posts.new   #ビューのform_withのmodelに使う。
+  end
+
+  def create
+    # 投稿の登録
+    @post = current_user.posts.new(post_params)
+    tag_list = params[:post][:tag_name].split(nil)
+    if @post.save
+      @post.save_tag(tag_list)
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    tag_list = params[:post][:tag_name].split(nil)
+    if @post.update(post_params)
+      @post.save_tag(tag_list)
+      redirect_to post_mine_posts_path
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
 
   def show
-    @post = Post.find(params[:id])  #クリックした投稿を取得。
+    # 投稿の詳細ページ表示（モーダル）
+    @post = Post.find(params[:id])
     @user = Post.find(params[:id]).user
     @post_comments = @post.post_comments.page(params[:page]).per(2)
 
@@ -68,7 +92,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-   params.require(:post).permit(:post_image_id)
+   params.require(:post).permit(:post_image_id, :maintext)
   end
 
 end

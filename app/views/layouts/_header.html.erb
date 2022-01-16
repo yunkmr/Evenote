@@ -1,5 +1,5 @@
 <nav class="navbar-expand-lg navbar-dark bg-dark">
-  <div lass="container">
+  <div class="container">
     <a class="navbar-brand" href="/">Evenote<span>ようこそ、<%= current_user.user_name %>さん</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span><i class="far fa-user-circle"></i></span>
@@ -15,7 +15,7 @@
         </li>
         <li class="navbar-nav-item">
           <div class="nav-link">
-            <%= link_to notifications_path do %>
+            <%= link_to notifications_path, remote:true do %>
               <p>
                 <% if unchecked_notifications.any? %>
                   <span>

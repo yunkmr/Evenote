@@ -10,25 +10,28 @@
   </head>
 
   <body>
-    <header>
-      <div class="l-app_header">
-        <% if user_signed_in? %>
-          <%= render 'layouts/header' %>
-        <% end %>
-      </div>
-    </header>
-    <main>
-      <div class="l-main">
-        <% if user_signed_in? %>
-          <%= render 'layouts/menu' %>
-        <% end %>
-        <div class="l-app_contents">
-          <%= yield %>
+    <!--<div class="wrapper">-->
+      <header>
+        <div class="l-app_header">
+          <% if user_signed_in? %>
+            <%= render 'layouts/header' %>
+          <% end %>
         </div>
-      </div>
-    </main>
-    <footer>
-      <%= render 'layouts/footer' %>
-    </footer>
+      </header>
+      <main>
+        <div id="notify-modal" class="modal notify-modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+        <div class="l-main">
+          <% if user_signed_in? %>
+            <%= render 'layouts/menu' %>
+          <% end %>
+          <div class="l-app_contents">
+            <%= yield %>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <%= render 'layouts/footer' %>
+      </footer>
+    <!--</div>-->
   </body>
 </html>

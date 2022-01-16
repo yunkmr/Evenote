@@ -13,5 +13,11 @@
       <td><%= user.join_event %></td>
     </tr>
   </table>
-  <%= link_to 'プロフィールを編集', edit_users_path, class:'btn btn-lg btn-block bg-white' %>
+  <% if current_user == user %>
+    <%= link_to 'プロフィールを編集', edit_users_path, class:'btn btn-lg btn-block bg-white' %>
+  <% else %>
+    <div id="follow_form">
+      <%= render 'relationships/follow_button', user: user %>
+    </div>
+  <% end %>
 </div>
