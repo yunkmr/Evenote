@@ -1,40 +1,66 @@
 <div class="container">
   <div class="row">
+    <%= link_to '一覧に戻る', events_path %>
     <div class="col-md-8 mx-auto">
       <%= link_to edit_event_path do %>
         <i class="fas fa-pen size"></i>
       <% end %>
-      <%= link_to '一覧に戻る', events_path %>
-      <%= link_to '新規登録', new_event_path %>
       <%= link_to '削除', event_path(@event), method: :delete %>
-      <%= render 'events/show', event: @event %>
-<%
-=begin %>
-      <p><%= @event.name %></p>
-      <p>日時<%= @event.date %> OPEN <%#= @event.open_time.strftime("%H:%M") %> / START <%#= @event.start_time.strftime("%H:%M") %> END <%#= @event.end_time.strftime("%H:%M") %></p>
-      <p>場所<%= @event.place %></p>
-      <p>座席<%= @event.seat %></p>
-      <p>同行者<%= @event.seat %></p>
-      <p>メモ<%= @event.memo %></p>
-<%
-=end %>
-      <%= link_to 'グッズ登録はこちらから', event_items_path(@event), class:'fas fa-arrow-circle-right' %>
-      <%= link_to 'アルバム作成はこちらから', event_albums_path(@event), class:'fas fa-arrow-circle-right' %>
-
-<%
-=begin %>
-      <%= form_with model:@album, url:albums_path, local:true do |f| %>
-        <div class="form-group">
-          <%= f.hidden_field :event_id, value: @event.id %>
-          <%= f.label :アルバム名 %>
-          <%= f.text_field :album_name %>
-        </div>
-        <div class="form-action">
-          <%= f.submit '登録する' %>
-        </div>
-      <% end %>
-<%
-=end %>
+      <%#= render 'events/show', event: @event %>
+      <table class="table table-borderless col-md-8">
+        <tr>
+          <th scope="row">イベント名</th>
+          <td class="nomal-font">
+            <%= @event.name %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">日時</th>
+          <td class="nomal-font">
+            <%= @event.date %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td class="nomal-font">
+            OPEN：
+            <% unless @event.open_time.nil? %>
+              <%= @event.open_time.strftime("%H:%M") %>
+            <% end %>
+            / START：
+            <% unless @event.open_time.nil? %>
+              <%= @event.start_time.strftime("%H:%M") %>〜
+            <% end %>
+            <% unless @event.open_time.nil? %>
+              <%= @event.end_time.strftime("%H:%M") %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">場所</th>
+          <td class="nomal-font">
+            <%= @event.place %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">座席</th>
+          <td class="nomal-font">
+            <%= @event.seat %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">メモ</th>
+          <td class="nomal-font">
+            <%= @event.memo %>
+          </td>
+        </tr>
+      </table>
+      <div class="mt-2">
+        <%= link_to 'グッズ登録はこちらから', event_items_path(@event), class:'fas fa-arrow-circle-right' %>
+      </div>
+      <div class="mt-2 mb-5">
+        <%= link_to 'アルバム作成はこちらから', event_albums_path(@event), class:'fas fa-arrow-circle-right' %>
+      </div>
     </div>
   </div>
 </div>

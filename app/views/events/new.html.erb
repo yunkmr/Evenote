@@ -44,9 +44,8 @@
           <%= f.text_field :with, id:'with', class:'form-control input-text js-input' %>
           <%= f.label :同行者, for:'with', class:'control-label label' %>
         </div>
-        <div class="form-group form-field col-md-12 mt-2">
-          <%= f.text_area :memo, rows:3, id:'memo', class:'form-control input-text js-input' %>
-          <%= f.label :メモ, for:'memo', class:'control-label label' %>
+        <div class="form-group col-md-12 mt-2">
+          <%= f.text_area :memo, rows:3, placeholder: "メモ", class:'form-control' %>
         </div>
         <div class="form-group mt-2">
           <%= f.radio_button :release_flg, 0, checked: true %>
