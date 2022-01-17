@@ -1,64 +1,94 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mx-auto">
-      <%= form_with model:@ticket, local:true do |f| %>
-        <div class="form-group">
-          <%= f.label :イベント日時, class:'col-md-4' %>
-          <%= f.date_field :event_date %>
-        </div>
-        <div class="form-group">
-          <%= f.label :イベント名, class:'col-md-4' %>
-          <%= f.text_field :event_name, class:'col-md-6' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :枚数, class:'col-md-4' %>
-          <%= f.text_field :number %>
-        </div>
-        <div class="form-group">
-          <%= f.label :金額, class:'col-md-4' %>
-          <%= f.text_field :money %>
-        </div>
-        <div class="form-group">
-          <%= f.label :申込開始日, class:'col-md-4' %>
-          <%= f.date_field :entry_start_date %>
-        </div>
-        <div class="form-group">
-          <%= f.label :申込終了日, class:'col-md-4' %>
-          <%= f.date_field :entry_end_date %>
-        </div>
-        <div class="form-group">
-          <%= f.label :申込有無, class:'col-md-4' %>
-          <%= f.radio_button :entry_flg, 0, checked: true %>
-          <%= f.label :entry_flg, "未申込", {value: :false, style: "display: inline-block;"} %>
-          <%= f.radio_button :entry_flg, :true %>
-          <%= f.label :entry_flg, "申込済", {value: :true, style: "display: inline-block;"} %>
-        </div>
-        <div class="form-group">
-          <%= f.label :当落発表日, class:'col-md-4' %>
-          <%= f.date_field :win_date %>
-        </div>
-        <div class="form-group">
-          <%= f.label :当落, class:'col-md-4' %>
-          <%= f.radio_button :win_flg, :true %>
-          <%= f.label :win_flg, "当選", {value: :true, style: "display: inline-block;"} %>
-          <%= f.radio_button :win_flg, :false %>
-          <%= f.label :win_flg, "落選", {value: :false, style: "display: inline-block;"} %>
-        </div>
-        <div class="form-group">
-          <%= f.label :支払期限日, class:'col-md-4' %>
-          <%= f.date_field :payment_date %>
-        </div>
-        <div class="form-group">
-          <%= f.label :支払有無, class:'col-md-4' %>
-          <%= f.radio_button :payment_flg, 0, checked: true %>
-          <%= f.label :payment_flg, "未支払", {value: :false, style: "display: inline-block;"} %>
-          <%= f.radio_button :payment_flg, :true %>
-          <%= f.label :payment_flg, "支払済", {value: :true, style: "display: inline-block;"} %>
-        </div>
-        <div class="form-action">
-          <%= f.submit '登録する' %>
-        </div>
-      <% end %>
+    <div class="col-md-12 mx-auto">
+      <div class="card">
+        <h5 class="card-header">チケット新規登録</h5>
+        <%= form_with model:@ticket, local:true, html: { class: "contact-form" } do |f| %>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <%= f.label :イベント名, class:'control-label' %>
+                <%= f.text_field :event_name, class:'form-control' %>
+              </div>
+              <div class="form-group col-md-3">
+                <%= f.label :イベント日時, class:'control-label' %>
+                <%= f.date_field :event_date, class:'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :チケット：, class:'control-label' %>
+            </div>
+            <div class="form-row col-md-12">
+              <div class="form-group row col-md-4">
+                <%= f.label :枚数, class:'col-md-3 control-label' %>
+                <%= f.select :number, *[1..100], { include_blank: '枚数選択'}, class:'number col-md-7 form-control' %>
+              </div>
+              <div class="form-group row col-md-4">
+                <%= f.label :金額, class:'col-md-3 control-label' %>
+                <%= f.text_field :money, class:'money col-md-7 form-control' %>
+              </div>
+            </div>
+            <h6 class="card-header">申込状況</h6>
+            <div class="card-body">
+              <!--</div>-->
+              <div class="form-row col-md-12">
+                <div class="form-group row col-md-5">
+                  <%= f.label :開始日, class:'col-md-4 control-label' %>
+                  <%= f.date_field :entry_start_date, class:'entry_start_date col-md-6 form-control' %>
+                </div>
+                <div class="form-group row col-md-5">
+                  <%= f.label :申込状況, class:'col-md-4 control-label' %>
+                  <%= f.radio_button :entry_flg, 0, checked: true, class: 'radio-form-label' %>
+                  <%= f.label :entry_flg, "未申込", {value: :false, class: 'mr-5 ml-2'} %>
+                  <%= f.radio_button :entry_flg, :true, class: 'radio-form-label' %>
+                  <%= f.label :entry_flg, "申込済", {value: :true, class: 'ml-2'} %>
+                </div>
+              </div>
+              <div class="form-row col-md-12">
+                <div class="form-group row col-md-5">
+                  <%= f.label :終了日, class:'col-md-4 control-label' %>
+                  <%= f.date_field :entry_end_date, class:'entry_end_date col-md-6 form-control' %>
+                </div>
+              </div>
+            </div>
+            <h6 class="card-header">当選状況</h6>
+            <div class="card-body">
+              <div class="form-row col-md-12">
+                <div class="form-group row col-md-5">
+                  <%= f.label :当落発表日, class:'col-md-4 control-label' %>
+                  <%= f.date_field :win_date, class:'win_date col-md-6 form-control' %>
+                </div>
+                <div class="form-group row col-md-5">
+                  <%= f.label :当落状況, class:'col-md-4' %>
+                  <%= f.radio_button :win_flg, :true, class: 'radio-form-label' %>
+                  <%= f.label :win_flg, "当選", {value: :true, class: 'mr-5 ml-2'} %>
+                  <%= f.radio_button :win_flg, :false, class: 'radio-form-label' %>
+                  <%= f.label :win_flg, "落選", {value: :false, class: 'ml-2'} %>
+                </div>
+              </div>
+            </div>
+            <h6 class="card-header">支払状況</h6>
+            <div class="card-body">
+              <div class="form-row col-md-12">
+                <div class="form-group row col-md-5">
+                  <%= f.label :支払期限日, class:'col-md-4 control-label' %>
+                  <%= f.date_field :payment_date, class:'payment_date col-md-6 form-control' %>
+                </div>
+                <div class="form-group row col-md-5">
+                  <%= f.label :支払状況, class:'col-md-4 control-label' %>
+                  <%= f.radio_button :payment_flg, 0, checked: true, class: 'radio-form-label' %>
+                  <%= f.label :payment_flg, "未支払", {value: :false, class: 'mr-5 ml-2'} %>
+                  <%= f.radio_button :payment_flg, :true, class: 'radio-form-label' %>
+                  <%= f.label :payment_flg, "支払済", {value: :true, class: 'ml-2'} %>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.submit '登録する', class:'submit-btn' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

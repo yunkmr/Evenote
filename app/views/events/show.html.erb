@@ -1,65 +1,106 @@
 <div class="container">
   <div class="row">
-    <%= link_to '一覧に戻る', events_path %>
-    <div class="col-md-8 mx-auto">
-      <%= link_to edit_event_path do %>
-        <i class="fas fa-pen size"></i>
+    <div class="col-md-2 ml-10">
+      <%= link_to events_path do %>
+        <i class="fas fa-undo"></i> 一覧へ
       <% end %>
-      <%= link_to '削除', event_path(@event), method: :delete %>
-      <%#= render 'events/show', event: @event %>
-      <table class="table table-borderless col-md-8">
-        <tr>
-          <th scope="row">イベント名</th>
-          <td class="nomal-font">
-            <%= @event.name %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">日時</th>
-          <td class="nomal-font">
-            <%= @event.date %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row"></th>
-          <td class="nomal-font">
-            OPEN：
-            <% unless @event.open_time.nil? %>
-              <%= @event.open_time.strftime("%H:%M") %>
-            <% end %>
-            / START：
-            <% unless @event.open_time.nil? %>
-              <%= @event.start_time.strftime("%H:%M") %>〜
-            <% end %>
-            <% unless @event.open_time.nil? %>
-              <%= @event.end_time.strftime("%H:%M") %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">場所</th>
-          <td class="nomal-font">
-            <%= @event.place %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">座席</th>
-          <td class="nomal-font">
-            <%= @event.seat %>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">メモ</th>
-          <td class="nomal-font">
-            <%= @event.memo %>
-          </td>
-        </tr>
-      </table>
+    </div>
+    <div class="col-md-8 mr-auto">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="">
+              <%= link_to edit_event_path do %>
+                <span class="mgl-30"><i class="far fa-edit"></i> 編集</span>
+              <% end %>
+            </div>
+            <div class="ml-auto">
+              <%= link_to edit_event_path do %>
+                <span class="mgr-30"><i class="far fa-trash-alt"></i> 削除</span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5><%= @event.name %></h5>
+          <div class="row mt-3">
+            <div class="col-md-2">
+              <p><span class="mgl-10">日時：</span></p>
+            </div>
+            <div class="col-md-8">
+              <%= @event.date %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+              OPEN：
+              <% unless @event.open_time.nil? %>
+                <%= @event.open_time.strftime("%H:%M") %>
+              <% end %>
+              / START：
+              <% unless @event.open_time.nil? %>
+                <%= @event.start_time.strftime("%H:%M") %> 〜
+              <% end %>
+              <% unless @event.open_time.nil? %>
+                <%= @event.end_time.strftime("%H:%M") %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-2">
+                <p><span class="mgl-10">場所：</span></p>
+              </div>
+              <div class="col-md-8">
+                <%= @event.place %>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-2">
+                <p><span class="mgl-10">座席：</span></p>
+              </div>
+              <div class="col-md-8">
+                <%= @event.seat %>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-2">
+                <p><span class="mgl-10">同行者：</span></p>
+              </div>
+              <div class="col-md-8">
+                <%= @event.with %>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-2">
+                <p><span class="mgl-10">メモ：</span></p>
+              </div>
+              <div class="col-md-8">
+                <%= @event.memo %>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
       <div class="mt-2">
-        <%= link_to 'グッズ登録はこちらから', event_items_path(@event), class:'fas fa-arrow-circle-right' %>
+        <%= link_to event_items_path(@event) do %>
+          <span class="mgr-30">グッズ登録はこちらから <i class="fas fa-arrow-circle-right"></i></span>
+        <% end %>
       </div>
       <div class="mt-2 mb-5">
-        <%= link_to 'アルバム作成はこちらから', event_albums_path(@event), class:'fas fa-arrow-circle-right' %>
+        <%= link_to event_albums_path(@event) do %>
+          <span class="mgr-30">アルバム作成はこちらから <i class="fas fa-arrow-circle-right"></i></span>
+        <% end %>
       </div>
     </div>
   </div>

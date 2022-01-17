@@ -88,7 +88,9 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+  font-family: 'Amiri', serif;
 }
+
 
 // button {
 //   cursor: pointer;
@@ -416,19 +418,19 @@ p {
   // border: none;
   // opacity: 0.8;
   background-color: #f8ede1;
-  // background-color: hsla(0, 0%, 100%, 0.5);
 }
-
-.l-app_ticket {
-  border: 1px solid #808080;
-}
-
 .l-app_ticket_title{
-  border-right: 1px dashed #808080;
+  border-right: 1px dashed rgba(0, 0, 0, 0.125);
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
-.l-app_ticket{
-  border-bottm: 1px solid #808080;
+.l-app_ticket_detail {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+// カードのヘッダー
+.header-color {
+  background-color: #add8e6;
 }
 
 // .l-app_ticket_detail {
@@ -775,4 +777,26 @@ body {
 
 .form-control{
   background: #fff;
+}
+
+
+// 余白の調整
+// イベント詳細画面
+.mgl-10{
+    margin-left : 10px;
+}
+
+.mgl-30{
+    margin-left : 30px;
+}
+
+.mgr-30{
+    margin-right : 30px;
+}
+
+
+// チケット新規登録のラジオボタンの位置調整
+.radio-form-label {
+  position: relative;
+  top: 5px;
 }
