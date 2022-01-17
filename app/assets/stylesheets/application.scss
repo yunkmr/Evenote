@@ -445,38 +445,39 @@ p {
 
 
 // アルバム一覧
-.sample_box12 {
-  // width: 100px;/* 紙の横幅 100%にすると全幅表示に */
-   padding: 15px;
-   margin: 15px;
-   background :#e6e6fa;/* 紙の色 */
-   color: #000;/* 文字色 */
-   box-shadow: 4px 4px 4px rgba(0,0,0,0.03);transform:rotate(2deg);
-   word-break: break-all;
-}
-.sample_box12 p {
-    margin: 0;
-    padding: 0;
-    font-size: 0.9em;
-}
-.sample_box12_tape {
-    width: 50%;
-    height: 35px;
-    margin: -25px auto 0;
-    background: #dcdcdc;/* テープの色 */
-    transform: rotate(-3deg);
-    opacity: 0.7;
-}
-.sample_box12_title {
-    text-align: center;
-    font-size: 1.3em!important;
-    margin-top: 10px!important;
-}
-.sample_box12_subtitle {
-    text-align: center;
-    font-size: 0.7em!important;
-    margin-bottom: 1em!important;
-}
+// .sample_box12 {
+//   // width: 100px;/* 紙の横幅 100%にすると全幅表示に */
+//   // padding: 15px;
+//   // margin: 15px;
+//   height: 150px;
+//   background :#e6e6fa;/* 紙の色 */
+//   color: #000;/* 文字色 */
+//   // box-shadow: 4px 4px 4px rgba(0,0,0,0.03);transform:rotate(2deg);
+//   word-break: break-all;
+// }
+// .sample_box12 p {
+//     margin: 0;
+//     padding: 0;
+//     font-size: 0.9em;
+// }
+// .sample_box12_tape {
+//     width: 50%;
+//     height: 35px;
+//     margin: -25px auto 0;
+//     background: #dcdcdc;/* テープの色 */
+//     transform: rotate(-3deg);
+//     opacity: 0.7;
+// }
+// .sample_box12_title {
+//     text-align: center;
+//     padding: 25px 0;
+//     font-size: 4em!important;
+// }
+// .sample_box12_subtitle {
+//     text-align: center;
+//     font-size: 0.7em!important;
+//     margin-bottom: 1em!important;
+// }
 
 
 /* hiddenクラスがないとマスクとモーダルが表示される（JavaScriptでhiddenクラスを消したとき）*/
@@ -732,20 +733,6 @@ body {
       // cursor: text;
       transition: transform .2s ease-in-out;
    }
-
-   .submit-btn {
-      display: inline-block;
-      background-color: #000;
-      color: #fff;
-      font-family: Raleway, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 16px;
-      line-height: 24px;
-      padding: 8px 16px;
-      border: none;
-      cursor: pointer;
-   }
 }
 
 // チケット新規登録画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -777,6 +764,25 @@ body {
 }
 
 
+
+// アルバム画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+.album_box {
+  // width: 100px;/* 紙の横幅 100%にすると全幅表示に */
+  // padding: 15px;
+  // margin: 15px;
+  height: 150px;
+  background :#e6e6fa;/* 紙の色 */
+  color: #000;/* 文字色 */
+  // box-shadow: 4px 4px 4px rgba(0,0,0,0.03);transform:rotate(2deg);
+  word-break: break-all;
+}
+
+.album_box_image {
+    text-align: center;
+    padding: 25px 0;
+    font-size: 4em!important;
+}
+
 // 共通ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 // fontawesomeのレイアウト
 .size{
@@ -800,9 +806,28 @@ body {
     margin-left : 30px;
 }
 
+.mgr-10{
+    margin-right : 10px;
+}
+
 .mgr-30{
     margin-right : 30px;
 }
+
+.submit-btn {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  font-family: Raleway, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
 
 // 一旦退避ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 

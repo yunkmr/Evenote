@@ -1,18 +1,26 @@
-  <div class="row mt-5">
-      <% @albums.each do |album| %>
-        <!--<p>-->
-        <div class="col-md-2 sample_box12">
-          <div class="sample_box12_tape"></div>
-          <p class="sample_box12_title">
-            <%= link_to event_album_photos_path(event_id: album.event_id, album_id: album.id) do %>
-              <%= album.album_name %>
-            <% end %>
-          </p>
-          <p class="sample_box12_subtitle"><i class="far fa-image albumsize"></i></p>
-        </div>
-        <%= link_to '削除', "/events/#{album.event_id}/albums/#{album.id}", method: :delete %>
-        <!--</p>-->
-      <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+    <!--アルバム一覧-->
+    <h5>アルバム一覧</h5>
+      <div class="row">
+        <% @albums.each do |album| %>
+          <div class="col-xl-3 mb-3">
+            <div class="card">
+              <div class="album_box">
+                <div class="album_box_image"><i class="far fa-images"></i></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= link_to event_album_photos_path(event_id: album.event_id, album_id: album.id) do %>
+                    <%= album.album_name %>
+                  <% end %>
+                </h5>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <!--</div>-->
 </div>

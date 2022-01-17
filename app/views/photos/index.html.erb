@@ -1,5 +1,63 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-10">
+      <%= link_to event_albums_path(event_id: @album.event_id, album_id: @album.id) do %>
+        <i class="fas fa-angle-double-left"></i> アルバム一覧へ
+      <% end %>
+      <div class="mt-5">
+        <%= form_with model:@photo,　url:event_album_photos_path, local: true do |f| %>
+          <div class="form-group row col-md-12">
+            <div class="input-box__bottom">
+              <div class="input-box__bottom__files">
+                <%= f.fields_for :photos do |i| %>
+                  <%= i.file_field :memory_image_id, multiple: true, name: "photos[memory_image_id][]" %>
+                <% end %>
+              </div>
+              <div class="form-action">
+                <%= f.submit '登録する' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <!--アルバム一覧-->
+      <div class="mx-auto mt-5">
+        <div class="row">
+          <% if @photos.present? %>
+            <!--<div class="post_files">-->
+              <% @photos.each do |photo| %>
+                <div class="col-xl-3 mt-3">
+                  <div class="card h-100">
+                    <!--<div class="card-img-top">-->
+                      <%= image_tag photo.memory_image_id.to_s, class: 'card-img-top' %>
+                    <!--</div>-->
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="ml-auto">
+                            <%= link_to "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete do %>
+                              <span class="mgr-10"><i class="far fa-trash-alt"></i> 削除</span>
+                            <% end %>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              <% end %>
+            <!--</div>-->
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%
+=begin %>
+
+<div class="container">
+  <div class="row">
     <div class="col-md-8 mx-auto">
       <div class="post-form">
         <div class="input-box">
@@ -32,3 +90,6 @@
     </div>
   </div>
 </div>
+
+<%
+=end %>

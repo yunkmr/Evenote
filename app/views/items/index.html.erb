@@ -1,29 +1,42 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 mx-auto">
-      <%= link_to '詳細画面へ', event_path(@event) %>
-      <%= link_to '一覧画面へ', events_path %>
-      <%= form_with(model: [@event,@item], local: true) do |f| %>
-        <div class="form-group">
-          <%= f.label :商品名, class:'col-md-4' %>
-          <%= f.text_field :name, class:'inputText' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :個数, class:'col-md-4' %>
-          <%= f.select :quantity, *[1..20], { include_blank: '個数選択'}, class:'inputText' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :金額, class:'col-md-4' %>
-          <%= f.text_field :price, class:'inputText' %>
-        </div>
-        <div class="form-action">
-          <%= f.submit '登録する' %>
-        </div>
+    <div class="col-md-12 mx-auto">
+      <%= link_to events_path do %>
+        <i class="fas fa-angle-double-left"></i> イベント一覧へ
       <% end %>
-
-      <!--グッズ一覧-->
-      <div id="item_list">
-        <%= render 'item_list', items: @items %>
+      <span class="mgl-30"></span>
+      <%= link_to event_path(@event) do %>
+        <i class="fas fa-angle-left"></i> イベント詳細へ
+      <% end %>
+      <div class="card mt-3">
+        <h5 class="card-header">グッズ登録</h5>
+        <div class="card-body">
+          <%= form_with(model: [@event,@item], local: true) do |f| %>
+              <!--<div class="form-row">-->
+            <div class="form-group row col-md-12">
+              <%= f.label :商品名, class:'col-md-3 control-label' %>
+              <%= f.text_field :name, class:'name col-md-7 form-control' %>
+            </div>
+            <div class="form-group row col-md-12">
+              <%= f.label :個数, class:'col-md-3 control-label' %>
+              <%= f.select :quantity, *[1..20], { include_blank: '個数選択'}, class:'name col-md-7 form-control' %>
+            </div>
+            <div class="form-group row col-md-12">
+              <%= f.label :金額, class:'col-md-3 control-label' %>
+              <%= f.text_field :price, class:'price col-md-7 form-control' %>
+            </div>
+            <div class="form-group col-md-2 ml-auto">
+              <%= f.submit class:'submit-btn' %>
+            </div>
+          <% end %>
+            <!--</div>-->
+          <h6 class="card-header mt-4">グッズリスト</h6>
+          <div class="card-body">
+            <div id="item_list">
+              <%= render 'item_list', items: @items %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

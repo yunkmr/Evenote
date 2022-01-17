@@ -5,6 +5,8 @@
       <th>個数</th>
       <th>金額</th>
       <th>各種合計金額</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -23,12 +25,16 @@
     <% end %>
   </tbody>
 </table>
-<span class="price-total_text">合計金額</span>
-<span class="price-total_value">
-  <% totals = [] %>
-  <% @items.each do |item|%>
-    <% totals << item.price * item.quantity %>
-  <% end %>
-  <% total = totals.to_a.sum %>
-  <%= total.to_s(:delimited) %>
-</span>
+<!--<div class="mt-5">-->
+<div class="col-md-3 mt-5 ml-auto">
+  <strong>合計金額
+    <span class="mgl-30"></span>
+    <% totals = [] %>
+    <% @items.each do |item|%>
+      <% totals << item.price * item.quantity %>
+    <% end %>
+    <% total = totals.to_a.sum %>
+    <%= total.to_s(:delimited) %> 円
+  </strong>
+</div>
+<!--</div>-->
