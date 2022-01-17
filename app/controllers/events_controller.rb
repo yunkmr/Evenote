@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = current_user.events
+    @events = current_user.events.all.page(params[:page]).per(5).order(date: "DESC")
   end
 
   def show
@@ -51,6 +51,10 @@ class EventsController < ApplicationController
     # 検索キーワード
     keyword = params["keyword"]
 
+    artist = params["artist"]
+
+    place = params["place"]
+
     @events = current_user.events
 
     if date.present?
@@ -60,12 +64,23 @@ class EventsController < ApplicationController
     if keyword.present?
       @events = @events.where("name LIKE ?", '%'+keyword+'%')
     end
+
+    if artist.present?
+      @events = @events.where("artist LIKE ?", '%'+artist+'%')
+    end
+
+    if place.present?
+      @events = @events.where("place LIKE ?", '%'+place+'%')
+    end
+
+    @events = @events.all.page(params[:page]).per(5).order(date: "DESC")
+
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :open_time, :start_time, :end_time, :place, :seat, :with, :memo, :release_flg)
+    params.require(:event).permit(:name, :date, :open_time, :start_time, :end_time, :artist, :place, :seat, :with, :memo, :release_flg)
     # params.permit(:name, :date, :open_time, :start_time, :end_time, :place, :seat, :memo)
   end
 

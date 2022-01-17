@@ -1,12 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2 ml-10">
+    <div class="col-md-8 mx-auto">
       <%= link_to events_path do %>
         <i class="fas fa-undo"></i> 一覧へ
       <% end %>
-    </div>
-    <div class="col-md-8 mr-auto">
-      <div class="card">
+      <div class="card mt-3">
         <div class="card-header">
           <div class="row">
             <div class="">
@@ -24,7 +22,7 @@
         <div class="card-body">
           <h5><%= @event.name %></h5>
           <div class="row mt-3">
-            <div class="col-md-2">
+            <div class="col-md-3">
               <p><span class="mgl-10">日時：</span></p>
             </div>
             <div class="col-md-8">
@@ -32,7 +30,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
             </div>
             <div class="col-md-8">
               OPEN：
@@ -52,7 +50,17 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-3">
+                <p><span class="mgl-10">アーティスト：</span></p>
+              </div>
+              <div class="col-md-8">
+                <%= @event.artist %>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-3">
                 <p><span class="mgl-10">場所：</span></p>
               </div>
               <div class="col-md-8">
@@ -62,7 +70,7 @@
           </li>
           <li class="list-group-item">
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <p><span class="mgl-10">座席：</span></p>
               </div>
               <div class="col-md-8">
@@ -72,7 +80,7 @@
           </li>
           <li class="list-group-item">
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <p><span class="mgl-10">同行者：</span></p>
               </div>
               <div class="col-md-8">
@@ -82,7 +90,7 @@
           </li>
           <li class="list-group-item">
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <p><span class="mgl-10">メモ：</span></p>
               </div>
               <div class="col-md-8">

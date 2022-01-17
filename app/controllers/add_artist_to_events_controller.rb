@@ -1,0 +1,2 @@
+class AddArtistToEventsController < ApplicationController
+end

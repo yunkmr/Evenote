@@ -402,36 +402,7 @@ p {
 // }
 
 
-// fontawesomeのレイアウト
-.size{
-  font-size:2em;
-  color: #808080;
-}
 
-.albumsize{
-  font-size:5em;
-  color: #808080;
-}
-
-// formのレイアウト調整
-.form-control {
-  // border: none;
-  // opacity: 0.8;
-  background-color: #f8ede1;
-}
-.l-app_ticket_title{
-  border-right: 1px dashed rgba(0, 0, 0, 0.125);
-  background-color: rgba(0, 0, 0, 0.03);
-}
-
-.l-app_ticket_detail {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-}
-
-// カードのヘッダー
-.header-color {
-  background-color: #add8e6;
-}
 
 // .l-app_ticket_detail {
 //   border-top: 1px solid #808080;
@@ -694,6 +665,9 @@ p {
   transform: translateY(-1px);
 }
 
+
+
+// イベント新規登録画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 // Helpers
 @mixin clearfix {
    &:after {
@@ -774,14 +748,50 @@ body {
    }
 }
 
+// チケット新規登録画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+// ラジオボタンの位置調整
+.radio-form-label {
+  position: relative;
+  top: 5px;
+}
 
-.form-control{
-  background: #fff;
+// チケット一覧画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+// 検索フォーム
+.ticket_search_form{
+  background: rgba(0, 0, 0, 0.07);
 }
 
 
+// チケット詳細画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+.l-app_ticket_title{
+  border-right: 1px dashed rgba(0, 0, 0, 0.125);
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.l-app_ticket_detail {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.header-color {
+  background-color: #add8e6;
+}
+
+
+// 共通ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+// fontawesomeのレイアウト
+.size{
+  font-size:2em;
+  color: #808080;
+}
+
+// formのレイアウト調整
+.form-control {
+  // border: none;
+  // opacity: 0.8;
+  background-color: #fff;
+}
+
 // 余白の調整
-// イベント詳細画面
 .mgl-10{
     margin-left : 10px;
 }
@@ -794,9 +804,9 @@ body {
     margin-right : 30px;
 }
 
+// 一旦退避ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
-// チケット新規登録のラジオボタンの位置調整
-.radio-form-label {
-  position: relative;
-  top: 5px;
+.albumsize{
+  font-size:5em;
+  color: #808080;
 }

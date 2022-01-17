@@ -1,18 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto">
-
-      <div class="card col-md-12 mb-3">
+      <%= link_to tickets_path do %>
+        <i class="fas fa-undo"></i> 一覧へ
+      <% end %>
+      <div class="card col-md-12 mt-3 mb-3">
         <div class="row">
           <div class="card-header header-color col-md-12">
             <div class="row">
-              <div class="">
-                <%= link_to edit_event_path do %>
+              <!--<div class="">-->
+                <%= link_to edit_ticket_path(@ticket) do %>
                   <span class="mgl-30"><i class="far fa-edit"></i> 編集</span>
                 <% end %>
-              </div>
+              <!--</div>-->
               <div class="ml-auto">
-                <%= link_to edit_event_path do %>
+                <%= link_to ticket_path(@ticket), method: :delete do %>
                   <span class="mgr-30"><i class="far fa-trash-alt"></i> 削除</span>
                 <% end %>
               </div>
@@ -165,14 +167,6 @@
           </div>
         </div>
       </div>
-
-
-      <%= link_to edit_ticket_path do %>
-        <i class="fas fa-pen size"></i>
-      <% end %>
-      <%= link_to '一覧に戻る', tickets_path %>
-      <%= link_to '新規登録', new_ticket_path %>
-      <%= link_to '削除', ticket_path(@ticket), method: :delete %>
     </div>
   </div>
 </div>

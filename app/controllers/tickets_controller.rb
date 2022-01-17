@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
 
   def index
-    @tickets = current_user.tickets
+    @tickets = current_user.tickets.all.page(params[:page]).per(5).order(event_date: "DESC")
   end
 
   def show
@@ -39,7 +39,6 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket = Ticket.find(params[:id])
-    # binding.pry
     @ticket.destroy
     redirect_to tickets_path
   end
@@ -91,6 +90,8 @@ class TicketsController < ApplicationController
       @tickets = @tickets.all.order("#{date_sort}")
     end
 
+
+    @tickets = @tickets.all.page(params[:page]).per(5).order(event_date: "DESC")
     # binding.pry
 
   end

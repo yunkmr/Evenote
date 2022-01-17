@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_16_074645) do
+ActiveRecord::Schema.define(version: 2022_01_17_091054) do
 
   create_table "albums", force: :cascade do |t|
     t.integer "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2022_01_16_074645) do
     t.datetime "updated_at", null: false
     t.boolean "release_flg", default: false, null: false
     t.string "with"
+    t.string "artist"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -138,6 +139,7 @@ ActiveRecord::Schema.define(version: 2022_01_16_074645) do
     t.boolean "payment_flg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "artist"
   end
 
   create_table "users", force: :cascade do |t|

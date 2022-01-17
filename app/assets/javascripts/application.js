@@ -190,3 +190,13 @@ $(document).on('turbolinks:load', function() {
     }
   });
 });
+
+// $(function() {
+//   var txt = $(".js-input");
+//   alert(txt)
+//   if( $(txt).val() ) {
+//     $(".js-input").addClass('not-empty');
+//   } else {
+//     $(".js-input").removeClass('not-empty');
+//   }
+// });
