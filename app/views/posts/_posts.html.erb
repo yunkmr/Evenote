@@ -1,6 +1,6 @@
 <% posts.each do |post| %>
   <%= link_to post_path(id: post, tab_id: tab_id), remote: true do %>
-    <%= image_tag post.post_image_id.to_s, size: '200x200', class: 'photo-img', id: 'photo-img' %>
+    <%= attachment_image_tag(post, :post_image, class: 'card img-square', size: '200x200') %>
   <% end %>
 <% end %>
 <%= paginate posts %>

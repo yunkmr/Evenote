@@ -9,7 +9,7 @@
 <h3>タグが<span><%= @tag.tag_name %></span>の投稿一覧</h3>
 <% @posts.each do |post_image| %>
   <%= link_to post_path(post_image) do %>
-    <%= image_tag post_image.post_image_id.to_s, size: '200x200' %>
+    <%= attachment_image_tag(post_image, :post_image, class: 'card img-square', size: '200x200') %>
   <% end %>
 <% end %>
 

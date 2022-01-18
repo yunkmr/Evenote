@@ -5,7 +5,7 @@
           <% if album.photos.present? %>
             <div class="post_files">
               <% album.photos.each do |photo| %>
-                <%= image_tag asset_path(photo.memory_image_id.to_s), size: '200x200' %>
+                <%= attachment_image_tag(photo, :memory_image, :fill, 200, 200) %>
                 <%= link_to '削除', "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete %>
               <% end %>
             </div>

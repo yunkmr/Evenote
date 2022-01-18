@@ -13,7 +13,8 @@ class Post < ApplicationRecord
 
 	has_many :notifications, dependent: :destroy
 
-  mount_uploader :post_image_id, ImageUploader
+  attachment :post_image
+  # mount_uploader :post_image_id, ImageUploader
 
 
   def save_tag(sent_tags)

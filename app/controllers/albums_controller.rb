@@ -9,7 +9,7 @@ class AlbumsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
-    @album = @event.albums.new(album_params)
+    @album = @event.albums.new(create_album_params)
     # 投稿が成功した場合
     if @album.save
       redirect_to request.referer
@@ -24,12 +24,15 @@ class AlbumsController < ApplicationController
     @event = Event.find(params[:event_id])
     @album = Album.find(params[:id])
     # 投稿が成功した場合
-    if @album.update(album_params)
+
+    # binding.pry
+    if @album.update(update_album_params)
       @albums = Album.where(event_id: @event.id)
       redirect_to event_albums_path(event_id: @event)
     # 投稿が失敗した場合
     else
       @albums = @event.albums.includes(:user).order(created_at: "DESC")
+      binding.pry
       render :index
     end
   end
@@ -58,8 +61,14 @@ class AlbumsController < ApplicationController
 
   private
 
-  def album_params
-    params.require(:album).permit(:album_name, photos_attributes: [:memory_image]).merge(user_id: current_user.id)
+  def create_album_params
+    # params.require(:album).permit(:album_name, photos_attributes: [:memory_image]).merge(user_id: current_user.id)
+    params.require(:album).permit(:album_name).merge(user_id: current_user.id)
+  end
+
+  def update_album_params
+    # params.require(:album).permit(:album_name, photos_attributes: [:memory_image]).merge(user_id: current_user.id)
+    params.require(:album).permit(:album_name, photos_memory_images: []).merge(user_id: current_user.id)
   end
 
 end

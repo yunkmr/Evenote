@@ -5,8 +5,29 @@
         <i class="fas fa-angle-double-left"></i> アルバム一覧へ
       <% end %>
       <div class="mt-5">
+        <%= form_with model: @album, url: event_album_path(id: @album.id, event_id: @album.event_id), method: :PATCH, local: true do |f| %>
+          <div class="form-group row col-md-12">
+            <div class="input-box__bottom">
+              <div class="input-box__bottom__files">
+                <%= f.hidden_field :album_name, value: @album.album_name %>
+                <%= f.attachment_field :photos_memory_images, multiple: true %>
+              <div class="form-action">
+                <%= f.submit '登録する' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+<%
+=begin %>
         <%= form_with model:@photo,　url:event_album_photos_path, local: true do |f| %>
           <div class="form-group row col-md-12">
+            <div class="input-box__bottom">
+              <div class="input-box__bottom__files">
+                <%= f.attachment_field :photos_images, multiple: true %>
+              <div class="form-action">
+                <%= f.submit '登録する' %>
+              </div>
+            </div>
             <div class="input-box__bottom">
               <div class="input-box__bottom__files">
                 <%= f.fields_for :photos do |i| %>
@@ -19,6 +40,8 @@
             </div>
           </div>
         <% end %>
+<%
+=end %>
       </div>
       <!--アルバム一覧-->
       <div class="mx-auto mt-5">
@@ -29,7 +52,7 @@
                 <div class="col-xl-3 mt-3">
                   <div class="card h-100">
                     <!--<div class="card-img-top">-->
-                      <%= image_tag asset_path(photo.memory_image_id.to_s), class: 'card-img-top' %>
+                    <%= attachment_image_tag(photo, :memory_image, :fill, 200, 200) %>
                     <!--</div>-->
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item">

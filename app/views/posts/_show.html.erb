@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-md-6">
       <div class="main-post-image_area">
-        <%= image_tag post.post_image_id.to_s, size: '400x400', class: 'photo-img', id: 'photo-img' %>
+        <%= attachment_image_tag(post, :post_image, class: 'card img-square', size: '200x200') %>
+        <%#= image_tag post.post_image_id.to_s, size: '400x400', class: 'photo-img', id: 'photo-img' %>
       </div>
     </div>
     <div class="col-md-6">
