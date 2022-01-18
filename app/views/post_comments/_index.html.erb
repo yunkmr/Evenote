@@ -1,21 +1,25 @@
  <%#= render 'post_comments', post: post %>
  <%#= paginate @post_comments, remote: true %>
 <div class="pagenate">
-  <table>
-    <% @post_comments.each do |post_comment| %>
-      <tr>
-        <td>
-          <%= link_to users_path(post_comment.user) do %>
-            <%= attachment_image_tag(post_comment.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %><br>
-            <%= post_comment.user.user_name %>
-          <% end %>
-        </td>
-        <td><%= post_comment.comment %></td>
-        <% if post_comment.user_id == current_user.id %>
-          <td><%= link_to 'Destroy', post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, remote: true, class: 'btn btn-danger btn-sm' %></td>
+  <% post_comments.each do |post_comment| %>
+    <div class="row">
+      <div class="col-md-2">
+        <%= link_to users_path(post_comment.user) do %>
+          <%= attachment_image_tag(post_comment.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %><br>
+          <%= post_comment.user.user_name %>
         <% end %>
-      </tr>
-    <% end %>
-  </table>
-  <%= paginate @post_comments, remote: true %>
+      </div>
+      <div class="col-md-8 mx-auto">
+        <%= post_comment.comment %>
+      </div>
+      <div class="col-md-2">
+        <% if post_comment.user_id == current_user.id %>
+          <%= link_to post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, remote: true do %>
+            <span class="mgr-30"><i class="far fa-trash-alt"></i></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
+<%= paginate post_comments, remote: true %>

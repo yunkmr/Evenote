@@ -783,6 +783,90 @@ body {
     font-size: 4em!important;
 }
 
+// 投稿画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+.post_header{
+  padding: 0.25rem 1.25rem;
+}
+
+
+.post_image{
+  height: 200px;
+}
+
+.post_card{
+  .card-body {
+    padding: 0.5rem;
+  }
+}
+
+.post_main_text {
+  overflow: hidden;
+  width: 100%;
+
+  .post_text_tag, .post_text_content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  p {
+    font-size: 0.8em;
+    margin-bottom: 0.3rem;
+  }
+
+  .post-btn{
+    font-size: 0.8em;
+    border: 0.8px solid #d3d3d3;
+    border-radius: 10px;     /*角を丸くする*/
+    width: 60px;
+    height: 30px;
+  }
+
+}
+
+.post_list_text{
+  font-size: 0.8em;
+
+}
+
+// .card-img-top {
+//     width: 100%;
+//     height: 15vw;
+//     object-fit: cover;
+// }
+
+
+.main-post-image_area{
+  // width: 500px;
+  height: 500px;
+}
+
+.post_image_detail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main_post_area{
+  height: 70px;
+}
+
+.main_comment_area{
+  height: 220px;
+}
+
+.main_favorite_area{
+  height: 20px;
+}
+
+// .main_inputcomment_area{
+//   height: 20px;
+// }
+
+.input_comment{
+  border: none;
+}
+
 // 共通ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 // fontawesomeのレイアウト
 .size{

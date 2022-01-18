@@ -1,15 +1,33 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mx-auto">
+    <div class="col-md-10 mx-auto">
       <% @albums.each do |album| %>
+        <div class="row">
           <% if album.photos.present? %>
-            <div class="post_files">
+            <!--<div class="post_files">-->
               <% album.photos.each do |photo| %>
-                <%= attachment_image_tag(photo, :memory_image, :fill, 200, 200) %>
-                <%= link_to '削除', "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete %>
+                <div class="col-md-3 mt-3">
+                  <div class="card h-100">
+                    <!--<div class="card-img-top">-->
+                    <%= attachment_image_tag(photo, :memory_image, :fill, 200, 200) %>
+                    <!--</div>-->
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="ml-auto">
+                            <%= link_to "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete do %>
+                              <span class="mgr-10"><i class="far fa-trash-alt"></i> 削除</span>
+                            <% end %>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               <% end %>
-            </div>
+            <!--</div>-->
           <% end %>
+        </div>
       <% end %>
     </div>
   </div>

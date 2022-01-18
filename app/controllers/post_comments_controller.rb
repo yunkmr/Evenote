@@ -3,11 +3,6 @@ class PostCommentsController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
     @post_comments = @post.post_comments.page(params[:page]).per(2)
-    if params[:page].present?
-      render 'pagenate.js.erb'  #２ページ目以降はこっち！！！！
-    else
-      render 'index.js.erb'
-    end
   end
 
   def create
@@ -36,7 +31,11 @@ class PostCommentsController < ApplicationController
     post_comment = @post.post_comments.find(params[:id])
     post_comment.destroy
     @post_comments = @post.post_comments.page(params[:page]).per(2)
-    render :index
+    if params[:page].present?
+      render 'pagenate.js.erb'  #２ページ目以降はこっち！！！！
+    else
+      render 'index.js.erb'
+    end
 
   end
 

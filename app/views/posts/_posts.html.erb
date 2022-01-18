@@ -1,6 +1,40 @@
-<% posts.each do |post| %>
-  <%= link_to post_path(id: post, tab_id: tab_id), remote: true do %>
-    <%= attachment_image_tag(post, :post_image, class: 'card img-square', size: '200x200') %>
-  <% end %>
-<% end %>
-<%= paginate posts %>
+<div class="col-md-12 mx-auto">
+  <div class="row">
+    <% posts.each do |post| %>
+      <div class="col-md-4 mt-3">
+        <div class="card h-100 post_card">
+          <%= attachment_image_tag(post, :post_image, class: 'card post_image') %>
+          <!--</div>-->
+          <div class="card-body post_main_text">
+            <p class="card-text post_text_tag">
+              <%= attachment_image_tag(post.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
+              <%= post.user.user_name %>
+            </p>
+            <p class="card-text post_text_tag">
+              <span class="mgl-10">
+              <% post.tags.each do |tag| %>
+                <span> #</span><%= tag.tag_name %>
+              <% end %>
+            </p>
+            <p class="card-text post_text_content">
+              <span class="mgl-10">
+              <%= post.maintext %>
+            </p>
+            <div class="row mt-2">
+              <div class="col-md-5 ml-2 mt-2">
+                <p>
+                  <i class="far fa-heart"></i> <%= post.favorites.count %>
+                  <i class="far fa-comment-dots"></i>  <%= post.post_comments.count %>
+                </p>
+              </div>
+              <div class="col-md-5 ml-auto">
+                <%= link_to '詳細' ,post_path(id: post, tab_id: tab_id), remote: true, class: 'btn btn-sm post-btn' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate posts %>
+  </div>
+</div>

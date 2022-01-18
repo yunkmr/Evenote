@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-10 mx-auto">
       <%= link_to event_albums_path(event_id: @album.event_id, album_id: @album.id) do %>
         <i class="fas fa-angle-double-left"></i> アルバム一覧へ
       <% end %>
       <div class="mt-5">
-        <%= form_with model: @album, url: event_album_path(id: @album.id, event_id: @album.event_id), method: :PATCH, local: true do |f| %>
+        <%= form_with model: @album, url: event_album_path(id: @album.id, event_id: @album.event_id), local: true do |f| %>
           <div class="form-group row col-md-12">
             <div class="input-box__bottom">
               <div class="input-box__bottom__files">
-                <%= f.hidden_field :album_name, value: @album.album_name %>
+                <%#= f.hidden_field :album_name, value: @album.album_name %>
                 <%= f.attachment_field :photos_memory_images, multiple: true %>
               <div class="form-action">
                 <%= f.submit '登録する' %>
@@ -44,12 +44,12 @@
 =end %>
       </div>
       <!--アルバム一覧-->
-      <div class="mx-auto mt-5">
+      <div class="mt-5">
         <div class="row">
           <% if @photos.present? %>
             <!--<div class="post_files">-->
               <% @photos.each do |photo| %>
-                <div class="col-xl-3 mt-3">
+                <div class="col-md-3 mt-3">
                   <div class="card h-100">
                     <!--<div class="card-img-top">-->
                     <%= attachment_image_tag(photo, :memory_image, :fill, 200, 200) %>

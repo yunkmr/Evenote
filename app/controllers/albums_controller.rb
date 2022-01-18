@@ -32,7 +32,6 @@ class AlbumsController < ApplicationController
     # 投稿が失敗した場合
     else
       @albums = @event.albums.includes(:user).order(created_at: "DESC")
-      binding.pry
       render :index
     end
   end
@@ -68,7 +67,7 @@ class AlbumsController < ApplicationController
 
   def update_album_params
     # params.require(:album).permit(:album_name, photos_attributes: [:memory_image]).merge(user_id: current_user.id)
-    params.require(:album).permit(:album_name, photos_memory_images: []).merge(user_id: current_user.id)
+    params.require(:album).permit(:album_name, memory_image: []).merge(user_id: current_user.id)
   end
 
 end

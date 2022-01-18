@@ -1,14 +1,20 @@
+<% name = "" %>
+<% post.favorites.each do |favorite| %>
+  <% name = favorite.user.user_name %>
+<% end %>
+
 <div class="favorite-btn">
-  <% if post.favorited_by?(current_user) %>
-    <%= link_to post.favorites.count, post_favorites_path(post), method: :delete, remote: true, class: 'fas fa-heart heart_red' %>
-  <% else %>
-    <%= link_to post.favorites.count, post_favorites_path(post), method: :post, remote: true, class: 'fas fa-heart heart_blue'  %>
-  <% end %>
-  <%# if post.favorites.count == 1 %>
-    <p><%#= post.favorites.user_id %>がいいねしました</p>
-  <%# elsif post.favorites.count > 1 %>
-    <p><%#= post.favorites.user_id %>ら、他<%#= post.favorites.count %>がいいねしました
-  <%# else %>
-    <p></p>
-  <%# end %>
+  <p>
+    <% if post.favorited_by?(current_user) %>
+      <%= link_to post.favorites.count, post_favorites_path(post), method: :delete, remote: true, class: 'fas fa-heart heart_red' %>
+    <% else %>
+      <%= link_to post.favorites.count, post_favorites_path(post), method: :post, remote: true, class: 'fas fa-heart heart_blue'  %>
+    <% end %>
+    <% if post.favorites.count == 1 %>
+      <%= name %>がいいねしました
+    <% elsif post.favorites.count > 1 %>
+      <%= name %>ら、他<%= post.favorites.count %>人がいいねしました
+    <% else %>
+    <% end %>
+  </p>
 </div>
