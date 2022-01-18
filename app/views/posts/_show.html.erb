@@ -3,7 +3,7 @@
     <!--<div class="col-xl-12">-->
       <div class="card h-100 post_card">
         <div class="row g-0">
-          <div class="col-md-6">
+          <div class="col-md-6 card-img-top">
             <div class="main-post-image_area">
               <%= attachment_image_tag(post, :post_image, class: 'card post_image_detail') %>
               <%#= image_tag post.post_image_id.to_s, size: '400x400', class: 'photo-img', id: 'photo-img' %>
@@ -47,7 +47,7 @@
                   <div class="main_inputcomment_area">
                     <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: post.post_comments } %>
                   </div>
-                </li>    
+                </li>
               </ul>
             <!--</div>-->
           </div>

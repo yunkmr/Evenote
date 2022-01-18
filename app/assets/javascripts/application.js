@@ -82,11 +82,10 @@ $(document).on('turbolinks:load', function() {
 
 
 // 画像登録時にプレビュー表示する
-$(function() {
+$(document).on('turbolinks:load', function() {
     $('#image').on('change', function() {
         var selectedFile = this.files[0];
         var fileReader = new FileReader();
-
         fileReader.onload = function(event) {
             var loadedImageUri = event.target.result;
              $('.img-square').attr('src', loadedImageUri);

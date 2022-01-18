@@ -1,23 +1,32 @@
-<div class="user-detail">
-  <table class="table table-inverse">
-    <tr>
-      <th>ユーザーネーム</th>
-      <td><%= user.user_name %></td>
-    </tr>
-    <tr>
-      <th>自己紹介</th>
-      <td><%= user.introduction %></td>
-    </tr>
-    <tr>
-      <th>参加予定イベント</th>
-      <td><%= user.join_event %></td>
-    </tr>
-  </table>
-  <% if current_user == user %>
-    <%= link_to 'プロフィールを編集', edit_users_path, class:'btn btn-lg btn-block bg-white' %>
-  <% else %>
-    <div id="follow_form">
-      <%= render 'relationships/follow_button', user: user %>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-md-5">
+        <p><span class="mgl-10">ユーザーネーム：</span></p>
+      </div>
+      <div class="col-md-7">
+        <%= user.user_name %>
+      </div>
     </div>
-  <% end %>
-</div>
+  </li>
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-md-5">
+        <p><span class="mgl-10">自己紹介：</span></p>
+      </div>
+      <div class="col-md-7">
+        <%= user.introduction %>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-md-7">
+        <p><span class="mgl-10">参加予定イベント：</span></p>
+      </div>
+      <div class="col-md-8">
+        <%= user.join_event %>
+      </div>
+    </div>
+  </li>
+</ul>

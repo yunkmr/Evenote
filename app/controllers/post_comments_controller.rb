@@ -31,6 +31,7 @@ class PostCommentsController < ApplicationController
     post_comment = @post.post_comments.find(params[:id])
     post_comment.destroy
     @post_comments = @post.post_comments.page(params[:page]).per(2)
+
     if params[:page].present?
       render 'pagenate.js.erb'  #２ページ目以降はこっち！！！！
     else

@@ -1,8 +1,21 @@
-<table class="table table-inverse">
-  <tr>
-    <td><%= attachment_image_tag(user, :profile_image, :fill, 20,20, fallback: 'no-image.jpg', size:'100x100') %></td>
-    <td class="align_middle"><%= user.user_name %><br>イベント数</td>
-    <td class="align-items-center"><%= link_to user.followings.count, relationships_follow_path(follow_id: user.id, mode: 0) %><br>フォロー</td>
-    <td class="align-items-center"><%= link_to user.followers.count, relationships_follow_path(follow_id: user.id, mode: 1) %><br>フォロワー</td>
-  </tr>
-</table>
+<div class="row col-md-12">
+  <div class="col-md-3">
+    <%= attachment_image_tag(user, :profile_image, :fill, 100,100, fallback: 'no-image.jpg', size:"70x70") %>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-8 mx-auto"><%= user.events.count %></div>
+    <div class="mx-auto">イベント数</div>
+  </div>
+  <div class="col-md-3">
+    <%= link_to relationships_follow_path(follow_id: user.id, mode: 0) do %>
+      <div class="col-md-10 mx-auto"><%= user.followings.count %></div>
+      <div class="mx-auto">フォロー</div>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <%= link_to relationships_follow_path(follow_id: user.id, mode: 1) do %>
+      <div class="col-md-8 mx-auto"><%= user.followers.count %></div>
+      <div class="mx-auto">フォロワー</div>
+    <% end %>
+  </div>
+</div>

@@ -1,10 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <h2 class="mt-2">プロフィール</h2>
-      <%= render 'users/info', user: @user %>
-      <%= render 'users/detail', user: @user %>
+      <div class="card mt-3">
+        <div class="card-header">
+          <div class="row">
+            <h5 class="mt-2">プロフィール</h5>
+            <div class="ml-auto">
+              <% if current_user == @user %>
+                <%= link_to edit_users_path, class:'btn btn-sm' do %>
+                  <span class="mgl-30"><i class="far fa-edit"></i> プロフィールを編集</span>
+                <% end %>
+              <% else %>
+                <div id="follow_form">
+                  <%= render 'relationships/follow_button', user: @user %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="follower_count">
+            <%= render 'users/follower_count', user: @user %>
+          </div>
+        </div>
+        <%= render 'users/detail', user: @user %>
+      </div>
     </div>
-    <%#= link_to 'Mail', new_mail_users_path(@user), class: "fas fa-paper-plane" %>
   </div>
 </div>
