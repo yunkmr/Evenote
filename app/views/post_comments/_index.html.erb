@@ -1,25 +1,28 @@
- <%#= render 'post_comments', post: post %>
- <%#= paginate @post_comments, remote: true %>
-<div class="pagenate">
-  <% post_comments.each do |post_comment| %>
-    <div class="row">
-      <div class="col-md-2">
-        <%= link_to users_path(post_comment.user) do %>
-          <%= attachment_image_tag(post_comment.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %><br>
-          <%= post_comment.user.user_name %>
-        <% end %>
-      </div>
-      <div class="col-md-8 mx-auto">
-        <%= post_comment.comment %>
-      </div>
-      <div class="col-md-2">
-        <% if post_comment.user_id == current_user.id %>
-          <%= link_to post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, remote: true do %>
-            <span class="mgr-30"><i class="far fa-trash-alt"></i></span>
+<% post_comments.each do |post_comment| %>
+  <div class="post_comment_list">
+    <div class="row mt-2">
+      <div class="col-6">
+          <%= link_to users_path(post_comment.user) do %>
+            <%= attachment_image_tag(post_comment.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
+            <span class="mgr-10"></span>
+            <%= post_comment.user.user_name %>
           <% end %>
-        <% end %>
+      </div>
+      <div class="col-3 ml-auto">
+        <span class="post_comment_time_ago"><%= time_ago_in_words(post_comment.created_at)+ "前" %></span>
+      </div>
+      <div class="col-1 mr-auto">
+          <% if post_comment.user_id == current_user.id %>
+            <%= link_to post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, remote: true do %>
+              <span class="mgr-30"><i class="far fa-trash-alt"></i></span>
+            <% end %>
+          <% end %>
       </div>
     </div>
-  <% end %>
-</div>
-<%= paginate post_comments, remote: true %>
+    <div class="row mt-1 mb-2">
+      <div class="post_comment col-md-11 mx-auto">
+        <%= post_comment.comment %>
+      </div>
+    </div>
+  </div>
+<% end %>

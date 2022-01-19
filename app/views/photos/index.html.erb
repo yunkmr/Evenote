@@ -9,7 +9,7 @@
           <div class="form-group row col-md-12">
             <div class="input-box__bottom">
               <div class="input-box__bottom__files">
-                <%#= f.hidden_field :album_name, value: @album.album_name %>
+                <%= f.hidden_field :album_name, value: @album.album_name %>
                 <%= f.attachment_field :photos_memory_images, multiple: true %>
               <div class="form-action">
                 <%= f.submit '登録する' %>

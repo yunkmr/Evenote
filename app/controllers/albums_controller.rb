@@ -24,8 +24,6 @@ class AlbumsController < ApplicationController
     @event = Event.find(params[:event_id])
     @album = Album.find(params[:id])
     # 投稿が成功した場合
-
-    # binding.pry
     if @album.update(update_album_params)
       @albums = Album.where(event_id: @event.id)
       redirect_to event_albums_path(event_id: @event)
@@ -67,7 +65,7 @@ class AlbumsController < ApplicationController
 
   def update_album_params
     # params.require(:album).permit(:album_name, photos_attributes: [:memory_image]).merge(user_id: current_user.id)
-    params.require(:album).permit(:album_name, memory_image: []).merge(user_id: current_user.id)
+    params.require(:album).permit(:album_name, photos_memory_images: []).merge(user_id: current_user.id)
   end
 
 end

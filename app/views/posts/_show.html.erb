@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <!--<div class="col-xl-12">-->
-      <div class="card h-100 post_card">
+    <div class="col-md-12">
+      <div class="card">
         <div class="row g-0">
-          <div class="col-md-6 card-img-top">
+          <div class="col-md-6">
             <div class="main-post-image_area">
-              <%= attachment_image_tag(post, :post_image, class: 'card post_image_detail') %>
+              <%= attachment_image_tag(post, :post_image, class: 'post-image mx-auto d-block') %>
               <%#= image_tag post.post_image_id.to_s, size: '400x400', class: 'photo-img', id: 'photo-img' %>
             </div>
           </div>
@@ -32,7 +32,7 @@
                   <div class="main_comment_area">
                     <div id="comments_area">
                       <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-                      <%= render partial: 'post_comments/index', locals: {post_comments: @post_comments } %>
+                      <%= render partial: 'post_comments/index', locals: {post_comments: post_comments } %>
                     </div>
                   </div>
                 </li>
@@ -45,7 +45,7 @@
                 </li>
                 <li class="list-group-item">
                   <div class="main_inputcomment_area">
-                    <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: post.post_comments } %>
+                    <%= render partial: 'post_comments/form', locals: { post: post, post_comment: post.post_comments } %>
                   </div>
                 </li>
               </ul>
@@ -53,6 +53,6 @@
           </div>
         </div>
       </div>
-    <!--</div>-->
+    </div>
   </div>
 </div>

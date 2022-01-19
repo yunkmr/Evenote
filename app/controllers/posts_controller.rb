@@ -66,7 +66,7 @@ class PostsController < ApplicationController
     # 投稿の詳細ページ表示（モーダル）
     @post = Post.find(params[:id])
     @user = Post.find(params[:id]).user
-    @post_comments = @post.post_comments.page(params[:page]).per(2)
+    @post_comments = @post.post_comments
 
     @tab_id = params[:tab_id]
     if @tab_id == 1
