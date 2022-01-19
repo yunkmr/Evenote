@@ -1,5 +1,9 @@
 class HomesController < ApplicationController
 
+  def home
+  
+  end
+
   def top
     if user_signed_in?
       @events = current_user.events

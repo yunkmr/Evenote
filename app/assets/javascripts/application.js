@@ -36,42 +36,44 @@
 
 // サイドメニューを開いた時の動作
 $(document).on('turbolinks:load', function() {
-  $(".l-app_navigation").click(function () {//ボタンがクリックされたら
+  $(".l-app_navigation").hover(function () {//ボタンがクリックされたら
+  // $(".l-app_navigation").click(function () {//ボタンがクリックされたら
     $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
-      // $(".l-app_navigation").toggleClass('menu-active-complete');//ナビゲーションにmenu-active-completeクラスを付与
+      $(".l-app_navigation").toggleClass('menu-active-complete');//ナビゲーションにmenu-active-completeクラスを付与
       $(".l-menu-title").toggleClass('menu-active-complete');
       $(".l-menu-contents").toggleClass('menu-active-complete');
-      // $(".l-app_contents").toggleClass('menu-active-complete');
-      // $(".l-app_header").toggleClass('menu-active-complete');
+      $(".l-app_contents").toggleClass('menu-active-complete');
+      $(".l-app_header").toggleClass('menu-active-complete');
   });
 });
 
 //アコーディオンをクリックした時の動作
-$(document).on('turbolinks:load', function() {
-  $('.l-menu-index_page-title').on('click', function() {//タイトル要素をクリックしたら
-    // $('.l-menu-index_section-list').slideUp(500);//クラス名.boxがついたすべてのアコーディオンを閉じる
+// $(document).on('turbolinks:load', function() {
+//   $('.l-menu-index_page-title').on('click', function() {
+//   // $('.l-menu-index_page-title').on('click', function() {//タイトル要素をクリックしたら
+//     // $('.l-menu-index_section-list').slideUp(500);//クラス名.boxがついたすべてのアコーディオンを閉じる
 
-    // var findElm = $(this).next(".l-menu-index_section-list");//タイトル直後のアコーディオンを行うエリアを取得
+//     // var findElm = $(this).next(".l-menu-index_section-list");//タイトル直後のアコーディオンを行うエリアを取得
 
-    // if($(this).hasClass('close')){//タイトル要素にクラス名closeがあれば
-    //   $(this).removeClass('close');//クラス名を除去
-    // }else{//それ以外は
-    //   $('.close').removeClass('close'); //クラス名closeを全て除去した後
-    //   $(this).addClass('close');//クリックしたタイトルにクラス名closeを付与し
-    //   $(findElm).slideDown(500);//アコーディオンを開く
-    // }
+//     // if($(this).hasClass('close')){//タイトル要素にクラス名closeがあれば
+//     //   $(this).removeClass('close');//クラス名を除去
+//     // }else{//それ以外は
+//     //   $('.close').removeClass('close'); //クラス名closeを全て除去した後
+//     //   $(this).addClass('close');//クリックしたタイトルにクラス名closeを付与し
+//     //   $(findElm).slideDown(500);//アコーディオンを開く
+//     // }
 
-    $(this).next().slideToggle(500);
-    $('.l-menu-index_page-title').not($(this)).next('.l-menu-index_section-list').slideUp(500);
+//     $(this).next().slideToggle(500);
+//     $('.l-menu-index_page-title').not($(this)).next('.l-menu-index_section-list').slideUp(500);
 
-    $(".l-app_navigation").toggleClass('menu-active-complete');
-    $(".l-menu-title").toggleClass('menu-active-complete');
-    $(".l-menu-contents").toggleClass('menu-active-complete');
-    $(".l-app_contents").toggleClass('menu-active-complete');
-    $(".l-app_header").toggleClass('menu-active-complete');
+//     $(".l-app_navigation").toggleClass('menu-active-complete');
+//     $(".l-menu-title").toggleClass('menu-active-complete');
+//     $(".l-menu-contents").toggleClass('menu-active-complete');
+//     $(".l-app_contents").toggleClass('menu-active-complete');
+//     $(".l-app_header").toggleClass('menu-active-complete');
 
-  });
-});
+//   });
+// });
 
 // メニューの閉じるボタンを押した時の動作
 $(document).on('turbolinks:load', function() {
@@ -96,33 +98,33 @@ $(document).on('turbolinks:load', function() {
 });
 
 
-$(document).on('turbolinks:load', function() {
+// $(document).on('turbolinks:load', function() {
 
-  const buildFileField = (index)=> {
-    const html = `<div data-index="${index}" class="js-file_group">
-                    <input class="js-file" type="file"
-                    name="product[images_attributes][${index}][src]"
-                    id="product_images_attributes_${index}_src"><br>
-                    <div class="js-remove">削除</div>
-                  </div>`;
-    return html;
-  }
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+//   const buildFileField = (index)=> {
+//     const html = `<div data-index="${index}" class="js-file_group">
+//                     <input class="js-file" type="file"
+//                     name="product[images_attributes][${index}][src]"
+//                     id="product_images_attributes_${index}_src"><br>
+//                     <div class="js-remove">削除</div>
+//                   </div>`;
+//     return html;
+//   }
+//   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
 
-  $('#image-box').on('change', '.js-file', function(e) {
+//   $('#image-box').on('change', '.js-file', function(e) {
 
-    $('#image-box').append(buildFileField(fileIndex[0]));
-    fileIndex.shift();
+//     $('#image-box').append(buildFileField(fileIndex[0]));
+//     fileIndex.shift();
 
-    fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
-  });
+//     fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
+//   });
 
-  $('#image-box').on('click', '.js-remove', function() {
-    $(this).parent().remove();
+//   $('#image-box').on('click', '.js-remove', function() {
+//     $(this).parent().remove();
 
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
-  });
-});
+//     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+//   });
+// });
 
 
 // 投稿ページのタブの切り替え

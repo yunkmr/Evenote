@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'relationships/follow'
   root 'homes#top'
+  get 'top' => 'homes#'
 
   resource :users, only: [:show,:edit,:update]  do
     resource :relationships, only: [:create, :destroy]

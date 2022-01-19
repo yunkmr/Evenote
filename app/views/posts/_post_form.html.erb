@@ -1,11 +1,22 @@
-<h3>投稿する</h3>
+<h3>投稿</h3>
 <%= form_with model: post, local:true do |f| %>
-  <label class="form-image-button">
-    <%= f.attachment_field :post_image, id:'image' %>
-  </label>
-  <%= f.text_area :maintext %>
-  <p>"スペースを入力することで複数のタグを付けることができます。"</p>
-  <p>"例：音楽 文芸 スポーツ"</p>
-  <%= f.text_field :tag_name, value: @tag_list %>
-  <%= f.submit %>
+  <div class="col-md-12">
+    <label class="form-image-button">
+      <%= f.attachment_field :post_image, id:'image' %>
+    </label>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :コメント, class: 'form-control-label' %>
+    <%= f.text_area :maintext, rows: 3, class: 'form-control' %>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-8">
+      <p><strong>半角スペース</strong>を入力することで複数のタグを付けることができます。</p>
+      <p>　例：音楽 文芸 スポーツ</p>
+      <%= f.text_field :tag_name, value: @tag_list, class: 'form-control' %>
+    </div>
+    <div class="col-md-4 mt-auto">
+      <%= f.submit class: 'submit-btn' %>
+    </div>
+  </div>
 <% end %>
