@@ -81,6 +81,7 @@ html {
   // font-family: 'Lora', serif;
   // font-family: "Noto Sans JP", sans-serif;
   font-family: 'Amiri', serif;
+  background-color: #f7f7f5;
 }
 
 body{
@@ -91,8 +92,8 @@ body{
 }
 
 .l-main{
-  min-height: 90vh;
-  // display: flex;
+  // min-height: 90vh;
+  display: flex;
   // justify-content: flex-end;
 }
 
@@ -357,10 +358,23 @@ span {
   background-color: #f7f7f5;
   // background-color: #f8ede1;
   // background-color: hsla(0, 0%, 100%, 0.15);
-  width: calc(100% - 70px);
   transition: all 0.6s;
-  margin: 0 0 0 auto;
-  // margin-top: 50px;
+  width: calc(100% - 300px);
+  // transition: all 0.6s;
+  margin: 0 auto;
+
+  @media screen and (max-width: 959px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	width: calc(100% - 70px);
+  	margin: 0 0 0 auto;
+
+  }
+  @media screen and (max-width: 480px) {
+  	/* 480px以下に適用されるCSS（スマホ用） */
+  	width: calc(100% - 100px);
+  	margin: 0 0 0 auto;
+  }
+
 }
 
 // .l-app_contents.menu-active-complete {
@@ -373,14 +387,38 @@ span {
 //   }
 
 .l-app_header {
+  left: 50%;
+  margin: 0 auto 60px -420px;
+  overflow: hidden;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  padding-top: 50px;
+  // position: fixed;
+  top: 0;
+  width: 855px;
+  z-index: 99999;
   // position: fixed;
   // position: relative;
-  background-color: #f8ede1;
-  width: calc(100% - 70px);
+  background-color: #f7f7f5;
+  width: calc(100% - 300px);
   // transition: all 0.6s;
-  margin: 0 0 0 auto;
+  margin: 0 auto;
   // height: 100px;
+
+  @media screen and (max-width: 959px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	width: calc(100% - 110px);
+  	margin: 0 0 0 auto;
+
+  }
+  @media screen and (max-width: 480px) {
+  	/* 480px以下に適用されるCSS（スマホ用） */
+  	width: calc(100% - 110px);
+    margin: 0 0 0 auto;
+  }
 }
+
+
 
 .l-app_footer {
   // position: absolute;
