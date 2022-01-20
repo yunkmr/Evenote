@@ -7,4 +7,6 @@ class Album < ApplicationRecord
   accepts_attachments_for :photos, append: true, attachment: :memory_image
   # accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
 
+  validates :album_name, presence: true
+
 end

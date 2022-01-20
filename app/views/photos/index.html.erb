@@ -11,6 +11,7 @@
               <div class="input-box__bottom__files">
                 <%= f.hidden_field :album_name, value: @album.album_name %>
                 <%= f.attachment_field :photos_memory_images, multiple: true %>
+                <%= f.hidden_field :mode, value: "2" %>
               <div class="form-action">
                 <%= f.submit '登録する' %>
               </div>
@@ -58,7 +59,7 @@
                       <li class="list-group-item">
                         <div class="row">
                           <div class="ml-auto">
-                            <%= link_to "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete do %>
+                            <%= link_to "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete, data: { confirm: "登録しているアルバムからも削除されます。\n本当に消しますか？" } do %>
                               <span class="mgr-10"><i class="far fa-trash-alt"></i> 削除</span>
                             <% end %>
                           </div>

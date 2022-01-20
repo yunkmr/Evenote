@@ -13,7 +13,7 @@
               <% end %>
             </div>
             <div class="ml-auto">
-              <%= link_to edit_event_path do %>
+              <%= link_to edit_event_path, data: { confirm: "本当に消しますか？" } do %>
                 <span class="mgr-30"><i class="far fa-trash-alt"></i> 削除</span>
               <% end %>
             </div>

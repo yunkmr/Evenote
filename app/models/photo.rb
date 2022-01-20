@@ -4,4 +4,6 @@ class Photo < ApplicationRecord
 
   belongs_to :album
   attachment :memory_image
+
+  # validates :memory_image, attached_file_presence: true
 end

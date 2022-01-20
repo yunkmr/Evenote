@@ -43,7 +43,7 @@
                     <% end %>
                   </div>
                   <div class="ml-auto">
-                    <%= link_to post_path(post), method: :delete do %>
+                    <%= link_to post_path(post), method: :delete, data: { confirm: "本当に消しますか？" } do %>
                       <span class="mgr-10"><i class="far fa-trash-alt"></i> 削除</span>
                     <% end %>
                   </div>

@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   has_many :albums, dependent: :destroy
 
 
-  # validates :name, presence:true
-  # validates :date, presence:true
+  validates :name, presence:true
+  validates :date, presence:true
 
 end

@@ -18,9 +18,9 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
 
     if @event.save
-      redirect_to event_path(@event), notice: ""
+      redirect_to event_path(@event), notice: "イベント情報を登録しました"
     else
-      redirect_to request.referer
+      render 'new'
     end
 
   end
@@ -32,9 +32,9 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      redirect_to event_path(@event), notice: ""
+      redirect_to event_path(@event), notice: "イベント情報を更新しました"
     else
-      redirect_to request.referer
+      render 'edit'
     end
   end
 

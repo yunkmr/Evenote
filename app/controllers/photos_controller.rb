@@ -39,18 +39,21 @@ class PhotosController < ApplicationController
 
   def index_all
     @albums = current_user.albums
+    # photos = []
+    # @albums.each do |album|
+    #   album.photos.each do |photo|
+    #     photos.push({
+    #       album_id: photo.album_id,
+    #       memory_image: photo.memory_image_id
+    #     })
+    #   end
+    # end
 
-    photos = []
-    @albums.each do |album|
-      album.photos.each do |photo|
-        photos.push({
-          album_id: photo.album_id,
-          memory_image_id: photo.album_id
-        })
-      end
-    end
+    # @photos = Kaminari.paginate_array(photos).page(params[:page]).per(24)
 
-    # @photos = Kaminari.paginate_array(photos).page(params[:page]).per(14)
+    # @photos = Photo.user
+    # @photos = @photos.users
+
 
   end
 

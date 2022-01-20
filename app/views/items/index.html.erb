@@ -11,7 +11,8 @@
       <div class="card mt-3">
         <h5 class="card-header">グッズ登録</h5>
         <div class="card-body">
-          <%= form_with(model: [@event,@item], local: true) do |f| %>
+          <%= form_with model: [@event, @item], local: true do |f| %>
+            <%= render 'layouts/error', obj: @item %>
               <!--<div class="form-row">-->
             <div class="form-group row col-md-12">
               <%= f.label :商品名, class:'col-md-3 control-label' %>

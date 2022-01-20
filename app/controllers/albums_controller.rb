@@ -12,7 +12,7 @@ class AlbumsController < ApplicationController
     @album = @event.albums.new(create_album_params)
     # 投稿が成功した場合
     if @album.save
-      redirect_to request.referer
+      redirect_to request.referer, notice: "アルバムを登録しました"
     # 投稿が失敗した場合
     else
       @albums = @event.albums.includes(:user).order(created_at: "DESC")
@@ -23,14 +23,22 @@ class AlbumsController < ApplicationController
   def update
     @event = Event.find(params[:event_id])
     @album = Album.find(params[:id])
+
+    mode = params["mode"]
+
+    binding.pry
     # 投稿が成功した場合
     if @album.update(update_album_params)
       @albums = Album.where(event_id: @event.id)
-      redirect_to event_albums_path(event_id: @event)
+      if mode == "1"
+        redirect_to request.referer, notice: "アルバム名を変更しました"
+      else
+        redirect_to request.referer, notice: "写真を登録しました"
+      end
     # 投稿が失敗した場合
     else
       @albums = @event.albums.includes(:user).order(created_at: "DESC")
-      render :index
+      redirect_to request.referer
     end
   end
 

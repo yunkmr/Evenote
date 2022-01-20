@@ -1,0 +1,13 @@
+<!--<div class="row">-->
+  <% if obj.errors.any? %>
+    <div id="error_explanation">
+      <h5>入力に誤りがあります。入力内容を確認してください。</h5>
+      <ul>
+        <% obj.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--</div>-->
+

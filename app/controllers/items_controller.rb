@@ -26,8 +26,9 @@ class ItemsController < ApplicationController
       @items = Item.where(event_id: @event.id)
       redirect_to request.referer
     else
-      @item = Item.new
+      # @item = Item.new
       @items = Item.where(event_id: @event.id)
+      render 'index'
     end
   end
 
@@ -38,8 +39,9 @@ class ItemsController < ApplicationController
       @items = Item.where(event_id: @event.id)
       redirect_to event_items_path(event_id: @event)
     else
-      @item = Item.new
+      # @item = Item.new
       @items = Item.find(params[:event_id])
+      render 'index'
     end
   end
 

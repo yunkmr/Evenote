@@ -17,5 +17,6 @@ module Evenote
     # the framework and any gems in your application.
 
     config.i18n.default_locale = :ja #追加
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
   end
 end

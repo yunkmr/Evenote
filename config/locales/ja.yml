@@ -6,3 +6,20 @@ ja:
       previous: <i class="fas fa-angle-left"></i>
       next: <i class="fas fa-angle-right"></i>
       truncate: "..."
+
+
+
+
+ja:
+ activerecord:
+   attributes:
+     event:
+       name: イベント名
+       date: イベント日付
+     ticket:
+       event_name: イベント名
+       event_date: イベント日付
+     item:
+       name: 商品名
+       quantity: 個数
+       price: 金額

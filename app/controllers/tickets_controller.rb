@@ -17,9 +17,9 @@ class TicketsController < ApplicationController
     @ticket.user_id = current_user.id
 
     if @ticket.save
-      redirect_to ticket_path(@ticket), notice: ""
+      redirect_to ticket_path(@ticket), notice: "チケット情報を登録しました"
     else
-      redirect_to request.referer
+      render 'new'
     end
 
   end
@@ -31,9 +31,9 @@ class TicketsController < ApplicationController
   def update
     @ticket = Ticket.find(params[:id])
     if @ticket.update(ticket_params)
-      redirect_to ticket_path(@ticket), notice: ""
+      redirect_to ticket_path(@ticket), notice: "チケット情報を更新しました"
     else
-      redirect_to request.referer
+      render 'edit'
     end
   end
 
