@@ -1,14 +1,14 @@
 <div class="l-app_navigation">
   <div class="l-menu">
-    <div class="menu-open-overlay"></div>
+    <!--<div class="menu-open-overlay"></div>-->
     <div class="l-menu-title">
       <div class="icon"></div>
-      <p class="jp"><span>目次</span></p>
+      <!--<p class="jp"><span>目次</span></p>-->
       <p class="en"><span>index menu</span></p>
     </div>
     <div class="l-menu-contents">
-      <button class="l-menu-close">閉</button>
-      <nav class="l-menu-index">
+      <!--<button class="l-menu-close">閉</button>-->
+      <nav class="l-menu-index" style="overflow: hidden; outline: none;">
         <ol class="l-menu-index_page-list">
           <li class="l-menu-index_page">
             <div class="l-menu-index_page-title">
@@ -27,7 +27,7 @@
           </li>
           <li class="l-menu-index_page">
             <div class="l-menu-index_page-title">
-              <span class="line jp">イベント追加</span>
+              <span class="line jp">イベント管理</span>
               <span class="line en">Add Event</span>
             </div>
             <ol class="l-menu-index_section-list">
@@ -41,28 +41,42 @@
           </li>
           <li class="l-menu-index_page">
             <div class="l-menu-index_page-title">
-              <%= link_to albums_path , class:'l-menu-index_section-link' do %>
-                <span class="line jp">アルバム</span>
-                <span class="line en">albums</span>
-              <% end %>
+              <span class="line jp">アルバム</span>
+              <span class="line en">albums</span>
             </div>
+            <ol class="l-menu-index_section-list">
+              <li class="l-menu-index_section">
+                <%= link_to 'アルバム一覧', albums_path , class:'l-menu-index_section-link' %>
+              </li>
+            </ol>
           </li>
           <li class="l-menu-index_page">
             <div class="l-menu-index_page-title">
-              <%= link_to photos_path , class:'l-menu-index_section-link' do %>
-                <span class="line jp">写真</span>
-                <span class="line en">photos</span>
-              <% end %>
+              <span class="line jp">写真</span>
+              <span class="line en">photos</span>
             </div>
+            <ol class="l-menu-index_section-list">
+              <li class="l-menu-index_section">
+                <%= link_to '写真一覧', photos_path , class:'l-menu-index_section-link' %>
+              </li>
+            </ol>
           </li>
           <li class="l-menu-index_page">
             <div class="l-menu-index_page-title">
-              <%= link_to posts_path , class:'l-menu-index_section-link' do %>
-                <span class="line jp">投稿</span>
-                <span class="line en">Post</span>
-              <% end %>
+              <span class="line jp">投稿</span>
+              <span class="line en">Post</span>
             </div>
-            </a>
+            <ol class="l-menu-index_section-list">
+              <li class="l-menu-index_section">
+                <%= link_to '投稿一覧', posts_path , class:'l-menu-index_section-link' %>
+              </li>
+              <li class="l-menu-index_section">
+                <%= link_to '検索', post_all_posts_path , class:'l-menu-index_section-link' %>
+              </li>
+              <li class="l-menu-index_section">
+                <%= link_to '投稿', post_mine_posts_path , class:'l-menu-index_section-link' %>
+              </li>
+            </ol>
           </li>
         </ol>
       </nav>

@@ -20,22 +20,6 @@
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
 
-@mixin media($device) {
-  @if $device== "pc" {
-    @media print, screen and (min-width: 771px) {
-      @content;
-    }
-    // } @else if $device== "tb" {
-    //   @media print, screen and (max-width: 1440px) and (min-width: 771px) {
-    //     @content;
-    //   }
-  } @else if $device== "sp" {
-    @media screen and (max-width: 770px) {
-      @content;
-    }
-  }
-}
-
 *{
   padding: 0;
   margin: 0;
@@ -85,15 +69,15 @@ html {
 }
 
 body{
-    min-height: 100vh;
-    position: relative;/*←相対位置*/
-    padding-bottom: 50px;/*←footerの高さ*/
-    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 50px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
 .l-main{
   // min-height: 90vh;
-  display: flex;
+  // display: flex;
   // justify-content: flex-end;
 }
 
@@ -180,13 +164,14 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px;
+  width: 250px;
   height: 100%;
-  background-color: #008080;
+  background-color: #295d72;
   transition: all 0.6s;
   z-index: 100;
-  transform: translateX(-220px);
-  font-color: #fff;
+  transform: translateX(-170px);
+  color: #fff;
+  // overflow-y: hidden;
 }
 
 .l-app_navigation.menu-active-complete {
@@ -212,19 +197,19 @@ button {
   // background-color: #fff;
 }
 
-.menu-open-overlay {
-  z-index: 10;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+// .menu-open-overlay {
+//   z-index: 10;
+//   cursor: pointer;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+// }
 
 .l-menu-title {
   position: absolute;
-  top: 25px;
+  top: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -239,6 +224,7 @@ button {
   width: 20px;
   height: 7px;
   margin: 0 auto 35px;
+
 }
 
 .l-menu-title .icon:after,
@@ -248,7 +234,7 @@ button {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #000;
+  background-color: #fff;
 }
 
 .l-menu-title .icon:before {
@@ -276,6 +262,7 @@ button {
 }
 
 .l-menu-title .en {
+  margin: 15px auto 65px;
   font-size: 14px;
   font-family: Inter, sans-serif;
   font-weight: 400;
@@ -307,17 +294,23 @@ span {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
 }
 
 .l-menu-contents.menu-active-complete {
+  overflow-y: auto;
   z-index: 20;
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;       /* Firefox 対応 */
+}
+
+.l-menu-contents.menu-active-complete::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display:none;
 }
 
 .l-menu-index {
   padding: 65px 30px;
-}
 
+}
 
 .l-menu-index_page-title {
   position: relative;
@@ -342,15 +335,22 @@ span {
 }
 
 .l-menu-index_section-list{
-    // display: none;/*はじめは非表示*/
-    padding: 0 0 0 30px;
-    font-size: 13px;
+  // display: none;/*はじめは非表示*/
+  padding: 0 0 0 30px;
+  font-size: 13px;
+
 }
 
 .l-menu-index_section{
   padding: 0 0 20px 0;
 }
 
+.l-menu-index_section-link:hover{
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  padding: 2px;
+}
 
 .l-app_contents {
   // position: relative;
@@ -388,11 +388,8 @@ span {
 
 .l-app_header {
   left: 50%;
-  margin: 0 auto 60px -420px;
-  overflow: hidden;
-  padding-bottom: 30px;
-  margin-bottom: 20px;
-  padding-top: 50px;
+  // overflow: hidden;
+  padding-bottom: 50px;
   // position: fixed;
   top: 0;
   width: 855px;
@@ -418,6 +415,11 @@ span {
   }
 }
 
+.navbar{
+  // background-color: #f7f7f5;
+  border-bottom: solid 1px #dcdcdc;
+}
+
 
 
 .l-app_footer {
@@ -432,14 +434,13 @@ span {
 //     width: calc(100% - 200px);
 // }
 
-
-// ユーザー編集画面のボタン
-.form-image-button {
-    padding: 10px 40px;
-    color: #ffffff;
-    background-color: #384878;
-    cursor: pointer;
-}
+// // ユーザー編集画面のボタン
+// .form-image-button {
+//     padding: 10px 40px;
+//     color: #ffffff;
+//     background-color: #384878;
+//     cursor: pointer;
+// }
 
 // input[type="file"] {
 //    display: none;
