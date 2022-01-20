@@ -43,11 +43,11 @@ class AlbumsController < ApplicationController
       @album = Album.new
     end
 
-    @albums = @event.albums.includes(:user).order(created_at: "DESC")
+    @albums = @event.albums.includes(:user).page(params[:page]).per(12).order(created_at: "DESC")
   end
 
   def index_all
-    @albums = current_user.albums
+    @albums = current_user.albums.all.page(params[:page]).per(12).order(created_at: "DESC")
   end
 
   def destroy

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <%= link_to events_path do %>
         <i class="fas fa-angle-double-left"></i> イベント一覧へ
       <% end %>
@@ -21,7 +21,7 @@
       <div class="mx-auto mt-5">
         <div class="row">
           <% @albums.each do |album| %>
-            <div class="col-xl-3 mt-3">
+            <div class="col-xl-3 col-md-6 mt-3">
               <div class="card">
                 <div class="album_box">
                   <div class="album_box_image"><i class="far fa-images"></i></div>
@@ -52,6 +52,11 @@
               </div>
             </div>
           <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto mt-2">
+          <%= paginate @albums %>
         </div>
       </div>
     </div>
