@@ -1,5 +1,5 @@
 // // カレンダー表示
-$(function () {
+// $(function () {
     $(document).on('turbolinks:load', function () {
         function eventCalendar() {
             return $('#calendar').fullCalendar({});
@@ -48,4 +48,4 @@ $(function () {
           },
         });
     });
-});
+// });

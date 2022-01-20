@@ -1,14 +1,16 @@
-<form class="login-form">
-  <p class="login-text">
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-lock fa-stack-1x"></i>
+<div class="home-image">
+  <div class="home-main-text">
+    <h2 class="home-title">ようこそ、『Evenote.』へ</h2>
+    <h4 class="home-sub-title">イベントの思い出をEvenote.で残しませんか。</h4>
+    <span class="home-text">
+      Evenoteは、参加したいライブ・舞台・展覧会などの<br>
+      様々なイベント情報をメモして、<br>
+      手軽にスケジュール管理できるアプリです。<br>
     </span>
-  </p>
-  <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
-  <input type="password" class="login-password" required="true" placeholder="Password" />
-  <input type="submit" name="Login" value="Login" class="login-submit" />
-</form>
-<a href="#" class="login-forgot-pass">forgot password?</a>
-<div class="underlay-photo"></div>
-<div class="underlay-black"></div> 
+    <div class="home-sub-text">
+      <p>ご利用には会員登録が必要です。</p>
+      <p><%= link_to 'ログインはこちらから', new_user_session_path %></p>
+      <p><%= link_to '新規登録はこちらから', new_user_registration_path %></p>
+    </div>
+  </div>
+</div>

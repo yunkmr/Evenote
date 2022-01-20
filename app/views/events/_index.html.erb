@@ -1,90 +1,48 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 mx-auto">
-      <div class="row">
-        <div class="col-xl-5">
-          <div class="card">
-            <div class="card-body ticket_search_form">
-              <h5 class="card-title">検索フォーム</h5>
-              <div class="col-12">
-                <%= form_with url: search_events_path, method: :get, local:true do |f| %>
-                  <!--<div class="form-row col-md-12">-->
-                  <div class="form-group row">
-                    <%= f.label :イベント名, class: 'control-label' %>
-                    <%= f.text_field :keyword, class: 'form-control' %>
-                  </div>
-                  <!--</div>-->
-                  <div class="form-group row">
-                    <%= f.label :イベント日付, class: 'control-label col-md-5' %>
-                    <%= f.date_field :date, class: 'form-control col-md-5' %>
-                  </div>
-                  <!--<div class="form-row col-md-12">-->
-                  <div class="form-group row">
-                    <%= f.label :アーティスト名, class: 'col-md-5 control-label' %>
-                    <%= f.text_field :artist, class: 'form-control col-md-7' %>
-                  </div>
-                  <div class="form-group row">
-                    <%= f.label :場所, class: 'col-md-5 control-label' %>
-                    <%= f.text_field :place, class: 'form-control col-md-7' %>
-                  </div>
-                  <%= f.submit '検索', class:'submit-btn' %>
-                <% end %>
-              </div>
-            </div>
+<table class="table">
+  <% events.each do |event| %>
+    <tr>
+      <td>
+        <div class="col-md-12">
+          <h5><%= link_to event.name, event_path(event) %></h5>
+        </div>
+        <div class="row col-md-12">
+          <div class="col-md-1">
+            <i class="far fa-clock"></i>
+          </div>
+          <div class="col-md-10">
+            <%= event.date %>
+            <span class="mgl-10"></span>
+            OPEN：
+            <% unless event.open_time.nil? %>
+              <%= event.open_time.strftime("%H:%M") %>
+            <% end %>
+            / START：
+            <% unless event.open_time.nil? %>
+              <%= event.start_time.strftime("%H:%M") %> 〜
+            <% end %>
+            <% unless event.open_time.nil? %>
+              <%= event.end_time.strftime("%H:%M") %>
+            <% end %>
           </div>
         </div>
-        <div class="col-xl-7 mx-auto">
-          <h5>イベント一覧</h5>
-          <table class="table">
-            <% events.each do |event| %>
-              <tr>
-                <td>
-                  <div class="col-md-12">
-                    <h5><%= link_to event.name, event_path(event) %></h5>
-                  </div>
-                  <div class="row col-md-12">
-                    <div class="col-md-1">
-                      <i class="far fa-clock"></i>
-                    </div>
-                    <div class="col-md-10">
-                      <%= event.date %>
-                      <span class="mgl-10"></span>
-                      OPEN：
-                      <% unless event.open_time.nil? %>
-                        <%= event.open_time.strftime("%H:%M") %>
-                      <% end %>
-                      / START：
-                      <% unless event.open_time.nil? %>
-                        <%= event.start_time.strftime("%H:%M") %> 〜
-                      <% end %>
-                      <% unless event.open_time.nil? %>
-                        <%= event.end_time.strftime("%H:%M") %>
-                      <% end %>
-                    </div>
-                  </div>
-                  <div class="row col-md-12">
-                    <div class="col-md-1">
-                      <i class="far fa-user-circle"></i>
-                    </div>
-                    <div class="col-md-10">
-                      <%= event.artist %>
-                    </div>
-                  </div>
-                  <div class="row col-md-12">
-                    <div class="col-md-1">
-                      <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <div class="col-md-10">
-                      <%= event.place %>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            <% end %>
-          </table>
-          <%= paginate events %>
+        <div class="row col-md-12">
+          <div class="col-md-1">
+            <i class="far fa-user-circle"></i>
+          </div>
+          <div class="col-md-10">
+            <%= event.artist %>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="row col-md-12">
+          <div class="col-md-1">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <div class="col-md-10">
+            <%= event.place %>
+          </div>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= paginate events %>

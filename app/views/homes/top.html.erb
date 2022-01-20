@@ -22,20 +22,7 @@
               <div class="tabbox box-show">
                 <h3>本日のイベント</h3>
                 <% if @events.present? %>
-                  <table class="table">
-                    <tr>
-                      <th>日付</th>
-                      <th>イベント名</th>
-                      <th>場所</th>
-                    </tr>
-                    <% @events.each do |event| %>
-                      <tr>
-                        <td><%= event.date %></td>
-                        <td><%= link_to event.name, event_path(event) %></td>
-                        <td><%= event.place %></td>
-                      </tr>
-                    <% end %>
-                  </table>
+                  <%= render 'events/index', events: @events %>
                 <% else %>
                   <p>本日のイベントはありません</p>
                 <% end %>

@@ -42,10 +42,10 @@
 }
 
 .page-item.active .page-link {
-    // z-index: 3;
-    color: #fff;
-    background-color: #bdb76b;
-    border-color: #bdb76b;
+  // z-index: 3;
+  color: #fff;
+  background-color: #bdb76b;
+  border-color: #bdb76b;
 }
 
 .wrapper {
@@ -81,16 +81,6 @@ body{
   // justify-content: flex-end;
 }
 
-footer{
-    width: 100%;
-    background-color: #89c7de;
-    color: #fff;
-    text-align: center;
-    padding: 0;
-
- position: absolute;/*←絶対位置*/
-    bottom: 0; /*下に固定*/
-}
 
 li,
 ol{
@@ -168,9 +158,10 @@ button {
   height: 100%;
   background-color: #295d72;
   transition: all 0.6s;
-  z-index: 100;
+  z-index: 1;
   transform: translateX(-170px);
   color: #fff;
+
   // overflow-y: hidden;
 }
 
@@ -298,7 +289,7 @@ span {
 
 .l-menu-contents.menu-active-complete {
   overflow-y: auto;
-  z-index: 20;
+  z-index: 2;
   -ms-overflow-style: none;    /* IE, Edge 対応 */
   scrollbar-width: none;       /* Firefox 対応 */
 }
@@ -393,7 +384,7 @@ span {
   // position: fixed;
   top: 0;
   width: 855px;
-  z-index: 99999;
+  z-index: 0;
   // position: fixed;
   // position: relative;
   background-color: #f7f7f5;
@@ -423,11 +414,15 @@ span {
 
 
 .l-app_footer {
-  // position: absolute;
-  // bottom: 0;
-  // left: 0;
-  // width: 100%;
-  // background-color: #eee8aa;
+  // height: 100px;
+  width: 100%;
+  // background-color: #89c7de;
+  color: #000;
+  text-align: center;
+
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  margin-top: 30px;
 }
 
 // .l-app_header.menu-active-complete {
@@ -526,7 +521,7 @@ span {
 
 
 /* hiddenクラスがないとマスクとモーダルが表示される（JavaScriptでhiddenクラスを消したとき）*/
-#mask-1 {
+#mask-1, #mask-2, #mask-3 {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -536,27 +531,27 @@ span {
   z-index: 1;
 }
 
-#mask-2 {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-}
+// #mask-2 {
+//   background-color: rgba(0, 0, 0, 0.5);
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   z-index: 1;
+// }
 
-#mask-3 {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-}
+// #mask-3 {
+//   background-color: rgba(0, 0, 0, 0.5);
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   z-index: 1;
+// }
 
-#modal-1 {
+#modal-1, #modal-2, #modal-3 {
   position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
   top: 10vh;
   /* 以下3行：モーダルを左右中央揃えにする方法 */
@@ -572,71 +567,71 @@ span {
   background-color: #fff;
 }
 
-#modal-2 {
-  position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
-  top: 10vh;
-  /* 以下3行：モーダルを左右中央揃えにする方法 */
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  transform: translate(0, 0) scale(1);
-  transition: 0.2s;   /* transitionでアニメーションを作成 */
-  z-index: 2;   /* マスクより上に重なるようにする */
-  width: 935px;   /* showビューの幅に合わせて設定 */
-  // height: 450px;
-  // width: 800px;
-  background-color: #fff;
-}
+// #modal-2 {
+//   position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
+//   top: 10vh;
+//   /* 以下3行：モーダルを左右中央揃えにする方法 */
+//   left: 0;
+//   right: 0;
+//   margin: 0 auto;
+//   transform: translate(0, 0) scale(1);
+//   transition: 0.2s;   /* transitionでアニメーションを作成 */
+//   z-index: 2;   /* マスクより上に重なるようにする */
+//   width: 935px;   /* showビューの幅に合わせて設定 */
+//   // height: 450px;
+//   // width: 800px;
+//   background-color: #fff;
+// }
 
-#modal-3 {
-  position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
-  top: 10vh;
-  /* 以下3行：モーダルを左右中央揃えにする方法 */
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  transform: translate(0, 0) scale(1);
-  transition: 0.2s;   /* transitionでアニメーションを作成 */
-  z-index: 2;   /* マスクより上に重なるようにする */
-  width: 935px;   /* showビューの幅に合わせて設定 */
-  // height: 450px;
-  // width: 800px;
-  background-color: #fff;
-}
+// #modal-3 {
+//   position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
+//   top: 10vh;
+//   /* 以下3行：モーダルを左右中央揃えにする方法 */
+//   left: 0;
+//   right: 0;
+//   margin: 0 auto;
+//   transform: translate(0, 0) scale(1);
+//   transition: 0.2s;   /* transitionでアニメーションを作成 */
+//   z-index: 2;   /* マスクより上に重なるようにする */
+//   width: 935px;   /* showビューの幅に合わせて設定 */
+//   // height: 450px;
+//   // width: 800px;
+//   background-color: #fff;
+// }
 
 /* hiddenクラスで最初は表示されないようにする */
-#mask-1.hidden {
+#mask-1.hidden, #mask-2.hidden, #mask-3.hidden {
   opacity: 0;
   visibility: hidden;
 }
 
-#mask-2.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+// #mask-2.hidden {
+//   opacity: 0;
+//   visibility: hidden;
+// }
 
-#mask-3.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+// #mask-3.hidden {
+//   opacity: 0;
+//   visibility: hidden;
+// }
 
-#modal-1.hidden {
+#modal-1.hidden, #modal-2.hidden, #modal-3.hidden {
   opacity: 0;
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
 }
 
-#modal-2.hidden {
-  opacity: 0;
-  visibility: hidden;
-  transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
-}
+// #modal-2.hidden {
+//   opacity: 0;
+//   visibility: hidden;
+//   transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
+// }
 
-#modal-3.hidden {
-  opacity: 0;
-  visibility: hidden;
-  transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
-}
+// #modal-3.hidden {
+//   opacity: 0;
+//   visibility: hidden;
+//   transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
+// }
 
 // 通知マークの丸
 .n-circle {
@@ -648,68 +643,68 @@ span {
 
 
 // 投稿機能のタブ切り替え
-.tab {
+.tab, .sub-tab {
   width: 100%;
   padding: 10px;
   cursor: pointer;
   border-left: solid 1px #CCC;
   border-bottom: solid 1px #CCC;
 }
-.tab:first-child {
+.tab:first-child, .sub-tab:first-child {
   border-left: none;
 }
 // タブがactiveのときのデザイン
-.tab-active {
+.tab-active, .sub-tab-active {
   color: #FFF;
-  background: #19b5d1;
+  background: #DB7093;
   transition: all 0.2s ease-in-out;
 }
 // タブの中身、最初は非表示
-.tabbox {
+.tabbox, .sub-tabbox {
   display: none;
   padding: 15px;
 }
 // box-showクラスのものだけ表示
-.box-show {
+.box-show,.sub-box-show {
   display: block;
 }
 // hover時のアクション
-.tab:hover{
+.tab:hover, .sub-tab:hover {
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
   transform: translateY(-1px);
 }
 
 // 投稿機能のタブ切り替え
-.sub-tab {
-  width: 50%;
-  padding: 10px;
-  cursor: pointer;
-  border-left: solid 1px #CCC;
-  border-bottom: solid 1px #CCC;
-}
-.sub-tab:first-child {
-  border-left: none;
-}
-// タブがactiveのときのデザイン
-.sub-tab-active {
-  color: #FFF;
-  background: #19b5d1;
-  transition: all 0.2s ease-in-out;
-}
-// タブの中身、最初は非表示
-.sub-tabbox {
-  display: none;
-  padding: 15px;
-}
-// box-showクラスのものだけ表示
-.sub-box-show {
-  display: block;
-}
-// hover時のアクション
-.sub-tab:hover{
-  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
-  transform: translateY(-1px);
-}
+// .sub-tab {
+//   width: 50%;
+//   padding: 10px;
+//   cursor: pointer;
+//   border-left: solid 1px #CCC;
+//   border-bottom: solid 1px #CCC;
+// }
+// .sub-tab:first-child {
+//   border-left: none;
+// }
+// // タブがactiveのときのデザイン
+// .sub-tab-active {
+//   color: #FFF;
+//   background: #DB7093;
+//   transition: all 0.2s ease-in-out;
+// }
+// // タブの中身、最初は非表示
+// .sub-tabbox {
+//   display: none;
+//   padding: 15px;
+// }
+// // box-showクラスのものだけ表示
+// .sub-box-show {
+//   display: block;
+// }
+// // hover時のアクション
+// .sub-tab:hover{
+//   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+//   transform: translateY(-1px);
+// }
 
 
 
@@ -1007,134 +1002,343 @@ span {
   color: #808080;
 }
 
+
+
+
+
+
+
+
+
 // 一トップ画面お試しーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
-// input {
-//   ::-webkit-input-placeholder {
-//     color: rgba(255,255,255,0.7);
-//   }
-//   ::-moz-placeholder {
-//     color: rgba(255,255,255,0.7);
-//   }
-//   :-ms-input-placeholder {
-//     color: rgba(255,255,255,0.7);
-//   }
-//   &:focus {
-//     outline: 0 transparent solid;
-//     ::-webkit-input-placeholder {
-//     color: rgba(0,0,0,0.7);
-//     }
-//     ::-moz-placeholder {
-//       color: rgba(0,0,0,0.7);
-//     }
-//     :-ms-input-placeholder {
-//       color: rgba(0,0,0,0.7);
-//     }
-//   }
-// }
+.home-main-text {
+  position: absolute;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 50px;
 
-// .login-form {
-//   //background: #222;
-//   //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
-//   min-height: 10rem;
-//   margin: auto;
-//   max-width: 50%;
-//   padding: .5rem;
-// }
-// .login-text {
-//   //background: hsl(40,30,60);
-//   //border-bottom: .5rem solid white;
-//   color: white;
-//   font-size: 1.5rem;
-//   margin: 0 auto;
-//   max-width: 50%;
-//   padding: .5rem;
-//   text-align: center;
-//   //text-shadow: 1px -1px 0 rgba(0,0,0,0.3);
-//   .fa-stack-1x {
-//     color: black;
-//   }
-// }
+}
 
-// .login-username, .login-password {
-//   background: transparent;
-//   border: 0 solid;
-//   border-bottom: 1px solid rgba(white, .5);
-//   color: white;
-//   display: block;
-//   margin: 1rem;
-//   padding: .5rem;
-//   transition: 250ms background ease-in;
-//   width: calc(100% - 3rem);
-//   &:focus {
-//     background: white;
-//     color: black;
-//     transition: 250ms background ease-in;
-//   }
-// }
+.home-title {
+  font-weight: bold;
+  text-align: center;
+}
 
-// .login-forgot-pass {
-//   //border-bottom: 1px solid white;
-//   bottom: 0;
-//   color: white;
-//   cursor: pointer;
-//   display: block;
-//   font-size: 75%;
-//   left: 0;
-//   opacity: 0.6;
-//   padding: .5rem;
-//   position: absolute;
-//   text-align: center;
-//   //text-decoration: none;
-//   width: 100%;
-//   &:hover {
-//     opacity: 1;
-//   }
-// }
-// .login-submit {
-//   border: 1px solid white;
-//   background: transparent;
-//   color: white;
-//   display: block;
-//   margin: 1rem auto;
-//   min-width: 1px;
-//   padding: .25rem;
-//   transition: 250ms background ease-in;
-//   &:hover, &:focus {
-//     background: white;
-//     color: black;
-//     transition: 250ms background ease-in;
-//   }
-// }
+.home-sub-title {
+  padding: 10px 0;
+}
+
+.home-text {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.home-sub-text{
+  text-align: center;
+  padding: 10px 0;
+}
+
+.home-image {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: image-url("note.jpeg");
+  background-size: cover;
+  background-position: center;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(12px);
+}
+
+.home-image::before {
+  background: inherit;
+  content: '';
+  position: absolute;
+  filter: blur(6px);
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+}
 
 
 
+// ログイン画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+.login-main{
+  position: absolute;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 50px;
+  width: 600px;
 
-// [class*=underlay] {
-//   left: 0;
-//   min-height: 100%;
-//   min-width: 100%;
-//   position: fixed;
-//   top: 0;
-// }
-// .underlay-photo {
-//   animation: hue-rotate 6s infinite;
-//   background: url('https://31.media.tumblr.com/41c01e3f366d61793e5a3df70e46b462/tumblr_n4vc8sDHsd1st5lhmo1_1280.jpg');
-//   background-size: cover;
-//   -webkit-filter: grayscale(30%);
-//   z-index: -1;
-// }
-// .underlay-black {
-//   background: rgba(0,0,0,0.7);
-//   z-index: -1;
-// }
+  @media screen and (max-width: 959px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	width: 500px;
+  }
 
-// @keyframes hue-rotate {
-//   from {
-//     -webkit-filter: grayscale(30%) hue-rotate(0deg);
-//   }
-//   to {
-//     -webkit-filter: grayscale(30%) hue-rotate(360deg);
-//   }
-// }
+  @media screen and (max-width: 480px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	width: 400px;
+  }
 
+}
+
+
+.login-email, .login-password {
+  ::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.7);
+  }
+  ::-moz-placeholder {
+    color: rgba(255,255,255,0.7);
+  }
+  :-ms-input-placeholder {
+    color: rgba(255,255,255,0.7);
+  }
+  &:focus {
+    outline: 0 transparent solid;
+    ::-webkit-input-placeholder {
+    color: rgba(0,0,0,0.7);
+    }
+    ::-moz-placeholder {
+      color: rgba(0,0,0,0.7);
+    }
+    :-ms-input-placeholder {
+      color: rgba(0,0,0,0.7);
+    }
+  }
+}
+
+.login-form {
+  // position: absolute;
+  //background: #222;
+  //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+  min-height: 10rem;
+  margin: auto;
+  // width: 500px;
+  padding: .5rem;
+}
+.login-text {
+  //background: hsl(40,30,60);
+  //border-bottom: .5rem solid white;
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  max-width: 50%;
+  padding: .5rem;
+  text-align: center;
+  //text-shadow: 1px -1px 0 rgba(0,0,0,0.3);
+  .fa-stack-1x {
+    color: black;
+  }
+}
+
+.login-email, .login-password {
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px solid rgba(white, .5);
+  color: white;
+  display: block;
+  margin: 1rem;
+  padding: .5rem;
+  transition: 250ms background ease-in;
+  width: calc(100% - 3rem);
+  &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.login-forgot-pass {
+  //border-bottom: 1px solid white;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 75%;
+  left: 0;
+  opacity: 0.6;
+  padding: .5rem;
+  position: absolute;
+  text-align: center;
+  //text-decoration: none;
+  width: 100%;
+  &:hover {
+    opacity: 1;
+  }
+}
+.login-submit {
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  display: block;
+  margin: 1rem auto;
+  min-width: 1px;
+  padding: .25rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+
+// サインアップ画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+.signup-main{
+  position: absolute;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 50px;
+  width: 600px;
+
+  @media screen and (max-width: 959px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	width: 500px;
+  }
+
+  @media screen and (max-width: 480px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	width: 400px;
+  }
+
+}
+
+.signup-name, .signup-email, .signup-password {
+  ::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.7);
+  }
+  ::-moz-placeholder {
+    color: rgba(255,255,255,0.7);
+  }
+  :-ms-input-placeholder {
+    color: rgba(255,255,255,0.7);
+  }
+  &:focus {
+    outline: 0 transparent solid;
+    ::-webkit-input-placeholder {
+    color: rgba(0,0,0,0.7);
+    }
+    ::-moz-placeholder {
+      color: rgba(0,0,0,0.7);
+    }
+    :-ms-input-placeholder {
+      color: rgba(0,0,0,0.7);
+    }
+  }
+}
+
+.signup-form {
+  // position: absolute;
+  //background: #222;
+  //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+  min-height: 10rem;
+  margin: auto;
+  // width: 500px;
+  padding: .5rem;
+}
+.signup-text {
+  //background: hsl(40,30,60);
+  //border-bottom: .5rem solid white;
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  max-width: 50%;
+  padding: .5rem;
+  text-align: center;
+  //text-shadow: 1px -1px 0 rgba(0,0,0,0.3);
+  .fa-stack-1x {
+    color: black;
+  }
+}
+
+.signup-name, .signup-email, .signup-password {
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px solid rgba(white, .5);
+  color: white;
+  display: block;
+  margin: 1rem;
+  padding: .5rem;
+  transition: 250ms background ease-in;
+  width: calc(100% - 3rem);
+  &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.signup-submit {
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  display: block;
+  margin: 1rem auto;
+  min-width: 1px;
+  padding: .25rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.signup-main{
+  position: absolute;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 50px;
+  width: 600px;
+
+  @media screen and (max-width: 959px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	width: 500px;
+  }
+
+  @media screen and (max-width: 480px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	width: 400px;
+  }
+
+}
+
+.form-link-pass {
+  //border-bottom: 1px solid white;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 90%;
+  left: 0;
+  opacity: 0.6;
+  padding: .5rem;
+  position: absolute;
+  text-align: center;
+  //text-decoration: none;
+  width: 100%;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.form-link-forget{
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 90%;
+  left: 0;
+  opacity: 0.6;
+  text-align: center;
+  width: 100%;
+  &:hover {
+    opacity: 1;
+  }
+}

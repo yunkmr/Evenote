@@ -10,28 +10,28 @@
   </head>
 
   <body>
-    <!--<div class="wrapper">-->
-      <header>
+    <header>
+      <% if user_signed_in? %>
         <div class="l-app_header">
-          <% if user_signed_in? %>
-            <%= render 'layouts/header' %>
-          <% end %>
+          <%= render 'layouts/header' %>
         </div>
-      </header>
-      <main>
+      <% end %>
+    </header>
+    <main>
+      <% if user_signed_in? %>
         <div id="notify-modal" class="modal notify-modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-        <div class="l-main">
-          <% if user_signed_in? %>
-            <%= render 'layouts/menu' %>
-          <% end %>
-          <div class="l-app_contents">
-            <%= yield %>
-          </div>
+        <%= render 'layouts/menu' %>
+        <div class="l-app_contents">
+          <%= yield %>
         </div>
-      </main>
-      <footer>
+      <% else %>
+        <%= yield %>
+      <% end %>
+    </main>
+    <footer>
+      <% if user_signed_in? %>
         <%= render 'layouts/footer' %>
-      </footer>
-    <!--</div>-->
+      <% end %>
+    </footer>
   </body>
 </html>

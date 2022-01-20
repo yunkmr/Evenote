@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # get 'relationships/followers'
 
   get 'relationships/follow'
-  root 'homes#top'
-  get 'top' => 'homes#'
+  root 'homes#home'
+  get 'top' => 'homes#top'
 
   resource :users, only: [:show,:edit,:update]  do
     resource :relationships, only: [:create, :destroy]
