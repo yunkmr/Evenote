@@ -18,20 +18,7 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
-
   end
-
-  def new_mail
-    @user = current_user
-  end
-
-  def send_mail
-    @user = current_user
-    @mail_title = params[:mail_title]
-    @mail_content = params[:mail_content]
-    UserMailer.send_mail.deliver
-  end
-
 
   private
 

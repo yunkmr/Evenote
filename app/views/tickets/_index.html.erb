@@ -84,8 +84,10 @@
     </tr>
   <% end %>
 </table>
-<div class="row">
-  <div class="mx-auto mt-2">
-    <%= paginate tickets %>
+<% if mode_id == "1" %>
+  <div class="row">
+    <div class="mx-auto mt-2">
+      <%= paginate tickets %>
+    </div>
   </div>
-</div>
+  

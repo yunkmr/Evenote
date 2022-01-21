@@ -1,4 +1,8 @@
 <div class="scroll-list jscroll">
-  <%= render 'tickets/index', tickets: tickets %>
-  <%= paginate tickets, :param_name => 'page_3', remote: true %>
+  <%= render 'tickets/index', tickets: tickets, mode_id: "2" %>
+  <div class="row">
+    <div class="mx-auto mt-2">
+      <%= paginate tickets, :param_name => 'page_3', remote: true %>
+    </div>
+  </div>
 </div>

@@ -7,9 +7,6 @@ Rails.application.routes.draw do
 
   # User非ログイン時のルートパス
   root 'homes#home'
-
-  devise_for :users
-
   get 'relationships/follow'
 
   resource :users, only: [:show,:edit,:update]  do
@@ -18,6 +15,7 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
 
   end
+  devise_for :users
 
   get 'relationships/follow'
 
