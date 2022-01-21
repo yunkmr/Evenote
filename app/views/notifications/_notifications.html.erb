@@ -10,26 +10,31 @@
       さんが
 
       <% case notification.action %>
-      <% when 'follow' then %>
-        あなたをフォローしました
-      <% when 'like' then %>
-        <%= link_to 'あなたの投稿', notification.post %>
-        にいいねしました
-      <% when 'comment' then %>
-        <% if notification.post.user_id == visited.id %>
+        <% when 'follow' then %>
+          <%= link_to users_path(visitor) do %>
+            <%= attachment_image_tag(visitor, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
+            <strong><%= visitor.user_name %></strong>
+          <% end %>
+          さんが
+          あなたをフォローしました
+        <% when 'like' then %>
           <%= link_to 'あなたの投稿', notification.post %>
-        <% else %>
-          <span>
-            <%= link_to post_path(notification.post) do %>
-              <%= attachment_image_tag(visitor, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
-            <% end %>
-            <strong><%= notification.post.user.user_name + 'さんの投稿' %></strong>
-          </span>
-        <% end %>
-        にコメントしました
-        <p class="text-muted mb-0">
-          <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
-        </p>
+          にいいねしました
+        <% when 'comment' then %>
+          <% if notification.post.user_id == visited.id %>
+            <%= link_to 'あなたの投稿', notification.post %>
+          <% else %>
+            <span>
+              <%= link_to post_path(notification.post) do %>
+                <%= attachment_image_tag(visitor, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
+              <% end %>
+              <strong><%= notification.post.user.user_name + 'さんの投稿' %></strong>
+            </span>
+          <% end %>
+          にコメントしました
+          <p class="text-muted mb-0">
+            <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
+          </p>
       <% end %>
     </span>
   </div>
