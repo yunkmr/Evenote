@@ -636,9 +636,24 @@ span {
 // 通知マークの丸
 .n-circle {
   position: absolute;
-  padding-left: 1rem;
+  padding-left: 1.3rem;
+  padding-top: 0rem;
+  color: #f4a460;
+  opacity: 0.5;
+}
+
+// DM通知マークの丸
+.n-circle-mail{
+  position: absolute;
+  padding-left: 1.3rem;
   padding-top: 0rem;
   color: #efa04c;
+  opacity: 0.5;
+  color: #808000;
+}
+
+.n-circle-index-mail{
+  color: #808000;
 }
 
 
@@ -1345,4 +1360,148 @@ span {
 
 .field_with_errors {
   display: contents;
+}
+
+
+// ーーーーーーチャットルームーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+.scroll {
+  overflow-y: scroll;
+}
+#scroll-inner{
+  height: 350px;
+}
+
+.inbox_msg {
+  border: 1px solid #c4c4c4;
+  clear: both;
+  overflow: hidden;
+}
+
+.chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0;}
+.chat_ib h5 span{ font-size:13px; float:right;}
+.chat_ib p{ font-size:14px; color:#989898; margin:auto}
+.chat_img {
+  float: left;
+  width: 11%;
+}
+.chat_ib {
+  float: left;
+  padding: 0 0 0 15px;
+  width: 88%;
+}
+
+.incoming_msg_img {
+  display: inline-block;
+  // width: 6%;
+}
+.received_msg {
+  margin-top: 15px;
+  display: inline-block;
+  vertical-align: top;
+  width: 92%;
+}
+ .received_withd_msg p {
+  background: #ebebeb none repeat scroll 0 0;
+  border-radius: 3px;
+  color: #646464;
+  font-size: 14px;
+  margin: 0;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+  word-wrap: break-word;
+}
+.time_date {
+  color: #747474;
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+.received_withd_msg { width: 57%;}
+.mesgs {
+  min-height: 350px;
+  width: 100%;
+  float: left;
+  padding: 0 15px;
+}
+
+ .sent_msg p {
+  background: #82bccc none repeat scroll 0 0;
+  border-radius: 3px;
+  font-size: 14px;
+  margin: 0; color:#fff;
+  padding: 5px 10px 5px 12px;
+  width:100%;
+  word-wrap: break-word;
+}
+.outgoing_msg{ overflow:hidden; margin-top :15px;}
+.sent_msg {
+  float: right;
+  width: 46%;
+}
+.input_msg_write input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #4c4c4c;
+  font-size: 15px;
+  min-height: 48px;
+  width: 100%;
+}
+
+.type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+.msg_send_btn {
+  background: #05728f none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+}
+
+.msg_history {
+  height: 510px;
+  overflow-y: auto;
+}
+
+.chat-form {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.chat-btn {
+  margin-left: auto;
+}
+
+.chat-form:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.1rem rgba(0,0,0,0.2);
+}
+
+.chat-min-heiht {
+  min-height: 30px;
+}
+
+.btn-rounded {
+    border-radius: 35px;
+}
+.btn-dark-blues {
+    width: 100px;
+    background: #80b6cc;
+    color: #fff;
+    border: 3px solid #eee;
 }

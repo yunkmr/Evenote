@@ -25,6 +25,10 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
+  # DMの関係
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+
   attachment :profile_image
 
   # フォローしたときの処理
@@ -50,6 +54,13 @@ class User < ApplicationRecord
       )
       notification.save if notification.valid?
     end
+  end
+
+  # DMの未読が存在するか確
+  def unchecked_chats?
+    my_rooms_ids = UserRoom.select(:room_id).where(user_id: id)
+    other_user_ids = UserRoom.select(:user_id).where(room_id: my_rooms_ids).where.not(user_id: id)
+    Chat.where(user_id: other_user_ids, room_id: my_rooms_ids).where.not(checked: true).any?
   end
 
 end

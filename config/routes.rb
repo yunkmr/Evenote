@@ -76,4 +76,8 @@ Rails.application.routes.draw do
   get 'post_user/search' => 'searches#post_user_search'
   get 'event_user/search' => 'searches#event_user_search'
 
+
+  resources :rooms, only: [:create, :index, :show]
+  resource :chats, only: [:create]
+
 end
