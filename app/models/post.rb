@@ -14,8 +14,7 @@ class Post < ApplicationRecord
 	has_many :notifications, dependent: :destroy
 
   attachment :post_image
-  # mount_uploader :post_image_id, ImageUploader
-
+  validates :maintext, presence: true
 
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?

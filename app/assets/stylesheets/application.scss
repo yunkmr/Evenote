@@ -1123,3 +1123,10 @@ span {
   height: 510px;
   overflow-y: auto;
 }
+
+// エラーメッセージーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+#error_explanation{
+  border: dashed 1px #db7093;
+  color: #cd5c5c;
+  padding: 5px 0 0 5px;
+}

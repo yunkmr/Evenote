@@ -3,7 +3,7 @@
     <% posts.each do |post| %>
       <div class="col-xl-4 col-md-6 mt-3">
         <div class="card h-100 post_card">
-          <%= attachment_image_tag(post, :post_image, class: 'card post_image') %>
+          <%= attachment_image_tag(post, :post_image, fallback:'no-image-post.png', class: 'card post_image') %>
           <!--</div>-->
           <div class="card-body post_main_text">
             <p class="card-text post_text_tag">

@@ -33,9 +33,6 @@ class PostsController < ApplicationController
       @tag_list = ""
     end
 
-    # binding.pry
-
-    # @post = current_user.posts.new   #ビューのform_withのmodelに使う。
   end
 
   def create
@@ -44,20 +41,30 @@ class PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split(nil)
     if @post.save
       @post.save_tag(tag_list)
-      redirect_back(fallback_location: root_path)
+      redirect_to request.referer, notice: "投稿しました"
     else
-      redirect_back(fallback_location: root_path)
+      @posts_my = Post.where(user_id: current_user.id).all.page(params[:page]).per(12).order(created_at: "DESC")
+
+      if params[:id].present?
+        @post = Post.find(params[:id])
+        @tag_list = @post.tags.pluck(:tag_name).join(' ')
+      else
+        @tag_list = ""
+      end
+
+      render 'post_mine'
     end
   end
 
   def update
     @post = Post.find(params[:id])
-    tag_list = params[:post][:tag_name].split(nil)
+    @tag_list = params[:post][:tag_name].split(nil)
     if @post.update(post_params)
-      @post.save_tag(tag_list)
-      redirect_to post_mine_posts_path
+      @post.save_tag(@tag_list)
+      redirect_to post_mine_posts_path, notice: "投稿を編集しました"
     else
-      redirect_back(fallback_location: root_path)
+      @posts_my = Post.where(user_id: current_user.id).all.page(params[:page]).per(12).order(created_at: "DESC")
+      render 'post_mine'
     end
   end
 
@@ -81,7 +88,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to request.referer
+    redirect_to request.referer, notice: "投稿を削除しました"
   end
 
   def search

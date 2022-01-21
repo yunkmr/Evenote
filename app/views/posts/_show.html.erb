@@ -3,7 +3,7 @@
     <div class="row g-0">
       <div class="col-md-6">
         <div class="main-post-image_area">
-          <%= attachment_image_tag(post, :post_image, class: 'post-image mx-auto d-block') %>
+          <%= attachment_image_tag(post, :post_image, fallback:'no-image-post.png', class: 'post-image mx-auto d-block') %>
         </div>
       </div>
       <div class="col-md-6">

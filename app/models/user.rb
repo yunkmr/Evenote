@@ -31,6 +31,9 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
+  validates :user_name, presence: true
+  validates :email, presence: true
+
   # フォローしたときの処理
   def follow(user)
     relationships.create(followed_id: user.id)

@@ -6,6 +6,7 @@
       <% end %>
       <div class="mt-5">
         <%= form_with model: @album, url: event_album_path(id: @album.id, event_id: @album.event_id), local: true do |f| %>
+          <p id="notice"><%= notice %></p>
           <div class="form-group row col-md-12">
             <div class="input-box__bottom">
               <div class="input-box__bottom__files">
@@ -18,31 +19,6 @@
             </div>
           </div>
         <% end %>
-<%
-=begin %>
-        <%= form_with model:@photo,　url:event_album_photos_path, local: true do |f| %>
-          <div class="form-group row col-md-12">
-            <div class="input-box__bottom">
-              <div class="input-box__bottom__files">
-                <%= f.attachment_field :photos_images, multiple: true %>
-              <div class="form-action">
-                <%= f.submit '登録する' %>
-              </div>
-            </div>
-            <div class="input-box__bottom">
-              <div class="input-box__bottom__files">
-                <%= f.fields_for :photos do |i| %>
-                  <%= i.file_field :memory_image_id, multiple: true, name: "photos[memory_image_id][]" %>
-                <% end %>
-              </div>
-              <div class="form-action">
-                <%= f.submit '登録する' %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-<%
-=end %>
       </div>
       <!--アルバム一覧-->
       <div class="mt-5">

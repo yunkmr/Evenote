@@ -1,5 +1,7 @@
+<p id="notice"><%= notice %></p>
 <h3>投稿</h3>
 <%= form_with model: post, local:true do |f| %>
+  <%= render 'layouts/error', obj: post %>
   <div class="col-md-12">
     <label class="form-image-button">
       <%= f.attachment_field :post_image, id:'image' %>

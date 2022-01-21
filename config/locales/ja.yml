@@ -23,3 +23,8 @@ ja:
        name: 商品名
        quantity: 個数
        price: 金額
+     user:
+       user_name: ユーザーネーム
+       email: メールアドレス
+     post:
+       maintext: コメント

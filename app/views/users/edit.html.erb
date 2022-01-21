@@ -4,6 +4,7 @@
       <div class="card">
         <h5 class="card-header">ユーザー編集</h5>
         <%= form_with model: @user, url: users_path, local:true do |f| %>
+          <%= render 'layouts/error', obj: @user %>
           <div class="card-body">
             <div class="col-md-6 mx-auto">
               <%= attachment_image_tag(@user, :profile_image, class: 'card img-square', fallback: 'no-image.jpg', size: '200x200') %>
