@@ -1,6 +1,6 @@
 <%= form_with model:[post, post_comment], url:post_post_comments_path(post), remote: true do |f| %>
   <div class="form-group row col-md-12">
-    <%= f.text_area :comment, :placeholder => "コメントをここに", class: 'form-control col-md-10 input_comment' %>
-    <%= f.submit '送信' %>
+    <%= f.text_area :comment, :placeholder => "コメントをここに", class: 'form-control col-md-9 input_comment' %>
+    <%= f.submit '送信する', style: 'border:none;background-color:transparent;color:blue;text-decoration:underline;', class: 'ml-auto' %>
   </div>
 <% end %>

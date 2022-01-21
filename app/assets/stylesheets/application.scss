@@ -42,28 +42,13 @@
 }
 
 .page-item.active .page-link {
-  // z-index: 3;
   color: #fff;
   background-color: #bdb76b;
   border-color: #bdb76b;
 }
 
-.wrapper {
-    // width: 100%;
-    // position: relative;
-    // height: 100%;
-    // min-height: 100%;
-}
-
 body,
 html {
-  // margin: 0;
-  // padding: 0;
-  // height: 100%;
-  // word-wrap: break-word;
-  // background-color: #f8ede1;
-  // font-family: 'Lora', serif;
-  // font-family: "Noto Sans JP", sans-serif;
   font-family: 'Amiri', serif;
   background-color: #f7f7f5;
 }
@@ -74,13 +59,6 @@ body{
   padding-bottom: 50px;/*←footerの高さ*/
   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
-
-.l-main{
-  // min-height: 90vh;
-  // display: flex;
-  // justify-content: flex-end;
-}
-
 
 li,
 ol{
@@ -96,60 +74,6 @@ a {
 }
 
 
-// button {
-//   cursor: pointer;
-// }
-
-// button,
-// input,
-// select,
-// textarea {
-//   background-color: transparent;
-//   border: none;
-//   outline: 0;
-//   padding: 0;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-//   color: inherit;
-// }
-
-button {
-  // background-color: transparent;
-  // border: none;
-  // outline: 0;
-  // padding: 0;
-  // appearance: none;
-  // color: inherit;
-}
-
-// input {
-//   border: none;
-//   outline: 0;
-//   padding: 0;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-//   color: inherit;
-// }
-
-// :after,
-// :before {
-//   box-sizing: border-box;
-//   margin: 0;
-//   padding: 0;
-// }
-
-
-// メニューのデザイン
-// .l-main{
-//   // position: relative;
-//   height: 100%;
-//   display: flex;
-//   justify-content: flex-end;
-// }
-
-
 .l-app_navigation {
   position: fixed;
   top: 0;
@@ -162,7 +86,6 @@ button {
   transform: translateX(-170px);
   color: #fff;
 
-  // overflow-y: hidden;
 }
 
 .l-app_navigation.menu-active-complete {
@@ -185,18 +108,7 @@ button {
   display: block;
   width: 100%;
   height: calc(100% + 200px);
-  // background-color: #fff;
 }
-
-// .menu-open-overlay {
-//   z-index: 10;
-//   cursor: pointer;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-// }
 
 .l-menu-title {
   position: absolute;
@@ -245,22 +157,11 @@ button {
   overflow: hidden;
 }
 
-.l-menu-title .jp {
-  margin: 0 auto 65px;
-  font-size: 13px;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 500;
-}
-
 .l-menu-title .en {
   margin: 15px auto 65px;
   font-size: 14px;
   font-family: Inter, sans-serif;
   font-weight: 400;
-}
-
-.l-menu-title .jp span {
-  display: block;
 }
 
 .l-menu-title.menu-active-complete {
@@ -344,14 +245,9 @@ span {
 }
 
 .l-app_contents {
-  // position: relative;
-  // background-color: #f3f0e9;
   background-color: #f7f7f5;
-  // background-color: #f8ede1;
-  // background-color: hsla(0, 0%, 100%, 0.15);
   transition: all 0.6s;
   width: calc(100% - 300px);
-  // transition: all 0.6s;
   margin: 0 auto;
 
   @media screen and (max-width: 959px) {
@@ -368,30 +264,15 @@ span {
 
 }
 
-// .l-app_contents.menu-active-complete {
-//     width: calc(100% - 200px);
-// }
-
-// @media (min-width: 1201px)
-//   .l-app_contents {
-//       width: calc(100% - 80px);
-//   }
-
 .l-app_header {
   left: 50%;
-  // overflow: hidden;
   padding-bottom: 50px;
-  // position: fixed;
   top: 0;
   width: 855px;
   z-index: 0;
-  // position: fixed;
-  // position: relative;
   background-color: #f7f7f5;
   width: calc(100% - 300px);
-  // transition: all 0.6s;
   margin: 0 auto;
-  // height: 100px;
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
@@ -407,16 +288,11 @@ span {
 }
 
 .navbar{
-  // background-color: #f7f7f5;
   border-bottom: solid 1px #dcdcdc;
 }
 
-
-
 .l-app_footer {
-  // height: 100px;
   width: 100%;
-  // background-color: #89c7de;
   color: #000;
   text-align: center;
 
@@ -424,303 +300,6 @@ span {
   bottom: 0; /*下に固定*/
   margin-top: 30px;
 }
-
-// .l-app_header.menu-active-complete {
-//     width: calc(100% - 200px);
-// }
-
-// // ユーザー編集画面のボタン
-// .form-image-button {
-//     padding: 10px 40px;
-//     color: #ffffff;
-//     background-color: #384878;
-//     cursor: pointer;
-// }
-
-// input[type="file"] {
-//    display: none;
-// }
-
-
-
-
-// .l-app_ticket_detail {
-//   border-top: 1px solid #808080;
-//   border-right: 1px solid #808080;
-// }
-
-// .l-app_ticket_detail.last{
-//   border-bottom: 1px solid #808080;
-// }
-
-
-// .post-files {
-//     // 横並び
-//     display: flex;
-//     // この2行で枠の幅の中で要素を折り返し表示
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     margin-bottom: 10px;
-//     &__file {
-//       width: 150px;
-//       height: 150px;
-//       margin: 5px;
-//       border: 1px solid #ccc;
-//       // 画像の縦横比率を変えずに表示
-//       object-fit: contain;
-//     }
-//   }
-
-// .index-album{
-//   height :20px;
-//   width: 20px;
-//   border: 1px solid #808080;
-//   background-color: darkred;
-//   // display: block;
-//   display: flex;
-//   justify-content: center;
-//   transition: 0.3s;
-//   // position: absolute;
-// }
-
-
-// アルバム一覧
-// .sample_box12 {
-//   // width: 100px;/* 紙の横幅 100%にすると全幅表示に */
-//   // padding: 15px;
-//   // margin: 15px;
-//   height: 150px;
-//   background :#e6e6fa;/* 紙の色 */
-//   color: #000;/* 文字色 */
-//   // box-shadow: 4px 4px 4px rgba(0,0,0,0.03);transform:rotate(2deg);
-//   word-break: break-all;
-// }
-// .sample_box12 p {
-//     margin: 0;
-//     padding: 0;
-//     font-size: 0.9em;
-// }
-// .sample_box12_tape {
-//     width: 50%;
-//     height: 35px;
-//     margin: -25px auto 0;
-//     background: #dcdcdc;/* テープの色 */
-//     transform: rotate(-3deg);
-//     opacity: 0.7;
-// }
-// .sample_box12_title {
-//     text-align: center;
-//     padding: 25px 0;
-//     font-size: 4em!important;
-// }
-// .sample_box12_subtitle {
-//     text-align: center;
-//     font-size: 0.7em!important;
-//     margin-bottom: 1em!important;
-// }
-
-
-/* hiddenクラスがないとマスクとモーダルが表示される（JavaScriptでhiddenクラスを消したとき）*/
-#mask-1, #mask-2, #mask-3 {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-}
-
-// #mask-2 {
-//   background-color: rgba(0, 0, 0, 0.5);
-//   position: fixed;
-//   top: 0;
-//   bottom: 0;
-//   right: 0;
-//   left: 0;
-//   z-index: 1;
-// }
-
-// #mask-3 {
-//   background-color: rgba(0, 0, 0, 0.5);
-//   position: fixed;
-//   top: 0;
-//   bottom: 0;
-//   right: 0;
-//   left: 0;
-//   z-index: 1;
-// }
-
-#modal-1, #modal-2, #modal-3 {
-  position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
-  top: 10vh;
-  /* 以下3行：モーダルを左右中央揃えにする方法 */
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  transform: translate(0, 0) scale(1);
-  transition: 0.2s;   /* transitionでアニメーションを作成 */
-  z-index: 2;   /* マスクより上に重なるようにする */
-  width: 935px;   /* showビューの幅に合わせて設定 */
-  // height: 450px;
-  // width: 800px;
-  background-color: #fff;
-}
-
-// #modal-2 {
-//   position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
-//   top: 10vh;
-//   /* 以下3行：モーダルを左右中央揃えにする方法 */
-//   left: 0;
-//   right: 0;
-//   margin: 0 auto;
-//   transform: translate(0, 0) scale(1);
-//   transition: 0.2s;   /* transitionでアニメーションを作成 */
-//   z-index: 2;   /* マスクより上に重なるようにする */
-//   width: 935px;   /* showビューの幅に合わせて設定 */
-//   // height: 450px;
-//   // width: 800px;
-//   background-color: #fff;
-// }
-
-// #modal-3 {
-//   position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
-//   top: 10vh;
-//   /* 以下3行：モーダルを左右中央揃えにする方法 */
-//   left: 0;
-//   right: 0;
-//   margin: 0 auto;
-//   transform: translate(0, 0) scale(1);
-//   transition: 0.2s;   /* transitionでアニメーションを作成 */
-//   z-index: 2;   /* マスクより上に重なるようにする */
-//   width: 935px;   /* showビューの幅に合わせて設定 */
-//   // height: 450px;
-//   // width: 800px;
-//   background-color: #fff;
-// }
-
-/* hiddenクラスで最初は表示されないようにする */
-#mask-1.hidden, #mask-2.hidden, #mask-3.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-// #mask-2.hidden {
-//   opacity: 0;
-//   visibility: hidden;
-// }
-
-// #mask-3.hidden {
-//   opacity: 0;
-//   visibility: hidden;
-// }
-
-#modal-1.hidden, #modal-2.hidden, #modal-3.hidden {
-  opacity: 0;
-  visibility: hidden;
-  transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
-}
-
-// #modal-2.hidden {
-//   opacity: 0;
-//   visibility: hidden;
-//   transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
-// }
-
-// #modal-3.hidden {
-//   opacity: 0;
-//   visibility: hidden;
-//   transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
-// }
-
-// 通知マークの丸
-.n-circle {
-  position: absolute;
-  padding-left: 1.3rem;
-  padding-top: 0rem;
-  color: #f4a460;
-  opacity: 0.5;
-}
-
-// DM通知マークの丸
-.n-circle-mail{
-  position: absolute;
-  padding-left: 1.3rem;
-  padding-top: 0rem;
-  color: #efa04c;
-  opacity: 0.5;
-  color: #808000;
-}
-
-.n-circle-index-mail{
-  color: #808000;
-}
-
-
-// 投稿機能のタブ切り替え
-.tab, .sub-tab {
-  width: 100%;
-  padding: 10px;
-  cursor: pointer;
-  border-left: solid 1px #CCC;
-  border-bottom: solid 1px #CCC;
-}
-.tab:first-child, .sub-tab:first-child {
-  border-left: none;
-}
-// タブがactiveのときのデザイン
-.tab-active, .sub-tab-active {
-  color: #FFF;
-  background: #DB7093;
-  transition: all 0.2s ease-in-out;
-}
-// タブの中身、最初は非表示
-.tabbox, .sub-tabbox {
-  display: none;
-  padding: 15px;
-}
-// box-showクラスのものだけ表示
-.box-show,.sub-box-show {
-  display: block;
-}
-// hover時のアクション
-.tab:hover, .sub-tab:hover {
-  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
-  transform: translateY(-1px);
-}
-
-// 投稿機能のタブ切り替え
-// .sub-tab {
-//   width: 50%;
-//   padding: 10px;
-//   cursor: pointer;
-//   border-left: solid 1px #CCC;
-//   border-bottom: solid 1px #CCC;
-// }
-// .sub-tab:first-child {
-//   border-left: none;
-// }
-// // タブがactiveのときのデザイン
-// .sub-tab-active {
-//   color: #FFF;
-//   background: #DB7093;
-//   transition: all 0.2s ease-in-out;
-// }
-// // タブの中身、最初は非表示
-// .sub-tabbox {
-//   display: none;
-//   padding: 15px;
-// }
-// // box-showクラスのものだけ表示
-// .sub-box-show {
-//   display: block;
-// }
-// // hover時のアクション
-// .sub-tab:hover{
-//   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
-//   transform: translateY(-1px);
-// }
-
 
 
 // イベント新規登録画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -737,63 +316,46 @@ span {
    text-align: center;
 }
 
-
-// // Basics
-// html {
-//   height: 100%;
-// }
-// body {
-//   height: 100%;
-//   // position: relative;
-// }
-
 .content-wrapper {
    min-height: 100%;
-  // position: relative;
 }
 
 .contact-form {
-   .form-group {
-      // position: relative;
-      // margin: 40px 0;
-   }
-   .input-text {
-      display: block;
-      width: 100%;
-      height: 36px;
-      border-width: 0 0 1px 0;
-      border-color: #d3d3d3;
-      font-size: 18px;
-      line-height: 26px;
-      font-weight: 400;
 
-      &:focus {
-         outline: none;
-      }
+ .input-text {
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0 0 1px 0;
+    border-color: #d3d3d3;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
 
-      &:focus,
-      &.not-empty {
-         + .label {
-            transform: translateY(-24px);
-         }
-      }
-   }
-   .label {
-      // position: absolute;
-      // left: 20px;
-      bottom: 3px;
-      line-height: 26px;
-      font-weight: 400;
-      // cursor: text;
-      transition: transform .2s ease-in-out;
-   }
-   .time-label{
-      bottom: 3px;
-      line-height: 26px;
-      font-weight: 400;
-      transition: transform .2s ease-in-out;
-     left: 20px;
-   }
+    &:focus {
+       outline: none;
+    }
+
+    &:focus,
+    &.not-empty {
+       + .label {
+          transform: translateY(-24px);
+       }
+    }
+ }
+ .label {
+    bottom: 3px;
+    line-height: 26px;
+    font-weight: 400;
+    transition: transform .2s ease-in-out;
+ }
+ .time-label{
+    bottom: 3px;
+    line-height: 26px;
+    font-weight: 400;
+    transition: transform .2s ease-in-out;
+   left: 20px;
+ }
 
 }
 
@@ -829,13 +391,9 @@ span {
 
 // アルバム画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 .album_box {
-  // width: 100px;/* 紙の横幅 100%にすると全幅表示に */
-  // padding: 15px;
-  // margin: 15px;
   height: 150px;
   background :#e6e6fa;/* 紙の色 */
   color: #000;/* 文字色 */
-  // box-shadow: 4px 4px 4px rgba(0,0,0,0.03);transform:rotate(2deg);
   word-break: break-all;
 }
 
@@ -845,11 +403,16 @@ span {
     font-size: 4em!important;
 }
 
+.albumsize{
+  font-size:5em;
+  color: #808080;
+}
+
+
 // 投稿画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 .post_header{
   padding: 0.25rem 1.25rem;
 }
-
 
 .post_image{
   height: 200px;
@@ -888,18 +451,10 @@ span {
 
 .post_list_text{
   font-size: 0.8em;
-
 }
-
-// .card-img-top {
-//     width: 100%;
-//     height: 15vw;
-//     object-fit: cover;
-// }
 
 
 .main-post-image_area{
-  // width: 500px;
   position: relative;
   height: 100%;
 
@@ -913,8 +468,16 @@ span {
     height: 90%;
     margin: auto;
     padding: 5px;
-    // border: 1px solid #fff;
-    // padding: 20px;
+
+    @media screen and (max-width: 959px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	  position: static;
+    }
+
+    @media screen and (max-width: 480px) {
+    	/* 959px以下に適用されるCSS（タブレット用） */
+    	position: static;
+    }
   }
 }
 
@@ -936,10 +499,6 @@ span {
   height: 20px;
 }
 
-// .main_inputcomment_area{
-//   height: 20px;
-// }
-
 .input_comment{
   border: none;
 }
@@ -950,11 +509,8 @@ span {
 }
 
 .main_comment_area{
-  // width: 200px;
-  // height: 100px;
   overflow-x: hidden;
   overflow-y: scroll;
-  // background-color: #99FF99;
 }
 
 .post_comment_time_ago{
@@ -963,6 +519,84 @@ span {
 }
 
 
+/* hiddenクラスがないとマスクとモーダルが表示される（JavaScriptでhiddenクラスを消したとき）*/
+#mask-1, #mask-2, #mask-3 {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal-1, #modal-2, #modal-3 {
+  position: fixed;   /* スクロールで移動しないようmodalの位置を固定します */
+  top: 10vh;
+  /* 以下3行：モーダルを左右中央揃えにする方法 */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;   /* transitionでアニメーションを作成 */
+  z-index: 2;   /* マスクより上に重なるようにする */
+  width: 935px;   /* showビューの幅に合わせて設定 */
+
+  height: 65%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;   /* transitionでアニメーションを作成 */
+  z-index: 2;   /* マスクより上に重なるようにする */
+
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;       /* Firefox 対応 */
+
+  @media screen and (max-width: 959px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	width: 90%;
+  	height: 80%;
+  }
+
+  @media screen and (max-width: 480px) {
+  	/* 480px以下に適用されるCSS（スマホ用） */
+  	width: 95%;
+  	height: 80%;
+  }
+}
+
+
+#modal-1::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display: none;
+}
+
+#modal-2::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display: none;
+}
+
+#modal-3::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display: none;
+}
+
+
+/* hiddenクラスで最初は表示されないようにする */
+#mask-1.hidden, #mask-2.hidden, #mask-3.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+#modal-1.hidden, #modal-2.hidden, #modal-3.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
+}
+
+// 通知リストのスタイルーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+.notofication-list{
+  padding: 10px 0;
+  border-bottom: dashed 1px #d3d3d3;
+}
 
 // 共通ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 // fontawesomeのレイアウト
@@ -973,8 +607,6 @@ span {
 
 // formのレイアウト調整
 .form-control {
-  // border: none;
-  // opacity: 0.8;
   background-color: #fff;
 }
 
@@ -1010,22 +642,64 @@ span {
 }
 
 
-// 一旦退避ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+// 通知マークの丸
+.n-circle {
+  position: absolute;
+  padding-left: 1.3rem;
+  padding-top: 0rem;
+  color: #f4a460;
+  opacity: 0.5;
+}
 
-.albumsize{
-  font-size:5em;
-  color: #808080;
+// DM通知マークの丸
+.n-circle-mail{
+  position: absolute;
+  padding-left: 1.3rem;
+  padding-top: 0rem;
+  color: #efa04c;
+  opacity: 0.5;
+  color: #808000;
+}
+
+.n-circle-index-mail{
+  color: #808000;
 }
 
 
+// タブ切り替え
+.tab, .sub-tab {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-left: solid 1px #CCC;
+  border-bottom: solid 1px #CCC;
+}
+.tab:first-child, .sub-tab:first-child {
+  border-left: none;
+}
+// タブがactiveのときのデザイン
+.tab-active, .sub-tab-active {
+  color: #FFF;
+  background: #DB7093;
+  transition: all 0.2s ease-in-out;
+}
+// タブの中身、最初は非表示
+.tabbox, .sub-tabbox {
+  display: none;
+  padding: 15px;
+}
+// box-showクラスのものだけ表示
+.box-show,.sub-box-show {
+  display: block;
+}
+// hover時のアクション
+.tab:hover, .sub-tab:hover {
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
 
 
-
-
-
-
-
-// 一トップ画面お試しーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+// トップ画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
 .home-main-text {
   position: absolute;
@@ -1129,24 +803,17 @@ span {
 }
 
 .login-form {
-  // position: absolute;
-  //background: #222;
-  //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
   min-height: 10rem;
   margin: auto;
-  // width: 500px;
   padding: .5rem;
 }
 .login-text {
-  //background: hsl(40,30,60);
-  //border-bottom: .5rem solid white;
   color: white;
   font-size: 1.5rem;
   margin: 0 auto;
   max-width: 50%;
   padding: .5rem;
   text-align: center;
-  //text-shadow: 1px -1px 0 rgba(0,0,0,0.3);
   .fa-stack-1x {
     color: black;
   }
@@ -1170,7 +837,6 @@ span {
 }
 
 .login-forgot-pass {
-  //border-bottom: 1px solid white;
   bottom: 0;
   color: white;
   cursor: pointer;
@@ -1181,7 +847,6 @@ span {
   padding: .5rem;
   position: absolute;
   text-align: center;
-  //text-decoration: none;
   width: 100%;
   &:hover {
     opacity: 1;
@@ -1250,24 +915,17 @@ span {
 }
 
 .signup-form {
-  // position: absolute;
-  //background: #222;
-  //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
   min-height: 10rem;
   margin: auto;
-  // width: 500px;
   padding: .5rem;
 }
 .signup-text {
-  //background: hsl(40,30,60);
-  //border-bottom: .5rem solid white;
   color: white;
   font-size: 1.5rem;
   margin: 0 auto;
   max-width: 50%;
   padding: .5rem;
   text-align: center;
-  //text-shadow: 1px -1px 0 rgba(0,0,0,0.3);
   .fa-stack-1x {
     color: black;
   }
@@ -1392,7 +1050,6 @@ span {
 
 .incoming_msg_img {
   display: inline-block;
-  // width: 6%;
 }
 .received_msg {
   margin-top: 15px;
@@ -1465,43 +1122,4 @@ span {
 .msg_history {
   height: 510px;
   overflow-y: auto;
-}
-
-.chat-form {
-  display: block;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.chat-btn {
-  margin-left: auto;
-}
-
-.chat-form:focus {
-  color: #495057;
-  background-color: #fff;
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.1rem rgba(0,0,0,0.2);
-}
-
-.chat-min-heiht {
-  min-height: 30px;
-}
-
-.btn-rounded {
-    border-radius: 35px;
-}
-.btn-dark-blues {
-    width: 100px;
-    background: #80b6cc;
-    color: #fff;
-    border: 3px solid #eee;
 }

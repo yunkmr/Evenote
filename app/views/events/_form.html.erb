@@ -8,28 +8,22 @@
   </div>
   <div class="row mt-3">
     <div class="col-md-5">
-      <!--<div class="form-row col-md-12">-->
-        <div class="form-group col-md-12">
-          <%= f.label :イベント日付, class:'control-label label' %>
-          <%= f.date_field :date, class:'date form-control input-text' %>
-        </div>
-        <div class="form-group row col-md-12">
-          <%= f.label :開場時間, class:'col-md-4 mt-3 control-label time-label' %>
-          <%= f.time_field :open_time, class:'open_time col-md-6 form-control input-text ml-auto' %>
-        </div>
-      <!--</div>-->
-      <!--<div class="form-row col-md-12 mt-1">-->
-        <div class="form-group row col-md-12">
-          <%= f.label :開演時間, class:'col-md-4 mt-3 control-labe time-label' %>
-          <%= f.time_field :start_time, class:'start_time col-md-6 form-control input-text ml-auto' %>
-        </div>
-      <!--</div>-->
-      <!--<div class="form-row col-md-12 mt-2">-->
-        <div class="form-group row col-md-12">
-          <%= f.label :終演時間, class:'col-md-4 mt-3 control-label time-label' %>
-          <%= f.time_field :end_time, class:'end_time col-md-6 form-control input-text ml-auto' %>
-        </div>
-      <!--</div>-->
+      <div class="form-group col-md-12">
+        <%= f.label :イベント日付, class:'control-label label' %>
+        <%= f.date_field :date, class:'date form-control input-text' %>
+      </div>
+      <div class="form-group row col-md-12">
+        <%= f.label :開場時間, class:'col-md-4 mt-3 control-label time-label' %>
+        <%= f.time_field :open_time, class:'open_time col-md-6 form-control input-text ml-auto' %>
+      </div>
+      <div class="form-group row col-md-12">
+        <%= f.label :開演時間, class:'col-md-4 mt-3 control-labe time-label' %>
+        <%= f.time_field :start_time, class:'start_time col-md-6 form-control input-text ml-auto' %>
+      </div>
+      <div class="form-group row col-md-12">
+        <%= f.label :終演時間, class:'col-md-4 mt-3 control-label time-label' %>
+        <%= f.time_field :end_time, class:'end_time col-md-6 form-control input-text ml-auto' %>
+      </div>
     </div>
     <div class="col-md-7">
       <div class="form-row col-md-12">

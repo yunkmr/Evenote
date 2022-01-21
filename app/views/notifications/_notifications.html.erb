@@ -1,7 +1,7 @@
 <% notifications.each do |notification| %>
   <% visitor = notification.visitor %>
   <% visited = notification.visited %>
-  <div class="col-md-6 mx-auto">
+  <div class="notofication-list col-md-11 mx-auto">
     <span>
       <% unless notification.action.include?("remind") %>
         <%= link_to users_path(visitor) do %>

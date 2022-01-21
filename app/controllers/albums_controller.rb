@@ -26,7 +26,6 @@ class AlbumsController < ApplicationController
 
     mode = params["mode"]
 
-    binding.pry
     # 投稿が成功した場合
     if @album.update(update_album_params)
       @albums = Album.where(event_id: @event.id)

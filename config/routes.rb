@@ -1,28 +1,25 @@
 Rails.application.routes.draw do
-  # get 'relationships/followings'
-  # get 'relationships/followers'
 
-  # Userログイン時
+  # Userログイン時のルートパス
   authenticated :user do
     root :to => 'homes#top'
   end
 
-  # User非ログイン時
+  # User非ログイン時のルートパス
   root 'homes#home'
 
+  devise_for :users
+
   get 'relationships/follow'
-  # root 'homes#home'
-  # get 'top' => 'homes#top'
 
   resource :users, only: [:show,:edit,:update]  do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
 
-    get "new/mail" => "users#new_mail"
-    get "send/mail" => "users#send_mail"
-
   end
+
+  get 'relationships/follow'
 
   resources :events do
     collection do
@@ -41,15 +38,12 @@ Rails.application.routes.draw do
   end
 
   get 'albums' => 'albums#index_all'
-  get 'photos' => 'photos#index_all'
 
   resources :tickets do
     collection do
       get 'search'
     end
   end
-
-  devise_for :users
 
   resources :posts, only: [:index, :show,:create, :update, :destroy] do
     collection do
@@ -69,9 +63,6 @@ Rails.application.routes.draw do
 
   resources :notifications, only: :index
 
-  # get 'post/search' => 'searches#post_search'
-  # get 'user/search' => 'searches#user_search'
-  # get 'event/search' => 'searches#event_search'
   get 'search' => 'searches#search'
   get 'post_user/search' => 'searches#post_user_search'
   get 'event_user/search' => 'searches#event_user_search'
