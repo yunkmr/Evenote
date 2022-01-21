@@ -2,6 +2,7 @@ class UserMailer < ApplicationMailer
 
   # イベント前日のリマインドメール
   def event_day_remind
+
     @url = "https://0ee43e257cb54a8da0feebf0c61cb78f.vfs.cloud9.us-east-1.amazonaws.com/users/sign_in"
 
     before_1day_events = Event.all.select do |event|
@@ -17,6 +18,7 @@ class UserMailer < ApplicationMailer
       @events.each do |event|
         before_1day_event.create_notification_remind_event(@admin, event.user_id)
       end
+
       # 送信するメールアドレス
       participants = User.includes(:events).where(events: {id: before_1day_event.id })
       participant_mails = participants.pluck(:email)
