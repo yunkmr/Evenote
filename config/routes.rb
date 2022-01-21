@@ -2,17 +2,25 @@ Rails.application.routes.draw do
   # get 'relationships/followings'
   # get 'relationships/followers'
 
-  get 'relationships/follow'
+  # Userログイン時
+  authenticated :user do
+    root :to => 'homes#top'
+  end
+
+  # User非ログイン時
   root 'homes#home'
-  get 'top' => 'homes#top'
+
+  get 'relationships/follow'
+  # root 'homes#home'
+  # get 'top' => 'homes#top'
 
   resource :users, only: [:show,:edit,:update]  do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
 
-    # get "new/mail" => "users#new_mail"
-    # get "send/mail" => "users#send_mail"
+    get "new/mail" => "users#new_mail"
+    get "send/mail" => "users#send_mail"
 
   end
 

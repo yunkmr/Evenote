@@ -28,7 +28,14 @@ every 1.minutes do
 # every 1.days, at: '9:00 am' do
 
 # Rails内のメソッド実行
-  runner "UserMailer.notify_user.deliver_now"
+  # runner "UserMailer.notify_user.deliver_now"
+
+  runner "UserMailer.event_day_remind.deliver_now"
+  runner "UserMailer.entry_start_day_remind.deliver_now"
+  runner "UserMailer.entry_end_day_remind.deliver_now"
+  runner "UserMailer.win_day_remind.deliver_now"
+  runner "UserMailer.payment_day_remind.deliver_now"
+
 end
 
 # Learn more: http://github.com/javan/whenever

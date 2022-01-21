@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_17_091054) do
+ActiveRecord::Schema.define(version: 2022_01_20_234952) do
 
   create_table "albums", force: :cascade do |t|
     t.integer "user_id"
@@ -67,8 +67,12 @@ ActiveRecord::Schema.define(version: 2022_01_17_091054) do
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "event_id"
+    t.integer "ticket_id"
+    t.index ["event_id"], name: "index_notifications_on_event_id"
     t.index ["post_comment_id"], name: "index_notifications_on_post_comment_id"
     t.index ["post_id"], name: "index_notifications_on_post_id"
+    t.index ["ticket_id"], name: "index_notifications_on_ticket_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end

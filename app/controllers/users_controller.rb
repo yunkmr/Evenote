@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   #   @user = current_user
   #   @mail_title = params[:mail_title]
   #   @mail_content = params[:mail_content]
-  #   UserMailer.send_mail(@mail_title, @mail_content,@user).deliver
+  #   UserMailer.send_mail.deliver
   # end
 
 

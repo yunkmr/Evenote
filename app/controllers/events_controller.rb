@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
   def index
+    @calender_events = current_user.events.all
     @events = current_user.events.all.page(params[:page]).per(5).order(date: "DESC")
   end
 
