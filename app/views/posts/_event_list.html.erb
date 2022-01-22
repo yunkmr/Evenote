@@ -5,7 +5,7 @@
         <%= attachment_image_tag(event.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
       </td>
       <td>
-        <%= link_to event.user.user_name, users_path(user_id: event.user.id) %>
+        <%= link_to event.user.user_name, user_path(id: event.user.id) %>
       </td>
       <td>
         <%= event.date %>
