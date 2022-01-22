@@ -8,15 +8,10 @@
         <%= form_with model: @album, url: event_album_path(id: @album.id, event_id: @album.event_id), local: true do |f| %>
           <p id="notice"><%= notice %></p>
           <div class="form-group row col-md-12">
-            <div class="input-box__bottom">
-              <div class="input-box__bottom__files">
-                <%= f.hidden_field :album_name, value: @album.album_name %>
-                <%= f.attachment_field :photos_memory_images, multiple: true %>
-                <%= f.hidden_field :mode, value: "2" %>
-              <div class="form-action">
-                <%= f.submit '登録する' %>
-              </div>
-            </div>
+            <%= f.hidden_field :album_name, value: @album.album_name %>
+            <%= f.attachment_field :photos_memory_images, multiple: true %>
+            <%= f.hidden_field :mode, value: "2" %>
+            <%= f.submit class:'submit-btn' %>
           </div>
         <% end %>
       </div>
@@ -35,7 +30,7 @@
                       <li class="list-group-item">
                         <div class="row">
                           <div class="ml-auto">
-                            <%= link_to "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete, data: { confirm: "登録しているアルバムからも削除されます。\n本当に消しますか？" } do %>
+                            <%= link_to "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete, data: { confirm: "本当に消しますか？" } do %>
                               <span class="mgr-10"><i class="far fa-trash-alt"></i> 削除</span>
                             <% end %>
                           </div>
@@ -57,44 +52,3 @@
     </div>
   </div>
 </div>
-
-<%
-=begin %>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 mx-auto">
-      <div class="post-form">
-        <div class="input-box">
-          <%= link_to 'イベント詳細画面へ戻る', event_path(@album.event_id) %>
-          <%= link_to 'アルバム一覧へ戻る', albums_path %>
-          <%= link_to 'アルバムへ戻る', event_albums_path(event_id: @album.event_id, album_id: @album.id)%>
-          <%= form_with model:@photo,url:event_album_photos_path, local: true do |f| %>
-            <%#= f.text_field :album_name, id: 'textarea', class: 'input-box__content' %>
-            <div class="input-box__bottom">
-              <div class="input-box__bottom__files">
-                <%= f.fields_for :photos do |i| %>
-                  <%= i.file_field :memory_image_id, multiple: true, name: "photos[memory_image_id][]" %>
-                <% end %>
-              </div>
-              <div class="form-action">
-                <%= f.submit '登録する' %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <% if @photos.present? %>
-        <div class="post_files">
-          <% @photos.each do |photo| %>
-            <%= image_tag photo.memory_image_id.to_s, size: '200x200' %>
-            <%= link_to '削除', "/events/#{photo.album.event_id}/albums/#{photo.album_id}/photos/#{photo.id}", method: :delete %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<%
-=end %>
