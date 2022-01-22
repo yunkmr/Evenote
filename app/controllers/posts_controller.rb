@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:post_mine, :update, :destroy]
 
   def index
     # フォローユーザーの投稿一覧
@@ -104,9 +104,15 @@ class PostsController < ApplicationController
   end
 
   def ensure_correct_user
-    @post = Post.find(params[:id])
-    unless @post.user_id == current_user.id
-      redirect_to root_path, notice: "アクセス権限がありません"
+    if params[:id].present?
+      if Post.exists?(id: params[:id])
+        @post = Post.find(params[:id])
+        unless @post.user_id == current_user.id
+          redirect_to root_path, notice: "アクセス権限がありません"
+        end
+      else
+        redirect_to root_path, notice: "アクセス権限がありません"
+      end
     end
   end
 

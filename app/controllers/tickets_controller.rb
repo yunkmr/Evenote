@@ -7,7 +7,6 @@ class TicketsController < ApplicationController
   end
 
   def show
-    # @ticket = Ticket.find(params[:id])
   end
 
   def new
@@ -27,11 +26,9 @@ class TicketsController < ApplicationController
   end
 
   def edit
-    # @ticket = Ticket.find(params[:id])
   end
 
   def update
-    # @ticket = Ticket.find(params[:id])
     if @ticket.update(ticket_params)
       redirect_to ticket_path(@ticket), notice: "チケット情報を更新しました"
     else
@@ -40,7 +37,6 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    # @ticket = Ticket.find(params[:id])
     @ticket.destroy
     redirect_to tickets_path
   end
@@ -88,7 +84,6 @@ class TicketsController < ApplicationController
 
     if date_2.present?
       date_sort = date_2 + " " + sort
-      # binding.pry
       @tickets = @tickets.all.order("#{date_sort}")
     end
     @tickets = @tickets.all.page(params[:page]).per(5).order(event_date: "DESC")
@@ -102,8 +97,12 @@ class TicketsController < ApplicationController
   end
 
   def ensure_correct_user
-    @ticket = Ticket.find(params[:id])
-    unless @ticket.user_id == current_user.id
+    if Ticket.exists?(id: params[:id])
+      @ticket = Ticket.find(params[:id])
+      unless @ticket.user_id == current_user.id
+        redirect_to root_path, notice: "アクセス権限がありません"
+      end
+    else
       redirect_to root_path, notice: "アクセス権限がありません"
     end
   end

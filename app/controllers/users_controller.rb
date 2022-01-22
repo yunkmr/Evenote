@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  # before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :ensure_correct_user, only: [:edit, :update]
 
   def show
     if params[:id].nil?
@@ -29,11 +29,15 @@ class UsersController < ApplicationController
     params.require(:user).permit(:user_name, :email, :profile_image, :introduction, :join_event)
   end
 
-  # def ensure_correct_user
-  #   @user = User.find(params[:id])
-  #   unless @user.id== current_user.id
-  #     redirect_to root_path, notice: "アクセス権限がありません"
-  #   end
-  # end
+  def ensure_correct_user
+    if User.exists?(id: params[:id])
+      @user = User.find(params[:id])
+      unless @user.id== current_user.id
+        redirect_to root_path, notice: "アクセス権限がありません"
+      end
+    else
+      redirect_to root_path, notice: "アクセス権限がありません"
+    end
+  end
 
 end

@@ -49,14 +49,17 @@
 
 body,
 html {
-  font-family: 'Amiri', serif;
-  background-color: #f7f7f5;
+  // font-family: 'Amiri', serif;
+  ont-family: Hiragino Kaku Gothic Pro,Meiryo,sans-serif;
+  // background-color: #f8ede1;
+  // background-color: #fffaf0;
+  background-color: #fff;
 }
 
 body{
   min-height: 100vh;
   position: relative;/*←相対位置*/
-  padding-bottom: 50px;/*←footerの高さ*/
+  padding-bottom: 90px;/*←footerの高さ*/
   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
@@ -272,7 +275,8 @@ span {
 }
 
 .l-app_contents {
-  background-color: #f7f7f5;
+  // background-color: #f7f7f5;
+  // background-color: #f8ede1;
   transition: all 0.6s;
   width: calc(100% - 300px);
   margin: 0 auto;
@@ -294,14 +298,23 @@ span {
 
 }
 
+header{
+  // background: #94A4A5;
+  // background: #d2b48c;
+  background: #EEDDBB;
+  color: #fff;
+}
+
 .l-app_header {
   left: 50%;
   top: 0;
   width: 855px;
   z-index: 0;
-  background-color: hsla(0,0%,100%,.2);
+  // background-color: hsla(0,0%,100%,.2);
+  // background: #a9a9a9;
   width: calc(100% - 300px);
   margin: 0 auto;
+  color: #fff;
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
@@ -320,6 +333,7 @@ span {
 
 .navbar{
   border-bottom: solid 1px #dcdcdc;
+  color: #fff;
 }
 
 .l-app_footer {
@@ -415,7 +429,8 @@ span {
 }
 
 .header-color {
-  background-color: #add8e6;
+  // background-color: #add8e6;
+  background-color: #C4E3F5;
 }
 
 
@@ -711,7 +726,7 @@ span {
 // タブがactiveのときのデザイン
 .tab-active, .sub-tab-active {
   color: #FFF;
-  background: #d2b48c;
+  background: #94A4A5;
   transition: all 0.2s ease-in-out;
 }
 // タブの中身、最初は非表示
@@ -727,6 +742,12 @@ span {
 .tab:hover, .sub-tab:hover {
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
   transform: translateY(-1px);
+}
+
+
+.follow_btn{
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
 }
 
 

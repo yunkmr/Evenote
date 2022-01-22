@@ -17,11 +17,15 @@ class PhotosController < ApplicationController
   private
 
   def ensure_correct_user
-    @album = Album.find(params[:album_id])
-    unless @album.user_id == current_user.id
+    if Album.exists?(id: params[:album_id])
+      @album = Album.find(params[:album_id])
+      unless @album.user_id == current_user.id
+        redirect_to root_path, notice: "アクセス権限がありません"
+      end
+    else
       redirect_to root_path, notice: "アクセス権限がありません"
     end
-  end
 
+  end
 
 end

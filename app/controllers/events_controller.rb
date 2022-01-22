@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    # @event = Event.find(params[:id])
     @album = Album.new
   end
 
@@ -29,11 +28,9 @@ class EventsController < ApplicationController
   end
 
   def edit
-    # @event = Event.find(params[:id])
   end
 
   def update
-    # @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to event_path(@event), notice: "イベント情報を更新しました"
     else
@@ -42,7 +39,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    # @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path
   end
@@ -88,8 +84,12 @@ class EventsController < ApplicationController
   end
 
   def ensure_correct_user
-    @event = Event.find(params[:id])
-    unless @event.user_id == current_user.id
+    if Event.exists?(id: params[:id])
+      @event = Event.find(params[:id])
+      unless @event.user_id == current_user.id
+        redirect_to root_path, notice: "アクセス権限がありません"
+      end
+    else
       redirect_to root_path, notice: "アクセス権限がありません"
     end
   end

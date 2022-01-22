@@ -12,6 +12,7 @@
             <li class="list-group-item">
               <div class="row main_follow_area">
                 <%= attachment_image_tag(post.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
+                <span class="mgl-10"></span>
                 <%= post.user.user_name %>
                 <div id="follow_form">
                   <%= render 'relationships/follow_button', user: user %>

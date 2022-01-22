@@ -1,11 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light p-5">
-  <a class="navbar-brand" href="/">Evenote<span>ようこそ、<%= current_user.user_name %>さん</span></a>
+  <a class="navbar-brand" href="/"><%= image_tag 'evenote.png', :size => '130x65' %><span></span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <div class="nav-link">
+          <div class="l-menu-open"><i class="fas fa-bars"></i> メニュー</div>
+        </div>
+      </li>
       <li class="nav-item">
         <div class="nav-link">
           <%= link_to user_path(current_user) do %>
@@ -41,11 +46,6 @@
             <% end %>
             DM
           <% end %>
-        </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-link">
-          <div class="l-menu-open"><i class="fas fa-bars"></i> メニュー</div>
         </div>
       </li>
       <li class="nav-item">

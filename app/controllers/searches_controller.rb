@@ -4,23 +4,26 @@ class SearchesController < ApplicationController
   def search
     @events = Event.where(release_flg: TRUE)
     @users = User.where.not(id: current_user.id)
-    # binding.pry
 
     # 投稿の検索
     keyword = params["keyword"]
-    @tags = Tag.where("tag_name LIKE ?", '%'+keyword+'%' )
+    @tags = Tag.where("tag_name LIKE ?", '%'+keyword+'%' ).order(created_at: "DESC")
     all_post = []
     @tags.each do |tag|
       tag.posts.each do |tag_post|
-        all_post << tag_post
+        unless all_post.include?(tag_post)
+          all_post << tag_post
+        end
       end
     end
 
-    @posts = Kaminari.paginate_array(all_post).page(params[:page]).per(2)
+    @posts = Kaminari.paginate_array(all_post).page(params[:page]).per(12)
+
+    # binding.pry
 
     # ユーザーの検索
     user_name = params["user_name"]
-    @users = @users.where("user_name LIKE ?", '%'+user_name+'%' ).all.page(params[:page_2]).per(2).order(created_at: "ASC")
+    @users = @users.where("user_name LIKE ?", '%'+user_name+'%' ).all.page(params[:page_2]).per(12).order(created_at: "DESC")
 
     # イベントの検索
     event_date = params["event_date"]
@@ -36,23 +39,22 @@ class SearchesController < ApplicationController
       @events = @events.where(date: event_date)
     end
 
-    @events = @events.all.page(params[:page_3]).per(2).order(created_at: "ASC")
+    @events = @events.all.page(params[:page_3]).per(12).order(created_at: "DESC")
 
     @serach_id = params["search_id"]
-    # binding.pry
 
   end
 
   def post_user_search
     @user = User.find(params[:user_id])
-    @posts = @user.posts.all.page(params[:page]).per(2).order(created_at: "ASC")
+    @posts = @user.posts.all.page(params[:page]).per(12).order(created_at: "DESC")
   end
 
 
   def event_user_search
     @user = User.find(params[:user_id])
     @events = @user.events.all
-    @events = @events.where(release_flg: TRUE).all.page(params[:page]).per(2).order(created_at: "ASC")
+    @events = @events.where(release_flg: TRUE).all.page(params[:page]).per(12).order(created_at: "DESC")
   end
 
   def redirect_back_or(default)

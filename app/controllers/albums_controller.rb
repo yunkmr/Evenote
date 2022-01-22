@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:update, :destroy]
+  before_action :ensure_correct_user_index, only: [:index]
 
   def index
     @event = Event.find(params[:event_id])
@@ -65,11 +66,28 @@ class AlbumsController < ApplicationController
     params.require(:album).permit(:album_name, photos_memory_images: []).merge(user_id: current_user.id)
   end
 
-  def ensure_correct_user
-    @album = Album.find(params[:id])
-    unless @album.user_id == current_user.id
+  def ensure_correct_user_index
+    if Event.exists?(id: params[:event_id])
+      @event = Event.find(params[:event_id])
+      unless @event.user_id == current_user.id
+        redirect_to root_path, notice: "アクセス権限がありません"
+      end
+    else
       redirect_to root_path, notice: "アクセス権限がありません"
     end
+
+  end
+
+  def ensure_correct_user
+    if Album.exists?(id: params[:id])
+      @album = Album.find(params[:id])
+      unless @album.user_id == current_user.id
+        redirect_to root_path, notice: "アクセス権限がありません"
+      end
+    else
+      redirect_to root_path, notice: "アクセス権限がありません"
+    end
+
   end
 
 end

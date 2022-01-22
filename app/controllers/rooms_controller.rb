@@ -33,7 +33,11 @@ class RoomsController < ApplicationController
   private
 
   def ensure_correct_user
-    unless Room.find(params[:id]).users.include?(current_user)
+    if Room.exists?(id: params[:id])
+      unless Room.find(params[:id]).users.include?(current_user)
+        redirect_to root_path, notice: "アクセス権限がありません"
+      end
+    else
       redirect_to root_path, notice: "アクセス権限がありません"
     end
   end
