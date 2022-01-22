@@ -70,7 +70,6 @@ ol{
 a {
   text-decoration: none;
   color: inherit;
-  font-family: 'Amiri', serif;
 }
 
 
@@ -86,10 +85,20 @@ a {
   transform: translateX(-170px);
   color: #fff;
 
+  @media screen and (max-width: 959px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	transform: translateX(-100%);
+
+  }
+  @media screen and (max-width: 480px) {
+  	/* 480px以下に適用されるCSS（スマホ用） */
+  	transform: translateX(-100%);
+  }
 }
 
 .l-app_navigation.menu-active-complete {
   transform: translateX(0);
+
 }
 
 .l-menu {
@@ -98,6 +107,9 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 10;
+  cursor: pointer;
+
 }
 
 .l-menu:before {
@@ -108,6 +120,21 @@ a {
   display: block;
   width: 100%;
   height: calc(100% + 200px);
+}
+
+.l-menu-close {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 44px;
+  height: 44px;
+  font-size: 15px;
+  font-family: "Noto Sans JP",sans-serif;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: white;
+
 }
 
 .l-menu-title {
@@ -249,16 +276,19 @@ span {
   transition: all 0.6s;
   width: calc(100% - 300px);
   margin: 0 auto;
+  padding-top: 50px;
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
-  	width: calc(100% - 70px);
+  // 	width: calc(100% - 70px);
+    width: 100%;
   	margin: 0 0 0 auto;
 
   }
   @media screen and (max-width: 480px) {
   	/* 480px以下に適用されるCSS（スマホ用） */
-  	width: calc(100% - 100px);
+  // 	width: calc(100% - 100px);
+    width: 100%;
   	margin: 0 0 0 auto;
   }
 
@@ -266,23 +296,24 @@ span {
 
 .l-app_header {
   left: 50%;
-  padding-bottom: 50px;
   top: 0;
   width: 855px;
   z-index: 0;
-  background-color: #f7f7f5;
+  background-color: hsla(0,0%,100%,.2);
   width: calc(100% - 300px);
   margin: 0 auto;
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
-  	width: calc(100% - 110px);
+  // 	width: calc(100% - 110px);
+    width: 100%;
   	margin: 0 0 0 auto;
 
   }
   @media screen and (max-width: 480px) {
   	/* 480px以下に適用されるCSS（スマホ用） */
-  	width: calc(100% - 110px);
+  // 	width: calc(100% - 110px);
+    width: 100%;
     margin: 0 0 0 auto;
   }
 }
@@ -680,7 +711,7 @@ span {
 // タブがactiveのときのデザイン
 .tab-active, .sub-tab-active {
   color: #FFF;
-  background: #DB7093;
+  background: #d2b48c;
   transition: all 0.2s ease-in-out;
 }
 // タブの中身、最初は非表示
@@ -1129,4 +1160,11 @@ span {
   border: dashed 1px #db7093;
   color: #cd5c5c;
   padding: 5px 0 0 5px;
+}
+
+// フラッシュメッセージーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+#notice{
+  color: #cd5c5c;
+  font-size: 16px;
+  font-weight: bold;
 }

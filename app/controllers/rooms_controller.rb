@@ -1,7 +1,5 @@
 class RoomsController < ApplicationController
-
-  before_action :authenticate_user!
-  before_action :same_room_user!, only: [:show]
+  before_action :ensure_correct_user, only: [:show]
 
   # 取得している情報はUserRoomsだが、実質Roomのother_userとのリレーションを取得しているためRoomのindexに記述
   def index
@@ -34,12 +32,10 @@ class RoomsController < ApplicationController
 
   private
 
- # URLの直打ちによるアクセスを回避
-  def same_room_user!
-    return if Room.find(params[:id]).users.include?(current_user)
-
-    flash[:danger] = 'ユーザーにはアクセスする権限がありません'
-    redirect_to root_path
+  def ensure_correct_user
+    unless Room.find(params[:id]).users.include?(current_user)
+      redirect_to root_path, notice: "アクセス権限がありません"
+    end
   end
 
 end

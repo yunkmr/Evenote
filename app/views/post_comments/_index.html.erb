@@ -2,7 +2,7 @@
   <div class="post_comment_list">
     <div class="row mt-2">
       <div class="col-6">
-          <%= link_to users_path(post_comment.user) do %>
+          <%= link_to user_path(post_comment.user) do %>
             <%= attachment_image_tag(post_comment.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
             <span class="mgr-10"></span>
             <%= post_comment.user.user_name %>

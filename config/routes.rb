@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'homes#home'
   get 'relationships/follow'
 
-  resource :users, only: [:show,:edit,:update]  do
+  resources :users, only: [:show,:edit,:update]  do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'

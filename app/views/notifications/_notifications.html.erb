@@ -4,7 +4,7 @@
   <div class="notofication-list col-md-11 mx-auto">
     <span>
       <% unless notification.action.include?("remind") %>
-        <%= link_to users_path(visitor) do %>
+        <%= link_to user_path(visitor.id) do %>
           <%= attachment_image_tag(visitor, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
           <strong><%= visitor.user_name %></strong>
         <% end %>

@@ -7,7 +7,7 @@
             <h5 class="mt-2">プロフィール</h5>
             <div class="ml-auto">
               <% if current_user == @user %>
-                <%= link_to edit_users_path, class:'btn btn-sm' do %>
+                <%= link_to edit_user_path(current_user), class:'btn btn-sm' do %>
                   <span class="mgl-30"><i class="far fa-edit"></i> プロフィールを編集</span>
                 <% end %>
               <% else %>

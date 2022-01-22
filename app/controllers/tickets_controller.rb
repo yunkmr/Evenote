@@ -1,11 +1,13 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @tickets = current_user.tickets.all.page(params[:page]).per(5).order(event_date: "DESC")
   end
 
   def show
-    @ticket = Ticket.find(params[:id])
+    # @ticket = Ticket.find(params[:id])
   end
 
   def new
@@ -25,11 +27,11 @@ class TicketsController < ApplicationController
   end
 
   def edit
-    @ticket = Ticket.find(params[:id])
+    # @ticket = Ticket.find(params[:id])
   end
 
   def update
-    @ticket = Ticket.find(params[:id])
+    # @ticket = Ticket.find(params[:id])
     if @ticket.update(ticket_params)
       redirect_to ticket_path(@ticket), notice: "チケット情報を更新しました"
     else
@@ -38,7 +40,7 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    @ticket = Ticket.find(params[:id])
+    # @ticket = Ticket.find(params[:id])
     @ticket.destroy
     redirect_to tickets_path
   end
@@ -89,15 +91,21 @@ class TicketsController < ApplicationController
       # binding.pry
       @tickets = @tickets.all.order("#{date_sort}")
     end
-
-
     @tickets = @tickets.all.page(params[:page]).per(5).order(event_date: "DESC")
-    # binding.pry
 
   end
 
+  private
+
   def ticket_params
     params.require(:ticket).permit(:event_name, :event_date, :number, :money, :entry_start_date, :entry_end_date, :entry_flg, :win_date, :win_flg, :payment_date, :payment_flg)
+  end
+
+  def ensure_correct_user
+    @ticket = Ticket.find(params[:id])
+    unless @ticket.user_id == current_user.id
+      redirect_to root_path, notice: "アクセス権限がありません"
+    end
   end
 
 end

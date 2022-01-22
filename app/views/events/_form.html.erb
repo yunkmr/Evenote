@@ -1,65 +1,65 @@
 <%= form_with model:event, local:true, html: { class: "contact-form" } do |f| %>
   <%= render 'layouts/error', obj: event %>
   <div class="row">
-    <div class="form-group col-md-12">
+    <div class="form-group col-xl-12">
       <%= f.label :イベント名, for:'name', class:'control-label label' %>
       <%= f.text_field :name, id:'name', class:'form-control input-text' %>
     </div>
   </div>
   <div class="row mt-3">
-    <div class="col-md-5">
-      <div class="form-group col-md-12">
+    <div class="col-xl-5">
+      <div class="form-group col-xl-12">
         <%= f.label :イベント日付, class:'control-label label' %>
         <%= f.date_field :date, class:'date form-control input-text' %>
       </div>
-      <div class="form-group row col-md-12">
-        <%= f.label :開場時間, class:'col-md-4 mt-3 control-label time-label' %>
-        <%= f.time_field :open_time, class:'open_time col-md-6 form-control input-text ml-auto' %>
+      <div class="form-group row col-xl-12">
+        <%= f.label :開場時間, class:'col-xl-4 mt-3 control-label time-label' %>
+        <%= f.time_field :open_time, class:'open_time col-xl-6 form-control input-text ml-auto' %>
       </div>
-      <div class="form-group row col-md-12">
-        <%= f.label :開演時間, class:'col-md-4 mt-3 control-labe time-label' %>
-        <%= f.time_field :start_time, class:'start_time col-md-6 form-control input-text ml-auto' %>
+      <div class="form-group row col-xl-12">
+        <%= f.label :開演時間, class:'col-xl-4 mt-3 control-labe time-label' %>
+        <%= f.time_field :start_time, class:'start_time col-xl-6 form-control input-text ml-auto' %>
       </div>
-      <div class="form-group row col-md-12">
-        <%= f.label :終演時間, class:'col-md-4 mt-3 control-label time-label' %>
-        <%= f.time_field :end_time, class:'end_time col-md-6 form-control input-text ml-auto' %>
+      <div class="form-group row col-xl-12">
+        <%= f.label :終演時間, class:'col-xl-4 mt-3 control-label time-label' %>
+        <%= f.time_field :end_time, class:'end_time col-xl-6 form-control input-text ml-auto' %>
       </div>
     </div>
-    <div class="col-md-7">
-      <div class="form-row col-md-12">
-        <div class="form-group col-md-6">
+    <div class="col-xl-7">
+      <div class="form-row col-xl-12">
+        <div class="form-group col-xl-6">
           <%= f.label :アーティスト, for:'artist', class:'control-label label' %>
           <%= f.text_field :artist, id:'artist', class:'form-control input-text' %>
         </div>
       </div>
-      <div class="form-row col-md-12">
-        <div class="form-group form-field col-md-6">
+      <div class="form-row col-xl-12">
+        <div class="form-group form-field col-xl-6">
           <%= f.label :場所, for:'place', class:'mt-2 control-label label' %>
           <%= f.text_field :place, id:'place', class:'form-control input-text' %>
         </div>
-        <div class="form-group form-field col-md-5 ml-auto">
+        <div class="form-group form-field col-xl-5 ml-auto">
         <%= f.label :座席, for:'seat', class:'mt-2 control-label label' %>
         <%= f.text_field :seat, id:'seat', class:'form-control input-text' %>
         </div>
       </div>
-      <div class="form-group form-field col-md-12">
+      <div class="form-group form-field col-xl-12">
         <%= f.label :同行者, for:'with', class:'mt-2 control-label label' %>
         <%= f.text_field :with, id:'with', class:'form-control input-text' %>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="form-group col-md-9 mt-2">
+    <div class="form-group col-xl-9 mt-2">
       <%= f.text_area :memo, rows:3, placeholder: "メモ", class:'form-control' %>
     </div>
-    <div class="form-group row col-md-3">
-      <div class="form-group col-md-12 mt-2 ml-auto">
+    <div class="form-group row col-xl-3">
+      <div class="form-group col-xl-12 mt-2 ml-auto">
         <%= f.radio_button :release_flg, 0, checked: true %>
         <%= f.label :release_flg, "公開しない", {value: :false, style: "display: inline-block;"} %>
         <%= f.radio_button :release_flg, :true %>
         <%= f.label :release_flg, "公開する", {value: :true, style: "display: inline-block;"} %>
       </div>
-      <div class="form-group col-md-8 ml-auto">
+      <div class="form-group col-xl-8 ml-auto">
         <%= f.submit '登録する', class:'submit-btn' %>
       </div>
     </div>
