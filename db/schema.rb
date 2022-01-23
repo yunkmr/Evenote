@@ -40,14 +40,16 @@ ActiveRecord::Schema.define(version: 2022_01_21_044208) do
     t.time "open_time"
     t.time "start_time"
     t.time "end_time"
+    t.string "artist"
     t.string "place"
     t.string "seat"
+    t.string "with"
     t.text "memo"
+    t.boolean "release_flg", default: false, null: false
+    t.boolean "boolean", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "release_flg", default: false, null: false
-    t.string "with"
-    t.string "artist"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -67,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_01_21_044208) do
     t.boolean "buy_flg", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_items_on_event_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -74,12 +77,12 @@ ActiveRecord::Schema.define(version: 2022_01_21_044208) do
     t.integer "visited_id", null: false
     t.integer "post_id"
     t.integer "post_comment_id"
+    t.integer "event_id"
+    t.integer "ticket_id"
     t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "event_id"
-    t.integer "ticket_id"
     t.index ["event_id"], name: "index_notifications_on_event_id"
     t.index ["post_comment_id"], name: "index_notifications_on_post_comment_id"
     t.index ["post_id"], name: "index_notifications_on_post_id"
@@ -109,10 +112,9 @@ ActiveRecord::Schema.define(version: 2022_01_21_044208) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.string "post_image_id"
+    t.text "maintext"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "content"
-    t.text "maintext"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -145,21 +147,20 @@ ActiveRecord::Schema.define(version: 2022_01_21_044208) do
 
   create_table "tickets", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "event_id"
     t.string "event_name"
     t.date "event_date"
     t.integer "number"
     t.integer "money"
     t.date "entry_start_date"
     t.date "entry_end_date"
-    t.boolean "entry_flg"
+    t.boolean "entry_flg", default: false, null: false
     t.date "win_date"
     t.boolean "win_flg"
     t.date "payment_date"
-    t.boolean "payment_flg"
+    t.boolean "payment_flg", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "artist"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "user_rooms", force: :cascade do |t|
@@ -181,7 +182,6 @@ ActiveRecord::Schema.define(version: 2022_01_21_044208) do
     t.string "user_name"
     t.text "introduction"
     t.string "profile_image_id"
-    t.text "join_event"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

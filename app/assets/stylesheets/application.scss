@@ -51,9 +51,9 @@ body,
 html {
   // font-family: 'Amiri', serif;
   ont-family: Hiragino Kaku Gothic Pro,Meiryo,sans-serif;
-  // background-color: #f8ede1;
+  background-color: #f8ede1;
   // background-color: #fffaf0;
-  background-color: #fff;
+  // background-color: #fff;
 }
 
 body{
@@ -82,11 +82,12 @@ a {
   left: 0;
   width: 250px;
   height: 100%;
-  background-color: #295d72;
+  // background-color: #295d72;
+  background-color: #fff;
   transition: all 0.6s;
   z-index: 1;
   transform: translateX(-170px);
-  color: #fff;
+  color: #000;
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
@@ -287,13 +288,6 @@ span {
   // 	width: calc(100% - 70px);
     width: 100%;
   	margin: 0 0 0 auto;
-
-  }
-  @media screen and (max-width: 480px) {
-  	/* 480px以下に適用されるCSS（スマホ用） */
-  // 	width: calc(100% - 100px);
-    width: 100%;
-  	margin: 0 0 0 auto;
   }
 
 }
@@ -301,8 +295,9 @@ span {
 header{
   // background: #94A4A5;
   // background: #d2b48c;
-  background: #EEDDBB;
-  color: #fff;
+  // background: #EEDDBB;
+  // background-color: hsla(0,0%,100%,.5);
+  // color: #fff;
 }
 
 .l-app_header {
@@ -314,7 +309,7 @@ header{
   // background: #a9a9a9;
   width: calc(100% - 300px);
   margin: 0 auto;
-  color: #fff;
+  background-color: #fff;
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
@@ -323,12 +318,18 @@ header{
   	margin: 0 0 0 auto;
 
   }
-  @media screen and (max-width: 480px) {
-  	/* 480px以下に適用されるCSS（スマホ用） */
-  // 	width: calc(100% - 110px);
-    width: 100%;
-    margin: 0 0 0 auto;
+
+  .l-menu-open{
+    display: none;
+
+    @media screen and (max-width: 959px) {
+    	/* 959px以下に適用されるCSS（タブレット用） */
+    	display: inline;
+
+    }
   }
+
+
 }
 
 .navbar{
@@ -519,11 +520,6 @@ header{
   	/* 959px以下に適用されるCSS（タブレット用） */
   	  position: static;
     }
-
-    @media screen and (max-width: 480px) {
-    	/* 959px以下に適用されるCSS（タブレット用） */
-    	position: static;
-    }
   }
 }
 
@@ -601,12 +597,6 @@ header{
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
   	width: 90%;
-  	height: 80%;
-  }
-
-  @media screen and (max-width: 480px) {
-  	/* 480px以下に適用されるCSS（スマホ用） */
-  	width: 95%;
   	height: 80%;
   }
 }
@@ -745,9 +735,17 @@ header{
 }
 
 
-.follow_btn{
+.follow_btn {
   border: 1px solid #dcdcdc;
   border-radius: 5px;
+  background-color: #00bfff;
+  color: #fff;
+}
+
+.unfollow_btn{
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 

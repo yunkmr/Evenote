@@ -3,7 +3,7 @@ class CreatePhotos < ActiveRecord::Migration[5.2]
     create_table :photos do |t|
 
       t.references :album, foreign_key: true
-      t.string :memory_image_id
+      t.text :memory_image_id
 
       t.timestamps
     end
