@@ -8,6 +8,8 @@
             <i class="fa fa-lock fa-stack-1x"></i>
           </span>
         </p>
+        <p class="alert"><%= alert %></p>
+        <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'login-email' %>
         </div>
