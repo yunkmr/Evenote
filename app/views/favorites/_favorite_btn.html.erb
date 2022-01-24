@@ -6,9 +6,9 @@
 <div class="favorite-btn">
   <p>
     <% if post.favorited_by?(current_user) %>
-      <%= link_to post.favorites.count, post_favorites_path(post), method: :delete, remote: true, class: 'fas fa-heart heart_red' %>
+      <%= link_to post.favorites.count, post_favorites_path(post), method: :delete, remote: true, class: 'fas fa-heart heart-red' %>
     <% else %>
-      <%= link_to post.favorites.count, post_favorites_path(post), method: :post, remote: true, class: 'fas fa-heart heart_blue'  %>
+      <%= link_to post.favorites.count, post_favorites_path(post), method: :post, remote: true, class: 'fas fa-heart heart-blue'  %>
     <% end %>
     <% if post.favorites.count == 1 %>
       <%= name %>がいいねしました

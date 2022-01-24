@@ -15,9 +15,9 @@ class PostsController < ApplicationController
     @tag_list = Tag.all              #ビューでタグ一覧を表示するために全取得。
     @post = current_user.posts.new   #ビューのform_withのmodelに使う。
 
-    @users = User.where.not(id: current_user.id).all.page(params[:page_2]).per(12).order(created_at: "DESC")
+    @users = User.where.not(id: current_user.id).all.page(params[:page_2]).per(20).order(created_at: "DESC")
 
-    @events = Event.where(release_flg: TRUE).all.page(params[:page_3]).per(12).order(created_at: "DESC")
+    @events = Event.where(release_flg: TRUE).all.page(params[:page_3]).per(20).order(created_at: "DESC")
 
   end
 

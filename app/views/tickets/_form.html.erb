@@ -4,11 +4,11 @@
     <div class="form-row">
       <div class="form-group col-xl-8">
         <%= f.label :イベント名, class:'control-label' %>
-        <%= f.text_field :event_name, class:'form-control' %>
+        <%= f.text_field :event_name, class:'form-control input-text ' %>
       </div>
       <div class="form-group col-xl-3">
         <%= f.label :イベント日時, class:'control-label' %>
-        <%= f.date_field :event_date, class:'form-control' %>
+        <%= f.date_field :event_date, class:'form-control input-text ' %>
       </div>
     </div>
     <div class="form-group">
@@ -17,11 +17,11 @@
     <div class="form-row col-xl-12">
       <div class="form-group row col-xl-4">
         <%= f.label :枚数, class:'col-xl-3 control-label' %>
-        <%= f.select :number, *[1..100], { include_blank: '枚数選択'}, class:'number col-xl-7 form-control' %>
+        <%= f.select :number, *[1..100], { include_blank: '枚数選択'}, class:'number col-xl-7 form-control input-text ' %>
       </div>
       <div class="form-group row col-xl-4">
         <%= f.label :金額, class:'col-xl-3 control-label' %>
-        <%= f.text_field :money, class:'money col-xl-7 form-control' %>
+        <%= f.text_field :money, class:'money col-xl-7 form-control input-text ' %>
       </div>
     </div>
     <h6 class="card-header">申込状況</h6>
@@ -30,7 +30,7 @@
       <div class="form-row col-xl-12">
         <div class="form-group row col-xl-5">
           <%= f.label :開始日, class:'col-xl-4 control-label' %>
-          <%= f.date_field :entry_start_date, class:'entry_start_date col-xl-6 form-control' %>
+          <%= f.date_field :entry_start_date, class:'entry_start_date col-xl-6 form-control input-text ' %>
         </div>
         <div class="form-group row col-xl-5">
           <%= f.label :申込状況, class:'col-xl-4 control-label' %>
@@ -43,7 +43,7 @@
       <div class="form-row col-xl-12">
         <div class="form-group row col-xl-5">
           <%= f.label :終了日, class:'col-xl-4 control-label' %>
-          <%= f.date_field :entry_end_date, class:'entry_end_date col-xl-6 form-control' %>
+          <%= f.date_field :entry_end_date, class:'entry_end_date col-xl-6 form-control input-text ' %>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
       <div class="form-row col-xl-12">
         <div class="form-group row col-xl-5">
           <%= f.label :当落発表日, class:'col-xl-4 control-label' %>
-          <%= f.date_field :win_date, class:'win_date col-xl-6 form-control' %>
+          <%= f.date_field :win_date, class:'win_date col-xl-6 form-control input-text ' %>
         </div>
         <div class="form-group row col-xl-5">
           <%= f.label :当落状況, class:'col-xl-4' %>
@@ -68,7 +68,7 @@
       <div class="form-row col-xl-12">
         <div class="form-group row col-xl-5">
           <%= f.label :支払期限日, class:'col-xl-4 control-label' %>
-          <%= f.date_field :payment_date, class:'payment_date col-xl-6 form-control' %>
+          <%= f.date_field :payment_date, class:'payment_date col-xl-6 form-control input-text ' %>
         </div>
         <div class="form-group row col-xl-5">
           <%= f.label :支払状況, class:'col-xl-4 control-label' %>
@@ -79,7 +79,7 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-2 ml-auto">
       <%= f.submit class:'submit-btn' %>
     </div>
   </div>

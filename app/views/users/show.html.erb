@@ -6,18 +6,22 @@
         <div class="card-header">
           <div class="row">
             <h5 class="mt-2">プロフィール</h5>
-            <div class="ml-auto">
-              <% if current_user == @user %>
+            <% if current_user == @user %>
+              <div class="ml-auto">
                 <%= link_to edit_user_path(current_user), class:'btn btn-sm' do %>
                   <span class="mgl-30"><i class="far fa-edit"></i> プロフィールを編集</span>
-                <% end %>
-              <% else %>
+              </div>
+              <% end %>
+            <% else %>
+              <div class="ml-auto">
                 <div id="follow_form">
                   <%= render 'relationships/follow_button', user: @user %>
                 </div>
-                <%= link_to 'メッセージを送る', rooms_path(user_id: @user.id), method: :post %>
-              <% end %>
-            </div>
+              </div>
+              <div class="mgl-10">
+                <%= link_to 'メッセージを送る', rooms_path(user_id: @user.id), method: :post, class: 'btn message_btn' %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="card-body">

@@ -1,17 +1,14 @@
 <div class="col-12">
   <%= form_with url: search_tickets_path, method: :get, local:true do |f| %>
-    <!--<div class="form-row col-md-12">-->
     <div class="form-group row">
       <%= f.label :イベント名, class: 'control-label' %>
       <%= f.text_field :keyword, class: 'form-control' %>
     </div>
-    <!--</div>-->
     <div class="form-group row">
       <p>イベント日付・申込開始日/終了日・当落発表日・支払期限日のいずれかで日付検索</p>
       <%= f.select :date_1, [['イベント日付', 'event_date'], ['申込開始日', 'entry_start_date'], ['申込終了日', 'entry_end_date'], ['当選発表日', 'win_date'], ['支払期限日', 'payment_date']], { include_blank: false }, class: 'form-control col-md-5' %>
       <%= f.date_field :search_date, class: 'form-control col-md-5 ml-3' %>
     </div>
-    <!--<div class="form-row col-md-12">-->
     <div class="form-group row">
       <%= f.label :申込状況, class: 'col-md-5 control-label' %>
       <%= f.select :entry, [['未申込', 'FALSE'], ['申込済', 'TRUE']], { include_blank: true }, class: 'form-control col-md-3 ml-3' %>
@@ -24,10 +21,9 @@
       <%= f.label :支払状況, class: 'col-md-5 control-label' %>
       <%= f.select :payment, [['未支払', 'FALSE'], ['支払済', 'TRUE']], { include_blank: true }, class: 'form-control col-md-3 ml-3' %>
     </div>
-    <!--</div>-->
     <div class="form-group row">
       <%= f.select :date_2, [['イベント日付', 'event_date'], ['申込開始日', 'entry_start_date'], ['申込終了日', 'entry_end_date'], ['当選発表日', 'win_date'], ['支払期限日', 'payment_date']], { include_blank: false }, class: 'form-control col-md-5 ' %>
-      <%= f.select :sort, [['昇順', 'ASC'], ['降順', 'DESC']], { include_blank: false }, class: 'form-control col-md-3 ml-3' %>
+      <%= f.select :sort, [['新しい順', 'DESC'], ['古い順', 'ASC']], { include_blank: false }, class: 'form-control col-md-4 ml-3' %>
     </div>
     <%= f.submit '検索', class:'submit-btn' %>
   <% end %>

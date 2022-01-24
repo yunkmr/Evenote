@@ -21,8 +21,8 @@ class RelationshipsController < ApplicationController
   def follow
     @mode = params[:mode]
 
-    @users_follow = @user.followings.all.page(params[:page_1]).per(2)
-    @users_follower = @user.followers.all.page(params[:page_2]).per(2)
+    @users_follow = @user.followings.all.page(params[:page_1]).per(20)
+    @users_follower = @user.followers.all.page(params[:page_2]).per(20)
   end
   # # フォロワー一覧
   # def followers
