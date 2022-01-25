@@ -32,8 +32,6 @@ class UserMailer < ApplicationMailer
     end
     mail(subject: "【リマインド】明日参加予定のイベンがあります", bcc: emails)
 
-    binding.pry
-
   end
 
   # チケット申し込み開始日前日のリマインドメール
