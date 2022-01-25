@@ -68,7 +68,4 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :index, :show]
   resource :chats, only: [:create]
 
-  get "new/mail" => "users#new_mail"
-  get "send/mail" => "users#send_mail"
-
 end
