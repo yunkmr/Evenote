@@ -1,35 +1,3 @@
-<%
-=begin %>
-<div class="container">
-  <div class="row">
-    <div class="mt-2 ml-auto">
-      <% if search_id == 1 %>
-        <%= form_with url: post_search_path, method: :get, local:true do |f| %>
-          <%= f.label :キーワードで検索 %>
-          <%= f.text_field :keyword, value: params[:keyword] %>
-          <%= f.submit '検索' %>
-        <% end %>
-      <% elsif search_id == 2 %>
-        <%= form_with url: user_search_path, method: :get, local:true do |f| %>
-          <%= f.label :ユーザー名で検索 %>
-          <%= f.text_field :user_name, value: params[:user_name] %>
-          <%= f.submit '検索' %>
-        <% end %>
-      <% else %>
-        <%= form_with url: event_search_path, method: :get, local:true do |f| %>
-          <%= f.label :イベント日付で検索 %>
-          <%= f.date_field :event_date, value: params[:event_date] %>
-          <%= f.label :イベント名で検索 %>
-          <%= f.text_field :event_name, value: params[:event_name] %>
-          <%= f.submit '検索' %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<%
-=end %>
-
 <div class="container">
   <div class="row">
     <div class="mt-2 ml-auto">

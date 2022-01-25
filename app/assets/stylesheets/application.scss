@@ -659,6 +659,16 @@ header{
   transform: translate(0, 0) scale(0.8);   /* 大きさ0.8倍から等倍にモーダルが拡大される */
 }
 
+#user_area{
+  background: #fff;
+  padding: 0 15px;
+}
+
+#event_area{
+  background: #fff;
+  padding: 0 15px;
+}
+
 // 通知リストのスタイルーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 .notofication-list{
   padding: 10px 0;
@@ -712,7 +722,7 @@ header{
 // 通知マークの丸
 .n-circle {
   position: absolute;
-  padding-left: 1.3rem;
+  padding-left: 2rem;
   padding-top: 0rem;
   color: #f4a460;
   opacity: 0.5;
@@ -721,7 +731,7 @@ header{
 // DM通知マークの丸
 .n-circle-mail{
   position: absolute;
-  padding-left: 1.3rem;
+  padding-left: 3rem;
   padding-top: 0rem;
   color: #efa04c;
   opacity: 0.5;
@@ -732,18 +742,18 @@ header{
   color: #808000;
 }
 
-
 // タブ切り替え
 .tab, .sub-tab {
   width: 100%;
   padding: 10px;
   cursor: pointer;
-  border-left: solid 1px #CCC;
   border-bottom: solid 1px #CCC;
 }
-.tab:first-child, .sub-tab:first-child {
-  border-left: none;
+
+.sub-tab {
+  border-left: solid 1px #CCC;
 }
+
 // タブがactiveのときのデザイン
 .tab-active{
   color: #fff;
@@ -817,6 +827,7 @@ header{
 .table-color{
   background: #fff;
 }
+
 
 // トップ画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 

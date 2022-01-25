@@ -1,29 +1,31 @@
-<table class="table">
-  <% users.each do |user| %>
-    <tr>
-      <td>
-        <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
-      </td>
-      <td>
-        <%= link_to user.user_name, user_path(id: user.id) %>
-      </td>
-      <td>
-        <%= user.introduction %>
-      </td>
-      <td>
-        <%= link_to '投稿を見る', post_user_search_path(user_id: user.id) %>
-      </td>
-      <td>
-        <%= link_to 'イベントを見る', event_user_search_path(user_id: user.id) %>
-      </td>
-      <td>
-        <div id="follow_form_following_<%= user.id %>">
-          <%= render 'relationships/follow_button', user: user %>
-        </div>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div class="table-responsive">
+  <table class="table">
+    <% users.each do |user| %>
+      <tr>
+        <td>
+          <%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '30x30') %>
+        </td>
+        <td>
+          <%= link_to user.user_name, user_path(id: user.id) %>
+        </td>
+        <td>
+          <%= user.introduction %>
+        </td>
+        <td>
+          <%= link_to '投稿を見る', post_user_search_path(user_id: user.id) %>
+        </td>
+        <td>
+          <%= link_to 'イベントを見る', event_user_search_path(user_id: user.id) %>
+        </td>
+        <td>
+          <div id="follow_form_following_<%= user.id %>">
+            <%= render 'relationships/follow_button', user: user %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
 <div class="row">
   <div class="mx-auto mt-2">
     <%= paginate users, :param_name => 'page_2', remote: true %>

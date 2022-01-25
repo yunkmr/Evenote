@@ -30,18 +30,24 @@
         </div>
         <!--タブで選択された要素部分-->
         <div class="col-md-10">
-          <div class="row">
-            <li class="sub-tab sub-tab-active col-md-4">
-              投稿一覧
-            </li>
-            <input type="button" Value="前のページに戻る" onClick="history.go(-1);">
-          </div>
-        </ul>
-        <div class="tabbox-contents">
-          <div class="sub-tabbox sub-box-show">
-            <h3>投稿一覧</h3>
-            <div id="post_area">
-              <%= render 'posts/post_list', posts: @posts, tab_id: 2 %>
+          <div class="tabbox-contents">
+            <div class="tabbox box-show">
+              <ul class="sub-tab-list list-unstyled">
+                <div class="row">
+                  <li class="sub-tab sub-tab-active col-md-4">
+                    投稿一覧
+                  </li>
+                  <input type="button" Value="前のページに戻る" onClick="history.go(-1);">
+                </div>
+              </ul>
+              <div class="tabbox-contents">
+                <div class="sub-tabbox sub-box-show">
+                  <h3>投稿一覧</h3>
+                  <div id="post_area">
+                    <%= render 'posts/post_list', posts: @posts, tab_id: 2 %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
