@@ -92,12 +92,8 @@ a {
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
-  	transform: translateX(-100%);
+  	transform: translateX(-97%);
 
-  }
-  @media screen and (max-width: 480px) {
-  	/* 480px以下に適用されるCSS（スマホ用） */
-  	transform: translateX(-100%);
   }
 }
 
@@ -187,6 +183,10 @@ a {
   overflow: hidden;
 }
 
+.l-menu-title .jp {
+   display: none;
+}
+
 .l-menu-title .en {
   margin: 15px auto 65px;
   font-size: 14px;
@@ -197,6 +197,31 @@ a {
 .l-menu-title.menu-active-complete {
   opacity: 0;
   transition: 1s;
+}
+
+@media (max-width: 959px){
+  .l-menu-title {
+      top: 20px;
+      right: -30px;
+      width: 40px;
+      height: 64px;
+      background-color: #fff;
+
+      .icon, .icon:after, .icon:before{
+        display: none;
+      }
+
+      .jp{
+        display: block;
+        margin: auto;
+        font-size: 13px;
+      }
+
+      .en{
+        margin: 0;
+        display: none;
+      }
+  }
 }
 
 span {
@@ -312,14 +337,6 @@ header{
     width: 100%;
   	margin: 0 0 0 auto;
   }
-  .l-menu-open{
-    display: none;
-
-    @media screen and (max-width: 959px) {
-    	/* 959px以下に適用されるCSS（タブレット用） */
-    	display: inline;
-    }
-  }
 }
 
 .navbar{
@@ -328,6 +345,12 @@ header{
 
 .navbar-brand{
   font-size: 45px;
+  @media screen and (max-width: 959px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+    margin-left: 40px;
+
+  }
+
 }
 
 .navbar-light .navbar-nav .nav-link {

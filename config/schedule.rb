@@ -11,6 +11,7 @@ env :PATH, ENV['PATH']
 set :output, 'log/cron.log'
 # ジョブの実行環境の指定
 set :environment, :production
+# set :environment, :environment
 #
 # set :output, "/path/to/my/cron_log.log"
 #
@@ -24,8 +25,8 @@ set :environment, :production
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every 1.minutes do
-# every 1.days, at: '9:00 am' do
+# every 1.minutes do
+every 1.days, at: '9:00 am' do
 
 # Rails内のメソッド実行
   # runner "UserMailer.notify_user.deliver_now"

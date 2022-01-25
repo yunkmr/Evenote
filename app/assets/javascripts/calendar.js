@@ -40,12 +40,6 @@
           eventColor: '#bfada3',
           eventTextColor: '#000000',
 
-          eventClick: function(calEvent, jsEvent, view) {
-            // カレンダーに設定したイベントクリック時のイベント
-            $('#modalTitle').html(calEvent.title); // モーダルのタイトルをセット
-            $('#modalBody').html(calEvent.description); // モーダルの本文をセット
-            $('#calendarModal').modal(); // モーダル着火
-          },
         });
     });
 // });
