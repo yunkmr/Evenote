@@ -35,8 +35,7 @@ class UserMailer < ApplicationMailer
   end
 
   # チケット申し込み開始日前日のリマインドメール
-  # def entry_start_day_remind
-  def send_mail
+  def entry_start_day_remind
     @url = "https://0ee43e257cb54a8da0feebf0c61cb78f.vfs.cloud9.us-east-1.amazonaws.com/users/sign_in"
 
     before_1day_entry_day = Ticket.all.select do |ticket|
