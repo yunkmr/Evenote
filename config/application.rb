@@ -16,7 +16,13 @@ module Evenote
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # 日本時間に設定
+    config.time_zone = "Tokyo"
+    config.active_record.default_timezone = :local
+
     config.i18n.default_locale = :ja #追加
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+
+    config.paths.add 'lib', eager_load: true
   end
 end
