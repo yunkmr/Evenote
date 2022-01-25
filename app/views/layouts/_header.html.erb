@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light p-4">
-  <a class="navbar-brand" href="/"><%= image_tag 'evenote.png', :size => '130x65' %><span></span></a>
+  <a class="navbar-brand" href="/">Evenote.<%#= image_tag 'evenote.png', :size => '130x65' %><span></span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,7 +14,7 @@
       <li class="nav-item">
         <div class="nav-link">
           <%= link_to user_path(current_user) do %>
-            <i class="fas fa-user"></i>プロフィール
+            <i class="fas fa-user"></i> Profile
           <% end %>
         </div>
       </li>
@@ -29,7 +29,7 @@
             <% else %>
               <i class="fas fa-bell"></i>
             <% end %>
-            通知
+            Notice
           <% end %>
         </div>
       </li>
@@ -44,14 +44,14 @@
             <% else %>
               <i class="far fa-envelope"></i>
             <% end %>
-            DM
+            Message
           <% end %>
         </div>
       </li>
       <li class="nav-item">
         <div class="nav-link">
           <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fas fa-sign-out-alt"></i>ログアウト
+            <i class="fas fa-sign-out-alt"></i>Log out
           <% end %>
         </div>
       </li>

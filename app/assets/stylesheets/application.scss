@@ -51,9 +51,9 @@ body,
 html {
   // font-family: 'Amiri', serif;
   ont-family: Hiragino Kaku Gothic Pro,Meiryo,sans-serif;
-  background-color: #f8ede1;
+  // background-color: #f8ede1;
   // background-color: #fffaf0;
-  // background-color: #fff;
+  background-color: #efe5df;
 }
 
 body{
@@ -84,10 +84,11 @@ a {
   height: 100%;
   // background-color: #295d72;
   background-color: #fff;
-  transition: all 0.6s;
-  z-index: 1;
-  transform: translateX(-170px);
   color: #000;
+  border-right: 1px solid #e0d7d1;
+  transition: all 0.6s;
+  z-index: 999;
+  transform: translateX(-170px);
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
@@ -102,7 +103,6 @@ a {
 
 .l-app_navigation.menu-active-complete {
   transform: translateX(0);
-
 }
 
 .l-menu {
@@ -137,7 +137,7 @@ a {
   font-weight: 500;
   border: none;
   background: transparent;
-  color: white;
+  color: #000;
 
 }
 
@@ -158,7 +158,6 @@ a {
   width: 20px;
   height: 7px;
   margin: 0 auto 35px;
-
 }
 
 .l-menu-title .icon:after,
@@ -168,7 +167,7 @@ a {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #fff;
+  background-color: #000;
 }
 
 .l-menu-title .icon:before {
@@ -205,10 +204,6 @@ span {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-.l-app_navigation.menu-active-complete {
-  transform: translateX(0);
 }
 
 .l-menu-contents {
@@ -278,10 +273,10 @@ span {
 .l-app_contents {
   // background-color: #f7f7f5;
   // background-color: #f8ede1;
+  padding: 50px 0;
   transition: all 0.6s;
   width: calc(100% - 300px);
   margin: 0 auto;
-  padding-top: 50px;
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
@@ -289,8 +284,8 @@ span {
     width: 100%;
   	margin: 0 0 0 auto;
   }
-
 }
+
 
 header{
   // background: #94A4A5;
@@ -304,37 +299,39 @@ header{
   left: 50%;
   top: 0;
   width: 855px;
-  z-index: 0;
+  // z-index: 0;
   // background-color: hsla(0,0%,100%,.2);
   // background: #a9a9a9;
   width: calc(100% - 300px);
   margin: 0 auto;
-  background-color: #fff;
+  // background-color: #f8ede1;
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
   // 	width: calc(100% - 110px);
     width: 100%;
   	margin: 0 0 0 auto;
-
   }
-
   .l-menu-open{
     display: none;
 
     @media screen and (max-width: 959px) {
     	/* 959px以下に適用されるCSS（タブレット用） */
     	display: inline;
-
     }
   }
-
-
 }
 
 .navbar{
-  border-bottom: solid 1px #dcdcdc;
-  color: #fff;
+  border-bottom: solid 1px #e0d7d1;
+}
+
+.navbar-brand{
+  font-size: 45px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .l-app_footer {
@@ -344,7 +341,10 @@ header{
 
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
-  margin-top: 30px;
+}
+
+#event_calendar{
+  padding-top: 15px;
 }
 
 
@@ -412,7 +412,6 @@ header{
   }
 }
 
-
 // チケット新規登録画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 // ラジオボタンの位置調整
 .radio-form-label {
@@ -423,7 +422,7 @@ header{
 // チケット一覧画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 // 検索フォーム
 .ticket_search_form{
-  background: rgba(0, 0, 0, 0.07);
+  background: #f0e9e6;
 }
 
 
@@ -447,7 +446,7 @@ header{
 // アルバム画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 .album_box {
   height: 150px;
-  background :#e6e6fa;/* 紙の色 */
+  background: #c3d3d4;/* 紙の色 */
   color: #000;/* 文字色 */
   word-break: break-all;
 }
@@ -697,7 +696,7 @@ header{
 
 .submit-btn {
   display: inline-block;
-  background-color: #000;
+  background-color: #4f4842;
   color: #fff;
   font-family: Raleway, sans-serif;
   text-transform: uppercase;
@@ -746,11 +745,17 @@ header{
   border-left: none;
 }
 // タブがactiveのときのデザイン
-.tab-active, .sub-tab-active {
-  color: #FFF;
+.tab-active{
+  color: #fff;
   background: #94A4A5;
-  transition: all 0.2s ease-in-out;
+  // transition: all 0.2s ease-in-out;
 }
+
+.sub-tab-active{
+  color: #FFF;
+  background: #bfada3;
+}
+
 // タブの中身、最初は非表示
 .tabbox, .sub-tabbox {
   display: none;
@@ -791,10 +796,27 @@ header{
 .message_btn {
   border: 1px solid #dcdcdc;
   border-radius: 5px;
-  background-color: #bdb76b;
+  background-color: #96b39c;
   color: #fff;
 }
 
+.card-main{
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.card-header.main-header{
+  background: #ded1ca;
+  // color: #fff;
+}
+
+.card-header.sub-header{
+  background: #f0e9e6;
+  // color: #fff;
+}
+
+.table-color{
+  background: #fff;
+}
 
 // トップ画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
@@ -1135,12 +1157,14 @@ header{
 
 // ーーーーーーチャットルームーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 .main-caht-room{
+  border: 1px solid rgba(0, 0, 0, 0.35) !important;
   padding-right: 0;
   padding-left: 0;
 }
 
 .chat-room-user-name{
-  border-bottom: solid 1px #000;
+  background: #ded1ca;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
   padding: 15px 5px;
 }
 

@@ -37,7 +37,7 @@
             day: '日',
           },
           timeFormat: 'HH:mm',
-          eventColor: '#63ceef',
+          eventColor: '#bfada3',
           eventTextColor: '#000000',
 
           eventClick: function(calEvent, jsEvent, view) {

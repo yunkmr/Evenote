@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <div class="card">
-        <h5 class="card-header">ユーザー編集</h5>
+      <div class="card card-main">
+        <h5 class="card-header main-header">ユーザー編集</h5>
         <%= form_with model: @user, url: user_path(@user), local:true do |f| %>
           <%= render 'layouts/error', obj: @user %>
           <div class="card-body">

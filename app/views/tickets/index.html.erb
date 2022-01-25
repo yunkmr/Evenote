@@ -3,14 +3,14 @@
     <div class="col-md-12 mx-auto">
       <div class="row">
         <div class="col-xl-5 mb-5">
-          <div class="card">
+          <div class="card card-main">
             <div class="card-body ticket_search_form">
               <h5 class="card-title">検索フォーム</h5>
               <%= render 'search_form' %>
             </div>
           </div>
         </div>
-        <div class="col-xl-6 mx-auto">
+        <div class="col-xl-7 mx-auto">
           <h5>チケット一覧</h5>
           <%= render 'index', tickets: @tickets, mode_id: "1" %>
         </div>
