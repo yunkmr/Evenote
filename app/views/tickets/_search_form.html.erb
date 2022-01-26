@@ -25,6 +25,8 @@
       <%= f.select :date_2, [['イベント日付', 'event_date'], ['申込開始日', 'entry_start_date'], ['申込終了日', 'entry_end_date'], ['当選発表日', 'win_date'], ['支払期限日', 'payment_date']], { include_blank: false }, class: 'form-control col-md-5 ' %>
       <%= f.select :sort, [['新しい順', 'DESC'], ['古い順', 'ASC']], { include_blank: false }, class: 'form-control col-md-4 ml-3' %>
     </div>
-    <%= f.submit '検索', class:'submit-btn' %>
+    <div class="form-group col-md-3 ml-auto">
+      <%= f.submit '検索', class:'submit-btn' %>
+    </div>
   <% end %>
 </div>
