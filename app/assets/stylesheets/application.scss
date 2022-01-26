@@ -296,8 +296,6 @@ span {
 }
 
 .l-app_contents {
-  // background-color: #f7f7f5;
-  // background-color: #f8ede1;
   padding: 50px 0;
   transition: all 0.6s;
   width: calc(100% - 300px);
@@ -305,37 +303,48 @@ span {
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
-  // 	width: calc(100% - 70px);
     width: 100%;
   	margin: 0 0 0 auto;
   }
-}
-
-
-header{
-  // background: #94A4A5;
-  // background: #d2b48c;
-  // background: #EEDDBB;
-  // background-color: hsla(0,0%,100%,.5);
-  // color: #fff;
 }
 
 .l-app_header {
   left: 50%;
   top: 0;
   width: 855px;
-  // z-index: 0;
-  // background-color: hsla(0,0%,100%,.2);
-  // background: #a9a9a9;
   width: calc(100% - 300px);
   margin: 0 auto;
-  // background-color: #f8ede1;
 
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
   // 	width: calc(100% - 110px);
     width: 100%;
   	margin: 0 0 0 auto;
+  }
+}
+
+.menu-en{
+  margin-left: 40px;
+  text-align: center;
+  font-size: 18px;
+
+  @media screen and (max-width: 991px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	margin-left: 50px;
+    text-align: start;
+  }
+
+}
+
+.menu-jp{
+  margin-left: 40px;
+  text-align: center;
+  font-size: 8px;
+
+  @media screen and (max-width: 991px) {
+  	/* 959px以下に適用されるCSS（タブレット用） */
+  	margin-left: 50px;
+    text-align: start;
   }
 }
 
@@ -348,7 +357,6 @@ header{
   @media screen and (max-width: 959px) {
   	/* 959px以下に適用されるCSS（タブレット用） */
     margin-left: 40px;
-
   }
 
 }
@@ -735,20 +743,28 @@ header{
 // 通知マークの丸
 .n-circle {
   position: absolute;
-  padding-left: 2rem;
+  padding-left: 5rem;
   padding-top: 0rem;
   color: #f4a460;
   opacity: 0.5;
+  @media screen and (max-width: 991px) {
+  	/* 991px以下に適用されるCSS（タブレット用） */
+  	padding-left: 5.5rem;
+  }
 }
 
 // DM通知マークの丸
 .n-circle-mail{
   position: absolute;
-  padding-left: 3rem;
+  padding-left: 6.2rem;
   padding-top: 0rem;
   color: #efa04c;
   opacity: 0.5;
   color: #808000;
+  @media screen and (max-width: 991px) {
+  	/* 991px以下に適用されるCSS（タブレット用） */
+  	padding-left: 6.7rem;
+  }
 }
 
 .n-circle-index-mail{
@@ -839,10 +855,6 @@ header{
 
 .table-color{
   background: #fff;
-}
-
-.table tr{
-  border: none;
 }
 
 // トップ画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
