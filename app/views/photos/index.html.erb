@@ -10,8 +10,7 @@
           <div class="form-group row col-md-12">
             <%= f.hidden_field :album_name, value: @album.album_name %>
             <%= f.attachment_field :photos_memory_images, multiple: true %>
-            <%= f.hidden_field :mode, value: "2" %>
-            <%= f.submit class:'submit-btn' %>
+            <%= f.submit '登録する', class:'submit-btn' %>
           </div>
         <% end %>
       </div>

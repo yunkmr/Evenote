@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
       redirect_to request.referer, notice: "アルバムを登録しました"
     # 投稿が失敗した場合
     else
-      @albums = @event.albums.includes(:user).order(created_at: "DESC")
+      @albums = @event.albums.includes(:user).order(update_at: "DESC")
       render 'index'
     end
   end
@@ -43,7 +43,7 @@ class AlbumsController < ApplicationController
       redirect_to event_albums_path, notice: "アルバムを編集しました"
     # 投稿が失敗した場合
     else
-      @albums = @event.albums.includes(:user).order(created_at: "DESC")
+      @albums = @event.albums.includes(:user).order(update_at: "DESC")
       redirect_to request.referer, notice: "アルバムの編集に失敗しました"
     end
   end
