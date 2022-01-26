@@ -8,8 +8,8 @@
       <%= link_to event_path(@event) do %>
         <i class="fas fa-angle-left"></i> イベント詳細へ
       <% end %>
-      <div class="card mt-3">
-        <h5 class="card-header">グッズ登録</h5>
+      <div class="card card-main mt-3">
+        <h5 class="card-header main-header">グッズ登録</h5>
         <div class="card-body">
           <%= form_with model: [@event, @item], local: true do |f| %>
             <%= render 'layouts/error', obj: @item %>
@@ -31,7 +31,7 @@
             </div>
           <% end %>
             <!--</div>-->
-          <h6 class="card-header mt-4">グッズリスト</h6>
+          <h6 class="card-header sub-header mt-4">グッズリスト</h6>
           <div class="card-body">
             <div id="item_list">
               <%= render 'item_list', items: @items %>
