@@ -43,7 +43,9 @@
               <div class="tabbox-contents">
                 <div class="sub-tabbox sub-box-show">
                   <h3>イベント一覧</h3>
-                  <%= render 'posts/event_list', events: @events, tab_id: 3 %>
+                  <div id="event_area">
+                    <%= render 'posts/event_list', events: @events, tab_id: 3 %>
+                  </div>
                 </div>
               </div>
             </div>
