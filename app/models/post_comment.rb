@@ -4,6 +4,6 @@ class PostComment < ApplicationRecord
 
   has_many :notifications, foreign_key: :post_comment_id, dependent: :destroy
 
-  validates :comment, presence: true
+  validates :comment, presence: true, length: {minimum: 2}, uniqueness: true
 
 end
