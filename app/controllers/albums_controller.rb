@@ -12,11 +12,11 @@ class AlbumsController < ApplicationController
       @album = Album.new
     end
 
-    @albums = @event.albums.includes(:user).page(params[:page]).per(12).order(update_at: "DESC")
+    @albums = @event.albums.includes(:user).page(params[:page]).per(12).order(updated_at: "DESC")
   end
 
   def index_all
-    @albums = current_user.albums.all.page(params[:page]).per(12).order(update_at: "DESC")
+    @albums = current_user.albums.all.page(params[:page]).per(12).order(updated_at: "DESC")
   end
 
 
@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
       redirect_to request.referer, notice: "アルバムを登録しました"
     # 投稿が失敗した場合
     else
-      @albums = @event.albums.includes(:user).order(update_at: "DESC")
+      @albums = @event.albums.includes(:user).order(updated_at: "DESC")
       render 'index'
     end
   end
