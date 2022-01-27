@@ -65,7 +65,7 @@ Item.create!(event_id: 3, name: "Tシャツ", quantity: 1, price: 3600, buy_flg:
 Item.create!(event_id: 3, name: "タオル", quantity: 2, price: 1800, buy_flg: false)
 
 Album.create!(user_id:1, event_id:1, album_name:"stormライブビューイング")
-Album.create!(user_id:1, event_id:1, album_name:"Menory")
+Album.create!(user_id:1, event_id:1, album_name:"Memory")
 Album.create!(user_id:1, event_id:2, album_name:"路上ライブ")
 Album.create!(user_id:3, event_id:8, album_name:"クリスマスコンサート")
 
