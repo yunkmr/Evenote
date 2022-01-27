@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
   # イベント前日のリマインドメール
   def event_day_remind
 
-    @url = "https://0ee43e257cb54a8da0feebf0c61cb78f.vfs.cloud9.us-east-1.amazonaws.com/users/sign_in"
+    @url = "http://evenote.net/users/sign_in"
 
     before_1day_events = Event.all.select do |event|
       @event = event
@@ -36,7 +36,7 @@ class UserMailer < ApplicationMailer
 
   # チケット申し込み開始日前日のリマインドメール
   def entry_start_day_remind
-    @url = "https://0ee43e257cb54a8da0feebf0c61cb78f.vfs.cloud9.us-east-1.amazonaws.com/users/sign_in"
+    @url = "http://evenote.net/users/sign_in"
 
     before_1day_entry_day = Ticket.all.select do |ticket|
       @ticket = ticket
@@ -68,7 +68,7 @@ class UserMailer < ApplicationMailer
 
   # チケット申し込み終了日前日のリマインドメール
   def entry_end_day_remind
-    @url = "https://0ee43e257cb54a8da0feebf0c61cb78f.vfs.cloud9.us-east-1.amazonaws.com/users/sign_in"
+    @url = "http://evenote.net/users/sign_in"
 
     before_1day_entry_day = Ticket.all.select do |ticket|
       @ticket = ticket
@@ -100,7 +100,7 @@ class UserMailer < ApplicationMailer
 
   # チケット当選発表日前日のリマインドメール
   def win_day_remind
-    @url = "https://0ee43e257cb54a8da0feebf0c61cb78f.vfs.cloud9.us-east-1.amazonaws.com/users/sign_in"
+    @url = "http://evenote.net/users/sign_in"
 
     before_1day_win_day = Ticket.all.select do |ticket|
       @ticket = ticket
@@ -134,7 +134,7 @@ class UserMailer < ApplicationMailer
 
   # チケット支払期限日前日のリマインドメール
   def payment_day_remind
-    @url = "https://0ee43e257cb54a8da0feebf0c61cb78f.vfs.cloud9.us-east-1.amazonaws.com/users/sign_in"
+    @url = "http://evenote.net/users/sign_in"
 
     before_1day_payment_day = Ticket.all.select do |ticket|
       @ticket = ticket
