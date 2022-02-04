@@ -16,9 +16,13 @@ ja:
      event:
        name: イベント名
        date: イベント日付
+       start_time: 開演時間
+       end_time: 終演時間
      ticket:
        event_name: イベント名
        event_date: イベント日付
+       entry_start_date: 申込開始日
+       entry_end_date: 申込終了日
      item:
        name: 商品名
        quantity: 個数

@@ -7,19 +7,19 @@ class SearchesController < ApplicationController
 
     # 投稿の検索
     keyword = params["keyword"]
-    @tags = Tag.where("tag_name LIKE ?", '%'+keyword+'%' ).order(created_at: "DESC")
-    all_post = []
-    @tags.each do |tag|
-      tag.posts.each do |tag_post|
-        unless all_post.include?(tag_post)
-          all_post << tag_post
-        end
-      end
-    end
+    # @tags = Tag.where("tag_name LIKE ?", '%'+keyword+'%' ).order(created_at: "DESC")
+    # all_post = []
+    # @tags.each do |tag|
+    #   tag.posts.each do |tag_post|
+    #     unless all_post.include?(tag_post)
+    #       all_post << tag_post
+    #     end
+    #   end
+    # end
 
-    @posts = Kaminari.paginate_array(all_post).page(params[:page]).per(12)
+    # @posts = Kaminari.paginate_array(all_post).page(params[:page]).per(12)
 
-    # binding.pry
+    @posts = Post.joins(:tags).where("tags.tag_name LIKE ?", '%'+keyword+'%').page(params[:page]).per(12).order(created_at: "DESC").distinct
 
     # ユーザーの検索
     user_name = params["user_name"]

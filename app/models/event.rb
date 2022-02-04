@@ -8,6 +8,12 @@ class Event < ApplicationRecord
   validates :name, presence:true
   validates :date, presence:true
 
+  validate :end_time_after_start_time
+  def end_time_after_start_time
+    unless start_time.nil? || end_time.nil?
+      errors.add(:end_time, 'は、開演時間より遅い時間を入力してください。') if start_time > end_time
+    end
+  end
 
   # イベント前日の通知
   def create_notification_remind_event(current_user, visited_id)
