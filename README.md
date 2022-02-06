@@ -65,7 +65,7 @@
 
 ## 設計書
 <strong>ER図</strong>
-<img width="995" alt="Evenote -ER" src="https://user-images.githubusercontent.com/92415574/151269871-46c6d47f-13ed-4d86-8d09-c746561191b9.png">
+<img width="921" alt="Evenote -ER" src="https://user-images.githubusercontent.com/92415574/152678244-d42093ac-9852-4912-adad-024ca77df44d.png">
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1U9ZZfLpMVLzkXdxFr7WcQqLX9sSvPXXLqc60NMuGnRQ/edit?usp=sharing
