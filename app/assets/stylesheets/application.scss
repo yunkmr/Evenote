@@ -50,9 +50,7 @@
 body,
 html {
   // font-family: 'Amiri', serif;
-  ont-family: Hiragino Kaku Gothic Pro,Meiryo,sans-serif;
-  // background-color: #f8ede1;
-  // background-color: #fffaf0;
+  font-family: Hiragino Kaku Gothic Pro,Meiryo,sans-serif;
   background-color: #efe5df;
 }
 
@@ -468,7 +466,6 @@ span {
 }
 
 .header-color {
-  // background-color: #add8e6;
   background-color: #C4E3F5;
 }
 
@@ -927,7 +924,6 @@ span {
 .tab-active{
   color: #fff;
   background: #94A4A5;
-  // transition: all 0.2s ease-in-out;
 }
 
 .sub-tab-active{
@@ -1084,7 +1080,6 @@ span {
   }
 
   @media screen and (max-width: 480px) {
-  	/* 959px以下に適用されるCSS（タブレット用） */
   	width: 400px;
   }
 
@@ -1197,7 +1192,6 @@ span {
   }
 
   @media screen and (max-width: 480px) {
-  	/* 959px以下に適用されるCSS（タブレット用） */
   	width: 400px;
   }
 
@@ -1290,14 +1284,12 @@ span {
   }
 
   @media screen and (max-width: 480px) {
-  	/* 959px以下に適用されるCSS（タブレット用） */
   	width: 400px;
   }
 
 }
 
 .form-link-pass {
-  //border-bottom: 1px solid white;
   bottom: 0;
   color: white;
   cursor: pointer;
@@ -1308,7 +1300,6 @@ span {
   padding: .5rem;
   position: absolute;
   text-align: center;
-  //text-decoration: none;
   width: 100%;
   &:hover {
     opacity: 1;
