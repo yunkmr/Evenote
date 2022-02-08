@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     get 'posts', to: 'posts#search'
   end
 
-  resources :notifications, only: :index
+  resources :notifications, only: [:index, :destroy]
 
   get 'search' => 'searches#search'
   get 'post_user/search' => 'searches#post_user_search'

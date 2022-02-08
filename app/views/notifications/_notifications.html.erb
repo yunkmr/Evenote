@@ -1,52 +1,59 @@
 <% notifications.each do |notification| %>
   <% visitor = notification.visitor %>
   <% visited = notification.visited %>
-  <div class="notofication-list col-md-11 mx-auto">
-    <span>
-      <% unless notification.action.include?("remind") %>
-        <%= link_to user_path(visitor) do %>
-          <%= attachment_image_tag(visitor, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
-          <strong><%= visitor.user_name %></strong>
-        <% end %>
-        さんが
-      <% end %>
-      <% case notification.action %>
-        <% when 'follow' then %>
-          あなたをフォローしました
-        <% when 'like' then %>
-          <%= link_to 'あなたの投稿', notification.post %>
-          にいいねしました
-        <% when 'comment' then %>
-          <% if notification.post.user_id == visited.id %>
-            <%= link_to 'あなたの投稿', notification.post %>
-          <% else %>
-            <span>
-              <%= link_to post_path(notification.post) do %>
-                <%= attachment_image_tag(notification.post.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
-                <strong><%= notification.post.user.user_name + 'さんの投稿' %></strong>
-              <% end %>
-            </span>
+  <div class="row notofication-list">
+    <div class="col-md-10 mx-auto">
+      <span>
+        <% unless notification.action.include?("remind") %>
+          <%= link_to user_path(visitor) do %>
+            <%= attachment_image_tag(visitor, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
+            <strong><%= visitor.user_name %></strong>
           <% end %>
-          にコメントしました
-          <p class="text-muted mb-0">
-            <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
-          </p>
-        <% when 'remind_event' then %>
-          <% link = Event.find_by(id: notification.event_id) %>
-          <span>明日は『<%= link_to link.name, event_path(notification.event_id) %>』に参加予定です</span>
-        <% when 'remind_entry_start' then %>
-          <% link = Ticket.find_by(id: notification.ticket_id) %>
-          <span>明日は『<%= link_to link.event_name, ticket_path(notification.ticket_id) %>』のチケット申し込み開始日です</span>
-        <% when 'remind_entry_end' then %>
-          <% link = Ticket.find_by(id: notification.ticket_id) %>
-          <span>明日は『<%= link_to link.event_name, ticket_path(notification.ticket_id) %>』のチケット申し込み終了日です</span>
-        <% when 'remind_win' then %>
-          <% link = Ticket.find_by(id: notification.ticket_id) %>
-          <span>明日は『<%= link_to link.event_name, ticket_path(notification.ticket_id) %>』のチケット当選発表日です</span>
-        <% when 'remind_payment' then %>
-          <% link = Ticket.find_by(id: notification.ticket_id) %>
-          <span>明日は『<%= link_to link.event_name, ticket_path(notification.ticket_id) %>』のチケット支払期限日です</span>
+          さんが
+        <% end %>
+        <% case notification.action %>
+          <% when 'follow' then %>
+            あなたをフォローしました
+          <% when 'like' then %>
+            <%= link_to 'あなたの投稿', notification.post %>
+            にいいねしました
+          <% when 'comment' then %>
+            <% if notification.post.user_id == visited.id %>
+              <%= link_to 'あなたの投稿', notification.post %>
+            <% else %>
+              <span>
+                <%= link_to post_path(notification.post) do %>
+                  <%= attachment_image_tag(notification.post.user, :profile_image, :fill, 50, 50, fallback:'no-image.jpg', size: '20x20') %>
+                  <strong><%= notification.post.user.user_name + 'さんの投稿' %></strong>
+                <% end %>
+              </span>
+            <% end %>
+            にコメントしました
+            <p class="text-muted mb-0">
+              <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
+            </p>
+          <% when 'remind_event' then %>
+            <% link = Event.find_by(id: notification.event_id) %>
+            <span>明日は『<%= link_to link.name, event_path(notification.event_id) %>』に参加予定です</span>
+          <% when 'remind_entry_start' then %>
+            <% link = Ticket.find_by(id: notification.ticket_id) %>
+            <span>明日は『<%= link_to link.event_name, ticket_path(notification.ticket_id) %>』のチケット申し込み開始日です</span>
+          <% when 'remind_entry_end' then %>
+            <% link = Ticket.find_by(id: notification.ticket_id) %>
+            <span>明日は『<%= link_to link.event_name, ticket_path(notification.ticket_id) %>』のチケット申し込み終了日です</span>
+          <% when 'remind_win' then %>
+            <% link = Ticket.find_by(id: notification.ticket_id) %>
+            <span>明日は『<%= link_to link.event_name, ticket_path(notification.ticket_id) %>』のチケット当選発表日です</span>
+          <% when 'remind_payment' then %>
+            <% link = Ticket.find_by(id: notification.ticket_id) %>
+            <span>明日は『<%= link_to link.event_name, ticket_path(notification.ticket_id) %>』のチケット支払期限日です</span>
+        <% end %>
+      </span>
+    </div>
+    <div class="col-md-1 ml-auto">
+      <%= link_to notification_path(notification.id), method: :delete, data: { confirm: "本当に消しますか？" }, remote: true do %>
+        <span class="mgr-30"><i class="far fa-trash-alt"></i></span>
       <% end %>
-    </span>
+    </div>
   </div>
 <% end %>

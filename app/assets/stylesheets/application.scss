@@ -993,6 +993,18 @@ span {
   background: #fff;
 }
 
+.modal-body{
+  height: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;       /* Firefox 対応 */
+}
+
+.modal-body::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display:none;
+}
+
 // トップ画面ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
 .home-main-text {
